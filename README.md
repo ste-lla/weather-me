@@ -11,4 +11,6 @@ This is a simple weather application built with React.js. This application allow
 - CSS
 - HTML
 
+![Current weather screenshot](file:///Users/ross/Desktop/CurrentWeather.png)
+
 
