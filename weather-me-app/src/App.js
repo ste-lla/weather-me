@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      weather: [], //I just decided to name my key weather. I set it to an empty array as default. When I fetch my weather data, it will populate inside this array
+      weather: [], 
       error: ''
     };
   }
@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     const {weather} = this.state;
     const {error} = this.state;
-    console.log(this.state.weather);
+    //console.log(this.state.weather);
 
     return (
       <div className="main">

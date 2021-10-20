@@ -56,13 +56,12 @@
 
 #root {
   background-color: #b9cfd4;
-  font-size: 1.2rem;
-  font-family: 'Architects Daughter', cursive;
+  font-size: 1rem;
 }
+
 html {
   background-color: #b9cfd4;
-  font-size: 1.2rem;
-  font-family: 'Architects Daughter', cursive;
+  font-size: 1rem;
 }
 
 .weatherTitle {

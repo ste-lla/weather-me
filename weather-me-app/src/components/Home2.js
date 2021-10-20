@@ -11,7 +11,8 @@ class Home2 extends Component {
     super(props);
     this.state = {
       weather: [], //I just decided to name my key weather. I set it to an empty array as default. When I fetch my weather data, it will populate inside this array
-      error: ''
+      error: '',
+      test: ''
     };
   }
 
@@ -114,7 +115,7 @@ class Home2 extends Component {
       <div>
 
         <Row>
-          <Form onSubmit={this._handleCurrentWeather} className="m-3">
+          <Form onSubmit={this._handleCurrentWeather} onChange={(e) => this.setState({test: e.target.value})} className="m-3">
             <Row>
               <Col>
                 <Form.Control
