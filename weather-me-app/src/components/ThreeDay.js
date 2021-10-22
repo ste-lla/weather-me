@@ -80,15 +80,15 @@ class ThreeDay extends Component {
 
   render() {
     let threeDays = this.state.weather.slice(1, 4);
-    let threeDayForecast = threeDays.map((day) => {
+    let threeDayForecast = threeDays.map((day, index) => {
       return (
         
           <Col>
-            <Card style={{ width: "18rem", marginBottom: "3.5rem", marginLeft: "2.5rem", padding: "0" }}>
+            <Card key={index} style={{ width: "18rem", marginBottom: "3.5rem", marginLeft: "2.5rem", padding: "0" }}>
               <Card.Body style={{backgroundColor: "#f8f4e3"}}>
                 <Card.Title>{day.valid_date}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-                <Card.Text>
+                <div>
                   <span className="text-muted">High</span>
                   <h3>{day.max_temp}&deg;</h3>
                   <span className="text-muted">Low</span>
@@ -97,7 +97,7 @@ class ThreeDay extends Component {
                   <div style={{ fontStyle: "italic" }}>
                     Chance of Rain {day.pop}&#37;
                   </div>
-                </Card.Text>
+                </div>
               </Card.Body>
             </Card>
           </Col>

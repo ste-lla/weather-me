@@ -75,7 +75,7 @@ class Home2 extends Component {
   
   render() {
     //I have to map through my setState variable (which holds the ALL the data I'm fetching) in order to "grab" the data I want. Otherwise, it returns undefined when I try to "grab" something specific from all the fetched data
-    let theWeather = this.state.weather.map((weatherData) => { //In this line of code, the blue colored word, weather, is just the key of the state you had defined in your constructor()
+    let theWeather = this.state.weather.map((weatherData, index) => { //In this line of code, the blue colored word, weather, is just the key of the state you had defined in your constructor()
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         
         //Trying to add logic for weather icon
@@ -95,16 +95,17 @@ class Home2 extends Component {
 
         return (
             
-                <Card style={{ width: "18rem", padding: "0" }}>
+                <Card key={index} style={{ width: "18rem", padding: "0" }}>
                   {/* <Card.Img variant="top" src={} style={{width: "5.5rem", height: "5rem", backgroundColor: "#d3d3d3", paddingRight: "0.5rem"}} /> */}
                     <Card.Body style={{backgroundColor: "#f8f4e3"}}>
                         <Card.Title>{weatherData.city_name}, {weatherData.state_code}</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">{days[new Date().getDay().toLocaleString() + ""]} {new Date().toLocaleString() + ""}</Card.Subtitle>
-                        <Card.Text>
+                        
+                        <div>
                             <h3>{weatherData.temp}&deg;</h3>
                             <div>{weatherData.weather.description}</div>
                             <div>Feels like {weatherData.app_temp}&deg;</div>
-                        </Card.Text>
+                        </div>
                     </Card.Body>
                 </Card>
             

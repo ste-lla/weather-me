@@ -79,15 +79,15 @@ class FiveDay extends Component {
 
   render() {
     let fiveDays = this.state.weather.slice(1, 6);
-    let fiveDayForecast = fiveDays.map((day) => {
+    let fiveDayForecast = fiveDays.map((day, index) => {
       return (
         
-          <Col style={{ marginRight: "1.5em" }}>
+          <Col key={index} style={{ marginRight: "1.5em" }}>
             <Card style={{ width: "18rem", marginBottom: "3.5rem", marginLeft: "2.5rem", padding: "0" }}>
               <Card.Body style={{backgroundColor: "#f8f4e3"}}>
                 <Card.Title>{day.valid_date}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-                <Card.Text>
+                <div>
                   <span className="text-muted">High</span>
                   <h3>{day.max_temp}&deg;</h3>
                   <span className="text-muted">Low</span>
@@ -96,7 +96,7 @@ class FiveDay extends Component {
                   <div style={{ fontStyle: "italic" }}>
                     Chance of Rain {day.pop}&#37;
                   </div>
-                </Card.Text>
+                </div>
               </Card.Body>
             </Card>
           </Col>
