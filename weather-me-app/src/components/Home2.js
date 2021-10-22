@@ -23,8 +23,8 @@ class Home2 extends Component {
     const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
     
     //Used Current Weather API
-    let cityURL = `http://api.weatherbit.io/v2.0/current?key=${API_KEY}&units=I&city=${searchValue}`;
-    let zipURL = `http://api.weatherbit.io/v2.0/current?key=${API_KEY}&units=I&postal_code=${searchValue}`;
+    let cityURL = `https://api.weatherbit.io/v2.0/current?key=${API_KEY}&units=I&city=${searchValue}`;
+    let zipURL = `https://api.weatherbit.io/v2.0/current?key=${API_KEY}&units=I&postal_code=${searchValue}`;
 
     this.setState({
       weather: [],
