@@ -1,0 +1,270 @@
+
+/* GENERAL */
+
+.appContainer {
+    overflow-x: hidden;
+}
+
+
+
+/* ----------------------------------------------------------------- */
+
+
+/* SEARCH NAV */
+
+/* 
+This is used bc my search input (.inputDropdownWrapper) needs to be absolutely 
+positioned relative to this navbar (.mainNav) parent element. This allows the 
+drop-down menu suggestions to overlay my content instead of it pushing my content 
+downward to make space for itself
+*/
+.mainNav {
+    position: relative;
+}
+
+/*  
+This is just a container around my <LocationSearchInput /> tag. It's a trick to help 
+prevent my search input from overflowing it's parent Navbar (.mainNav) more especially 
+on smaller screen widths (280px-575px.) Elements on page ignore absolutely positioned
+elements, but this wrapper won't be ignored
+*/
+.searchInputTagWrapper {
+    /* height: see media queries; */
+    /* margin-top: see media queries; */
+}
+
+
+
+/* ----------------------------------------------------------------- */
+
+
+/* LOCATION SEARCH INPUT */
+
+/* 
+This allows the drop-down menu suggestions to overlay my content instead of it pushing 
+my content downward to make space for itself
+*/
+.inputDropdownWrapper {
+    position:absolute;
+}
+
+.location-search-input {
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 1.5px 1.5px 5px 1px rgb(77, 77, 77);
+    text-align: center; /* aligns placeholder & caret center */
+    /* caret-color: blueviolet; */
+}
+
+.location-search-input:focus {
+    outline: none;
+    /* outline-color: teal; */
+}
+
+.location-search-input:focus::placeholder {
+    color: transparent;
+}
+/* For IE Browsers */
+.location-search-input:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+.autocomplete-dropdown-container {
+    margin-top: 0.25rem;
+    border-radius: 0.5rem;
+    overflow: hidden; /* allows dropdown to take on border-radius shape */
+    /* border: 2px solid purple; */
+}
+
+
+
+/* ----------------------------------------------------------------- */
+
+
+/* HOME */
+
+.homeContainer {
+    height: 100vh;
+    background-color: rgb(187, 236, 187);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+
+/* ----------------------------------------------------------------- */
+
+
+/* MEDIA QUERIES */
+
+
+/*  MIN WIDTH 280px -- GALAXY FOLD  */
+@media only screen and (min-width: 280px) {
+    /* SEARCH NAV */
+        .navBrandCol {
+            order: 1;
+        }
+
+        .navFormCol {
+            order: 3; 
+        }
+
+        .navToggleCol {
+            order: 2;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .brandName {
+            font-size: 1.3rem;
+        }
+
+        .searchInputTagWrapper {
+            height: 2.5rem;
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+
+    /* LOCATION SEARCH INPUT */
+        .location-search-input {
+            width: 15rem;
+        }
+
+        .autocomplete-dropdown-container {
+            width: 15rem;
+        }
+}
+
+
+
+
+
+/*  MIN WIDTH 320px  */
+@media only screen and (min-width: 320px) {
+    /* NAVBAR */
+        
+}
+
+
+
+
+
+/*  MIN WIDTH 444px  */
+@media only screen and (min-width: 444px) {
+    /* NAVBAR */
+
+}
+
+
+
+
+
+/*  MIN WIDTH 576px  */
+@media only screen and (min-width: 576px) {
+    /* NAVBAR */
+        .navFormCol {
+            order: 2; 
+        }
+
+        .navToggleCol {
+            order: 3;
+        }
+
+        .searchInputTagWrapper {
+            height: 0rem;
+            margin-top: 0rem;
+        }
+
+
+    /* LOCATION SEARCH INPUT */
+        .location-search-input {
+            height: 1.8rem;
+        }
+}
+
+
+
+
+
+/*  MIN WIDTH 754px - FOR NAVBAR ELEMENTS ORDER  */
+@media only screen and (min-width: 754px) {
+    
+}
+
+
+
+
+
+/*  MIN WIDTH 768px  */
+@media only screen and (min-width: 768px) {
+    /* NAVBAR */
+        .navToggleCol {
+            /* display: none; */
+            visibility: hidden;
+        }
+
+        .navLinksWrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .brandName {
+            font-size: 1.4rem;
+        }
+    
+
+    /* LOCATION SEARCH INPUT */
+        .location-search-input {
+            width: 17rem;
+        }
+}
+
+
+
+
+
+/*  MIN WIDTH 992px  */
+@media only screen and (min-width: 992px) {
+    /* LOCATION SEARCH INPUT */
+        .location-search-input {
+            height: 2.05rem;
+        }   
+}
+
+
+
+
+
+/*  MIN WIDTH 1200px  */
+@media only screen and (min-width: 1200px) {
+    /* LOCATION SEARCH INPUT */
+        .location-search-input {
+            width: 19rem;
+        }
+}
+
+
+
+
+
+/*  MIN WIDTH 1400px  */
+@media only screen and (min-width: 1400px) {
+    /* NAVBAR */
+        .brandName {
+            font-size: 1.5rem;
+        }
+        
+    /* LOCATION SEARCH INPUT */
+        .location-search-input {
+            width: 21rem;
+            height: 2.1rem;
+        }
+}
+
+
+
+
+
+

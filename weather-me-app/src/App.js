@@ -1,40 +1,22 @@
-import { Component } from "react";
-import './App.css';
+import './Styles.css';
 import { Switch, Route, } from 'react-router-dom';
-import Navigation from './components/Navigation'; //Navbar
-import Home2 from './components/Home2';
+import Home from './components/Home';
 import ThreeDay from './components/ThreeDay';
 import FiveDay from './components/FiveDay';
-import Footer from './components/Footer';
+//import SearchNav from './components/SearchNav';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      weather: [], 
-      error: ''
-    };
-  }
-  
-  render() {
-    const {weather} = this.state;
-    const {error} = this.state;
-    //console.log(this.state.weather);
-
-    return (
-      <div className="main">
-        <Navigation />
-  
-        <Switch>
-          <Route exact path="/" component={Home2} weatherHomeChild={weather} errorHomeChild={error} />
-          <Route path="/3-day-forecast" component={ThreeDay} weather3DayChild={weather} error3DayChild={error} />
-          <Route path="/5-day-forecast" component={FiveDay} />
-        </Switch>
-  
-        <Footer />
-      </div>
-    );
-  } 
+function App() {
+  return(
+    <div className="appContainer">
+      {/* <SearchNav/> */}
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/3-day-forecast" component={ThreeDay}  />
+        <Route path="/5-day-forecast" component={FiveDay} />
+      </Switch>
+    </div>
+  );
 }
 
 export default App;
+

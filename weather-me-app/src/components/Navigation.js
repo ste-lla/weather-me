@@ -1,3 +1,12 @@
+
+/*  
+THIS IS NOT BEING USED FOR MY RE-DO OF THE PROJECT
+    WAS USED IN INITIAL BUILD OF PROJECT 
+    SAVING JUST TO REMEMBER LINK CONTAINER & INDEX LINK CONT
+*/
+
+
+
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import {LinkContainer, IndexLinkContainer} from 'react-router-bootstrap';
 
