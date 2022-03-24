@@ -13,49 +13,51 @@ const SearchNav = () => {
 
     return (
         <div className="navigationContainer">
-            <Navbar collapseOnSelect expand="md" bg="dark" variant="dark" className="mainNav d-flex flex-column pt-3">
-                    <Row className="d-flex justify-content-between" style={{width: "100vw"}}>
-                        <Col xs={9} sm={4} lg={2} className="navBrandCol">
-                            <Navbar.Brand href="#home" className="">
-                                <img
-                                    alt=""
-                                    src={TestBrand}
-                                    width="auto"
-                                    height="30"
-                                    className="d-inline-block align-top brandLogo"
-                                />
-                                <span className="ms-2 brandName">Weather Star</span>
-                            </Navbar.Brand>
-                        </Col>
+            <header className="header">
+                <Navbar collapseOnSelect expand="md" /* bg="dark" variant="dark" */ className="mainNav d-flex flex-column pt-3">
+                        <Row className="d-flex justify-content-between" style={{width: "100vw"}}>
+                            <Col xs={9} sm={4} lg={2} className="navBrandCol">
+                                <Navbar.Brand href="#home" className="">
+                                    <img
+                                        alt=""
+                                        src={TestBrand}
+                                        width="auto"
+                                        height="30"
+                                        className="d-inline-block align-top brandLogo"
+                                    />
+                                    <span className="ms-2 brandName">Weather Star</span>
+                                </Navbar.Brand>
+                            </Col>
 
-                        <Col xs={12} sm={6} md={4} lg={8} className="navFormCol">
-                            <div className="searchInputTagWrapper">
-                                <LocationSearchInput />
-                            </div>
-                            {/* <Form>
-                                <Form.Control id="autocomplete" type="text" placeholder="Search City or Zip Code" />
-                            </Form> */}
-                        </Col>
+                            <Col xs={12} sm={6} md={4} lg={8} className="navFormCol">
+                                <div className="searchInputTagWrapper">
+                                    <LocationSearchInput />
+                                </div>
+                                {/* <Form>
+                                    <Form.Control id="autocomplete" type="text" placeholder="Search City or Zip Code" />
+                                </Form> */}
+                            </Col>
 
-                        <Col xs={3} sm={2} md={4} lg={2} className="navToggleCol mb-1">
-                            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        </Col>
-                    </Row>
+                            <Col xs={3} sm={2} md={4} lg={2} className="navToggleCol mb-1">
+                                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                            </Col>
+                        </Row>
 
-                    <Row style={{width: "100vw"}} className="">
-                        <Navbar.Collapse id="basic-navbar-nav">
-                            <div style={{width: "100vw"}} className="navLinksWrapper">
-                                <Nav>
-                                    <Nav.Link href="#">Today</Nav.Link>
-                                    <Nav.Link href="#">Hourly</Nav.Link>
-                                    <Nav.Link href="#">3 Day</Nav.Link>
-                                    <Nav.Link href="#">5 Day</Nav.Link>
-                                    <Nav.Link href="#">Weekend</Nav.Link> 
-                                </Nav>
-                            </div>
-                        </Navbar.Collapse>
-                    </Row>     
-            </Navbar>
+                        <Row style={{width: "100vw"}} className="mt-3">
+                            <Navbar.Collapse id="basic-navbar-nav">
+                                <div style={{width: "100vw"}}>
+                                    <Nav className="navLinksWrapper">
+                                        <Nav.Link href="#" className="navLinks">Today</Nav.Link>
+                                        <Nav.Link href="#" className="navLinks">Hourly</Nav.Link>
+                                        <Nav.Link href="#" className="navLinks">3 Day</Nav.Link>
+                                        <Nav.Link href="#" className="navLinks">5 Day</Nav.Link>
+                                        <Nav.Link href="#" className="navLinks">Weekend</Nav.Link> 
+                                    </Nav>
+                                </div>
+                            </Navbar.Collapse>
+                        </Row>     
+                </Navbar>
+            </header>
         </div>
     );
 };

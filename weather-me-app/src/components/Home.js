@@ -1,249 +1,97 @@
-import { Component } from "react";
-//import Form from "react-bootstrap/Form";
-//import Row from "react-bootstrap/Row";
-//import Col from "react-bootstrap/Col";
-//import Button from "react-bootstrap/Button";
-//import Card from "react-bootstrap/Card";
+import React, { useState, useEffect} from "react";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom'
 import SearchNav from "./SearchNav";
-
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      weather: [], //I just decided to name my key weather. I set it to an empty array as default. When I fetch my weather data, it will populate inside this array
-      error: '',
-      test: ''
-    };
-  }
+import Footer from "./Footer";
+import { BsSunFill } from "react-icons/bs"
+import TestBrand from "../images/cloud.jpeg"
 
 
-/*   
-    REMEMBER THE USE EFFECT ()
-
-    _handleNews = () => {
-    //console.log('clicked test btn');
-    let url = 'https://content.guardianapis.com/search?format=json&show-fields=headline,short-url,thumbnail&api-key=1cc443ab-d1d1-4546-87b0-c2d68710146d';
-
-    fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+const Home = () => {
+  const [newsReturned, setNewsReturned] = useState([]);
+  //const API_KEY = process.env.REACT_APP_GUARDIAN_API_KEY;
+  
+  useEffect(() => {
+    const url = 'https://content.guardianapis.com/search?format=json&show-fields=headline,short-url,thumbnail,trailText&api-key=1cc443ab-d1d1-4546-87b0-c2d68710146d&page-size=14&section=weather';
+    
+    fetch(url)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
+      setNewsReturned(data.response.results);
+      console.log(data.response.results);
     })
     .catch((error) => {
       console.error('Error:', error);
     });
 
-  } */
+  }, []);
 
 
+  let allNews = newsReturned.map((article, index) => {
 
+    //let trailText = article.fields.trailText;
+    //let splitTrailText = trailText.split(" ");
+    //let newTrailText = splitTrailText.join(" ");
 
+    //let articleUrl = article.webUrl
 
-/*   _handleCurrentWeather = (e) => {
-    e.preventDefault();
+    return(
+      <Col xs={12} key={index} className="mb-4">
+        <article className="d-flex justify-content-center">
+          <Card style={{ width: '65vw'}} className="p-3">
+            <Row>
+              <Col lg={5} className="imgWrap">
+                <Card.Img id="articleImg" variant="top" src={article.fields.thumbnail} />
+              </Col>
 
-    let searchValue = e.target.userSearch.value;
-    const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
-    
-    //Used Current Weather API
-    let cityURL = `https://api.weatherbit.io/v2.0/current?key=${API_KEY}&units=I&city=${searchValue}`;
-    let zipURL = `https://api.weatherbit.io/v2.0/current?key=${API_KEY}&units=I&postal_code=${searchValue}`;
-
-    this.setState({
-      weather: [],
-      error: ''
-    }, () => {
-    //This is a callback function set inside of the this.setState 
-      if (isNaN(searchValue) === true) {
-        fetch(cityURL, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-        .then((res) => res.json())
-        .then((allWeatherInfo) => { 
-          this.setState({
-            weather: allWeatherInfo.data, //Changes state from the default empty array [] to the weather data fetched
-          })
-        })
-        .catch(err => {
-          console.log(err);
-          this.setState({
-            error: 'You have entered either an invalid city or zip code. Please try again'
-          })
-        })
-      } 
-      else {
-        fetch(zipURL, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-        .then((res) => res.json())
-        .then((allWeatherInfo) => { 
-          this.setState({
-            weather: allWeatherInfo.data,  //Changes state from the default empty array [] to the weather data fetched
-          })
-        })
-        .catch(err => {
-          console.log(err);
-          this.setState({
-            error: 'You have entered either an invalid city or zip code. Please try again'
-          })
-        })
-      }
-    })
-  }; */
-
-
-  render() {
-    //Map through the weather (from state) to get the data
-/*     let theWeather = this.state.weather.map((weatherData, index) => { //In this line of code, the blue colored word, weather, is just the key of the state you had defined in your constructor()
-        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-        return (
-          <Card key={index} style={{ width: "18rem", padding: "0" }}>
-            <Card.Img variant="top" src={} style={{width: "5.5rem", height: "5rem", backgroundColor: "#d3d3d3", paddingRight: "0.5rem"}} />
-              <Card.Body style={{backgroundColor: "#f8f4e3"}}>
-                  <Card.Title>{weatherData.city_name}, {weatherData.state_code}</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">{days[new Date().getDay()]} {new Date().toLocaleString() + ""}</Card.Subtitle>
-                  
-                  <div>
-                      <h3>{weatherData.temp}&deg;</h3>
-                      <div>{weatherData.weather.description}</div>
-                      <div>Feels like {weatherData.app_temp}&deg;</div>
-                  </div>
-              </Card.Body>
+              <Col lg={7}>
+                <Card.Body>
+                  <Card.Title id="articleHeadline"><a href={article.webUrl} target="_blank" rel="noopener noreferrer">{article.fields.headline}</a></Card.Title>
+                  <Card.Text id="articleTrailText" dangerouslySetInnerHTML={ {__html: article.fields.trailText} }/>
+                </Card.Body>
+              </Col>
+            </Row>
           </Card>
-            
-        ); 
-    }); */ 
+        </article>
+      </Col>
+    )
+  })
 
-    return (
-      <div className="homeContainer">
+
+
+  return(
+    <div className="homeContainer d-flex flex-column">
+      <div className="nonFooterWrapper">
         <SearchNav />
 
-        <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam commodo 
-        ullamcorper. Morbi pellentesque ipsum sit amet sem tincidunt elementum. 
-        Curabitur et ligula sit amet nibh cursus commodo condimentum nec quam. 
-        Quisque aliquet, odio eu lobortis suscipit, leo diam vestibulum orci, et 
-        aliquam eros lectus eget mi. Curabitur ut interdum nisl, a egestas justo. 
-        Pellentesque ut felis vitae sem blandit rhoncus. Morbi malesuada eros ut 
-        ante efficitur feugiat. Etiam semper scelerisque arcu, id tempus leo 
-        hendrerit eget. Sed vitae mauris rutrum, imperdiet augue nec, ultrices dui. 
-        Maecenas pharetra odio nunc, venenatis molestie augue sollicitudin sed. 
-        Etiam et augue porttitor, efficitur massa sit amet, consequat diam. 
-        Suspendisse sollicitudin, eros a lobortis volutpat, odio neque finibus 
-        sapien, sed efficitur est felis ut magna. Nulla facilisis ullamcorper 
-        ligula, a congue erat laoreet vel. Curabitur pellentesque neque nec sapien 
-        euismod, eu ullamcorper nulla cursus. Proin nunc ex, interdum eget ex in, 
-        pretium viverra ex. Integer vitae imperdiet diam, in accumsan tellus. 
-        Aliquam luctus leo at enim rutrum bibendum. Interdum et malesuada fames ac 
-        ante ipsum primis in faucibus.
+        <main>
 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam commodo 
-        ullamcorper. Morbi pellentesque ipsum sit amet sem tincidunt elementum. 
-        Curabitur et ligula sit amet nibh cursus commodo condimentum nec quam. 
-        Quisque aliquet, odio eu lobortis suscipit, leo diam vestibulum orci, et 
-        aliquam eros lectus eget mi. Curabitur ut interdum nisl, a egestas justo. 
-        Pellentesque ut felis vitae sem blandit rhoncus. Morbi malesuada eros ut 
-        ante efficitur feugiat. Etiam semper scelerisque arcu, id tempus leo 
-        hendrerit eget. Sed vitae mauris rutrum, imperdiet augue nec, ultrices dui. 
-        Maecenas pharetra odio nunc, venenatis molestie augue sollicitudin sed. 
-        Etiam et augue porttitor, efficitur massa sit amet, consequat diam. 
-        Suspendisse sollicitudin, eros a lobortis volutpat, odio neque finibus 
-        sapien, sed efficitur est felis ut magna. Nulla facilisis ullamcorper 
-        ligula, a congue erat laoreet vel. Curabitur pellentesque neque nec sapien 
-        euismod, eu ullamcorper nulla cursus. Proin nunc ex, interdum eget ex in, 
-        pretium viverra ex. Integer vitae imperdiet diam, in accumsan tellus. 
-        Aliquam luctus leo at enim rutrum bibendum. Interdum et malesuada fames ac 
-        ante ipsum primis in faucibus.
+          <Row className="homeWeatherRow">
+            <Col>
+              <div className="homeWeatherWrapper d-flex justify-content-center">
+                <BsSunFill style={{fontSize: "1.3rem"}} /> <span className="ms-2">72&#xb0; Orlando, FL</span>
+              </div>
+            </Col>
+          </Row>
 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam commodo 
-        ullamcorper. Morbi pellentesque ipsum sit amet sem tincidunt elementum. 
-        Curabitur et ligula sit amet nibh cursus commodo condimentum nec quam. 
-        Quisque aliquet, odio eu lobortis suscipit, leo diam vestibulum orci, et 
-        aliquam eros lectus eget mi. Curabitur ut interdum nisl, a egestas justo. 
-        Pellentesque ut felis vitae sem blandit rhoncus. Morbi malesuada eros ut 
-        ante efficitur feugiat. Etiam semper scelerisque arcu, id tempus leo 
-        hendrerit eget. Sed vitae mauris rutrum, imperdiet augue nec, ultrices dui. 
-        Maecenas pharetra odio nunc, venenatis molestie augue sollicitudin sed. 
-        Etiam et augue porttitor, efficitur massa sit amet, consequat diam. 
-        Suspendisse sollicitudin, eros a lobortis volutpat, odio neque finibus 
-        sapien, sed efficitur est felis ut magna. Nulla facilisis ullamcorper 
-        ligula, a congue erat laoreet vel. Curabitur pellentesque neque nec sapien 
-        euismod, eu ullamcorper nulla cursus. Proin nunc ex, interdum eget ex in, 
-        pretium viverra ex. Integer vitae imperdiet diam, in accumsan tellus. 
-        Aliquam luctus leo at enim rutrum bibendum. Interdum et malesuada fames ac 
-        ante ipsum primis in faucibus.
+          <div className="newsContainer mx-auto mt-4 mb-4 pt-4 pb-3 d-flex flex-column">
+            {allNews}
+          </div>
 
-{/*         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam commodo 
-        ullamcorper. Morbi pellentesque ipsum sit amet sem tincidunt elementum. 
-        Curabitur et ligula sit amet nibh cursus commodo condimentum nec quam. 
-        Quisque aliquet, odio eu lobortis suscipit, leo diam vestibulum orci, et 
-        aliquam eros lectus eget mi. Curabitur ut interdum nisl, a egestas justo. 
-        Pellentesque ut felis vitae sem blandit rhoncus. Morbi malesuada eros ut 
-        ante efficitur feugiat. Etiam semper scelerisque arcu, id tempus leo 
-        hendrerit eget. Sed vitae mauris rutrum, imperdiet augue nec, ultrices dui. 
-        Maecenas pharetra odio nunc, venenatis molestie augue sollicitudin sed. 
-        Etiam et augue porttitor, efficitur massa sit amet, consequat diam. 
-        Suspendisse sollicitudin, eros a lobortis volutpat, odio neque finibus 
-        sapien, sed efficitur est felis ut magna. Nulla facilisis ullamcorper 
-        ligula, a congue erat laoreet vel. Curabitur pellentesque neque nec sapien 
-        euismod, eu ullamcorper nulla cursus. Proin nunc ex, interdum eget ex in, 
-        pretium viverra ex. Integer vitae imperdiet diam, in accumsan tellus. 
-        Aliquam luctus leo at enim rutrum bibendum. Interdum et malesuada fames ac 
-        ante ipsum primis in faucibus.
+{/*           <Row className="d-flex justify-content-center" style={{border: "3px solid green"}}>
+              {allNews}
+          </Row> */}
 
-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam commodo 
-        ullamcorper. Morbi pellentesque ipsum sit amet sem tincidunt elementum. 
-        Curabitur et ligula sit amet nibh cursus commodo condimentum nec quam. 
-        Quisque aliquet, odio eu lobortis suscipit, leo diam vestibulum orci, et 
-        aliquam eros lectus eget mi. Curabitur ut interdum nisl, a egestas justo. 
-        Pellentesque ut felis vitae sem blandit rhoncus. Morbi malesuada eros ut 
-        ante efficitur feugiat. Etiam semper scelerisque arcu, id tempus leo 
-        hendrerit eget. Sed vitae mauris rutrum, imperdiet augue nec, ultrices dui. 
-        Maecenas pharetra odio nunc, venenatis molestie augue sollicitudin sed. 
-        Etiam et augue porttitor, efficitur massa sit amet, consequat diam. 
-        Suspendisse sollicitudin, eros a lobortis volutpat, odio neque finibus 
-        sapien, sed efficitur est felis ut magna. Nulla facilisis ullamcorper 
-        ligula, a congue erat laoreet vel. Curabitur pellentesque neque nec sapien 
-        euismod, eu ullamcorper nulla cursus. Proin nunc ex, interdum eget ex in, 
-        pretium viverra ex. Integer vitae imperdiet diam, in accumsan tellus. 
-        Aliquam luctus leo at enim rutrum bibendum. Interdum et malesuada fames ac 
-        ante ipsum primis in faucibus.
-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam commodo 
-        ullamcorper. Morbi pellentesque ipsum sit amet sem tincidunt elementum. 
-        Curabitur et ligula sit amet nibh cursus commodo condimentum nec quam. 
-        Quisque aliquet, odio eu lobortis suscipit, leo diam vestibulum orci, et 
-        aliquam eros lectus eget mi. Curabitur ut interdum nisl, a egestas justo. 
-        Pellentesque ut felis vitae sem blandit rhoncus. Morbi malesuada eros ut 
-        ante efficitur feugiat. Etiam semper scelerisque arcu, id tempus leo 
-        hendrerit eget. Sed vitae mauris rutrum, imperdiet augue nec, ultrices dui. 
-        Maecenas pharetra odio nunc, venenatis molestie augue sollicitudin sed. 
-        Etiam et augue porttitor, efficitur massa sit amet, consequat diam. 
-        Suspendisse sollicitudin, eros a lobortis volutpat, odio neque finibus 
-        sapien, sed efficitur est felis ut magna. Nulla facilisis ullamcorper 
-        ligula, a congue erat laoreet vel. Curabitur pellentesque neque nec sapien 
-        euismod, eu ullamcorper nulla cursus. Proin nunc ex, interdum eget ex in, 
-        pretium viverra ex. Integer vitae imperdiet diam, in accumsan tellus. 
-        Aliquam luctus leo at enim rutrum bibendum. Interdum et malesuada fames ac 
-        ante ipsum primis in faucibus. */}
-        </div>
+        </main>
 
       </div>
-    );
-  }
+
+      <Footer/>
+
+    </div>
+  )
 }
 
 export default Home;
