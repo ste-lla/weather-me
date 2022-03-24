@@ -2,11 +2,9 @@ import React, { useState, useEffect} from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom'
 import SearchNav from "./SearchNav";
 import Footer from "./Footer";
 import { BsSunFill } from "react-icons/bs"
-import TestBrand from "../images/cloud.jpeg"
 
 
 const Home = () => {
@@ -30,13 +28,6 @@ const Home = () => {
 
 
   let allNews = newsReturned.map((article, index) => {
-
-    //let trailText = article.fields.trailText;
-    //let splitTrailText = trailText.split(" ");
-    //let newTrailText = splitTrailText.join(" ");
-
-    //let articleUrl = article.webUrl
-
     return(
       <Col xs={12} key={index} className="mb-4">
         <article className="d-flex justify-content-center">
@@ -79,10 +70,6 @@ const Home = () => {
           <div className="newsContainer mx-auto mt-4 mb-4 pt-4 pb-3 d-flex flex-column">
             {allNews}
           </div>
-
-{/*           <Row className="d-flex justify-content-center" style={{border: "3px solid green"}}>
-              {allNews}
-          </Row> */}
 
         </main>
 

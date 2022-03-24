@@ -47,7 +47,7 @@ import PlacesAutocomplete, {
               />
               <div className="autocomplete-dropdown-container">
                 {loading && <div className="text-center" style={{color: 'white'}}>Loading...</div>}
-                {suggestions.map(suggestion => {
+                {suggestions.map((suggestion, index) => {
                   const className = suggestion.active
                     ? 'suggestion-item--active'
                     : 'suggestion-item';
@@ -56,7 +56,7 @@ import PlacesAutocomplete, {
                     ? { backgroundColor: '#ffffff', color: "#FF7722", borderBottom: "1px solid #cfd1d4", padding: "0.33rem", cursor: 'pointer' }
                     : { backgroundColor: '#ffffff', cursor: 'pointer', borderBottom: "1px solid #cfd1d4", padding: "0.33rem" };
                   return (
-                    <div
+                    <div key={index}
                       {...getSuggestionItemProps(suggestion, {
                         className,
                         style,
