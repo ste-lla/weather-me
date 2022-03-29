@@ -163,6 +163,30 @@ my content downward to make space for itself
 
 
 
+/* ----------------------------------------------------------------- */
+
+
+/* TODAY */
+
+.todayContainer {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: rgb(108,193,182);
+    background: -moz-linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
+    background: -webkit-linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
+    background: linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6cc1b6",endColorstr="#095985",GradientType=1);
+}
+
+.weatherNewsContainer {
+    width: 84vw;
+    height: auto;
+    border: 3px solid #022538;
+    border-radius: 1rem;
+    /* border: 3px solid #038E9C; */
+}
+
 
 
 
@@ -411,11 +435,9 @@ my content downward to make space for itself
         }
 
         .navLinks:hover {
-            /* border-top: 3px solid #FF7722; */
             border-bottom: 3px solid #FF7722;
             padding-bottom: 3px;
-            /* padding-top: 3px; */
-            font-size: 1.05rem;
+            font-size: 1.1rem;
         }
     
 

@@ -58,19 +58,18 @@ const Home = () => {
         <SearchNav />
 
         <main>
+            <Row className="homeWeatherRow">
+              <Col>
+                <div className="homeWeatherWrapper d-flex justify-content-center">
+                  <BsSunFill style={{fontSize: "1.3rem"}} /> <span className="ms-2">72&#xb0; Orlando, FL</span>
+                </div>
+              </Col>
+            </Row>
 
-          <Row className="homeWeatherRow">
-            <Col>
-              <div className="homeWeatherWrapper d-flex justify-content-center">
-                <BsSunFill style={{fontSize: "1.3rem"}} /> <span className="ms-2">72&#xb0; Orlando, FL</span>
-              </div>
-            </Col>
-          </Row>
-
-          <div className="newsContainer mx-auto mt-4 mb-4 pt-4 pb-3 d-flex flex-column">
-            {allNews}
-          </div>
-
+            <div className="newsContainer mx-auto mt-4 mb-4 pt-4 pb-3 d-flex flex-column">
+              <h1 className="weatherNewsHeader">Weather News</h1>
+              {allNews}
+            </div>
         </main>
 
       </div>

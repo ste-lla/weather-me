@@ -7,23 +7,47 @@ import PlacesAutocomplete, {
   class LocationSearchInput extends React.Component {
     constructor(props) {
       super(props);
-      this.state = { address: '' };
+      this.state = { 
+        address: '',
+        lat: 0,
+        lon: 0 
+      };
     }
    
     handleChange = address => {
       this.setState({ address });
     };
+
    
     handleSelect = address => {
       geocodeByAddress(address)
         .then(results => getLatLng(results[0]))
-        .then(latLng => console.log('Success', latLng))
+        .then(latLng => {
+          //console.log(latLng.lat, latLng.lng);
+
+          //Clears the input field
+          this.setState({address: ''});
+
+          //Lose focus on input field so placeholder will show after select
+          document.getElementById('placesAutocomplete').blur();
+          
+          localStorage.setItem('lat', latLng.lat);
+          localStorage.setItem('lon', latLng.lng);
+
+          this.setState({lat: latLng.lat});
+          this.setState({lon: latLng.lng});
+    
+          //Used props on <LocationSearchInput /> in SearchNav.js return
+          this.props.setLatitude(this.state.lat);
+          this.props.setLongitude(this.state.lon);
+        })
         .catch(error => console.error('Error', error));
     };
-   
+
     render() {
 
-      //This narrows my search options to regions only (cities and zip codes) and only calls the name field, otherwise all fields would be called and billed by Google API
+      //I added this bc it's needed to narrow my search options to regions only (cities and zip codes) and only calls the name field, otherwise all fields would be called and billed by Google API
+      //Then added it to the <PlacesAutocomplete /> tag. See npm instructions for more details
       const searchOptions = {
         fields: ["name"],
         strictBounds: false,
@@ -39,7 +63,7 @@ import PlacesAutocomplete, {
         >
           {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
             <div className="inputDropdownWrapper">
-              <input
+              <input id="placesAutocomplete"
                 {...getInputProps({
                   placeholder: 'Search City or Zip Code',
                   className: 'location-search-input',
