@@ -11,7 +11,7 @@ const Today = () => {
 
     //Destructured object from the SearchNav.js return
     const {render, lat, lon} = SearchNav();
-
+    
     useEffect(() => {
         const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
       
@@ -34,7 +34,7 @@ const Today = () => {
             console.error('Error:', error);
             });
         }
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [lon]);
 
 
