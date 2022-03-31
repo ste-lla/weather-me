@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import TestBrand from "../images/cloud.jpeg"
@@ -7,19 +7,9 @@ import Col from 'react-bootstrap/Col';
 import LocationSearchInput from "./LocationSearchInput";
 
 
-const SearchNav = () => {
-    //setLat and setLon are passed as props tp <LocationSearchInput />
-    const[lat, setLat] = useState(Number(localStorage.getItem('lat')));
-    const[lon, setLon] = useState(Number(localStorage.getItem('lon')));
-    
-    /* let test = () => {
-        console.log(lat);
-        console.log(lon);
-    } */
-    
-    return {
-        lat, lon,
-        render:(
+const SearchNav = (props) => {
+
+    return (
         <div className="navigationContainer">
             <header className="header">
                 <Navbar collapseOnSelect expand="md" /* bg="dark" variant="dark" */ className="mainNav d-flex flex-column pt-3">
@@ -32,7 +22,6 @@ const SearchNav = () => {
                                         width="auto"
                                         height="30"
                                         className="d-inline-block align-top brandLogo"
-                                        /* onClick={test} */
                                     />
                                     <span className="ms-2 brandName">Weather Star</span>
                                 </Navbar.Brand>
@@ -40,7 +29,7 @@ const SearchNav = () => {
 
                             <Col xs={12} sm={6} md={4} lg={8} className="navFormCol">
                                 <div className="searchInputTagWrapper">
-                                    <LocationSearchInput setLatitude={setLat} setLongitude={setLon}  />
+                                    <LocationSearchInput setLatitude={props.setLat} setLongitude={props.setLon} />
                                 </div>
                                 {/* <Form>
                                     <Form.Control id="autocomplete" type="text" placeholder="Search City or Zip Code" />
@@ -68,7 +57,7 @@ const SearchNav = () => {
                 </Navbar>
             </header>
         </div>
-    ),};
+    ) 
 };
 
 export default SearchNav;

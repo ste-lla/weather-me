@@ -30,7 +30,7 @@ const Home = () => {
   let allNews = newsReturned.map((article, index) => {
     return(
       <Col xs={12} key={index} className="mb-4">
-        <article className="d-flex justify-content-center">
+        <section className="d-flex justify-content-center">
           <Card style={{ width: '65vw'}} className="p-3">
             <Row>
               <Col lg={5} className="imgWrap">
@@ -45,7 +45,7 @@ const Home = () => {
               </Col>
             </Row>
           </Card>
-        </article>
+        </section>
       </Col>
     )
   })

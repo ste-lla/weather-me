@@ -28,7 +28,7 @@ import PlacesAutocomplete, {
           //Clears the input field
           this.setState({address: ''});
 
-          //Lose focus on input field so placeholder will show after select
+          //Lose focus on input field so placeholder will show after selecting a city
           document.getElementById('placesAutocomplete').blur();
           
           localStorage.setItem('lat', latLng.lat);

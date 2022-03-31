@@ -52,6 +52,10 @@ elements, but this wrapper won't be ignored
     color: white !important;
 }
 
+.hiddenInputs {
+    display: none;
+}
+
 
 
 
@@ -180,12 +184,15 @@ my content downward to make space for itself
 }
 
 .weatherNewsContainer {
-    width: 84vw;
+    width: 90vw;
     height: auto;
     border: 3px solid #022538;
     border-radius: 1rem;
+    overflow: hidden;
     /* border: 3px solid #038E9C; */
 }
+
+
 
 
 
@@ -294,6 +301,20 @@ my content downward to make space for itself
         }
 
 
+    /* TODAY */
+        .weatherNewsContainer {
+            flex-direction: column;
+        }
+
+        .weatherCardToday {
+            width: 75vw;
+        }
+
+        .newsCard {
+            width: 75vw;
+        }
+
+
     /* FOOTER */
         .footerLinks {
             font-size: 1.1rem;
@@ -357,6 +378,20 @@ my content downward to make space for itself
 
 
 
+/*  MIN WIDTH 448px  */
+@media only screen and (min-width: 448px) {
+    /* TODAY */
+        .weatherCardToday {
+            width: 85vw;
+        }
+        .newsCard {
+            width: 60vw;
+        }
+}
+
+
+
+
 
 /*  MIN WIDTH 576px  */
 @media only screen and (min-width: 576px) {
@@ -389,6 +424,12 @@ my content downward to make space for itself
         #articleImg {
             width: 13rem;
             height: auto;
+        }
+
+
+    /* TODAY */
+        .newsCard {
+            width: 50vw;
         }
 
 
@@ -455,6 +496,18 @@ my content downward to make space for itself
         #articleImg {
             width: 14.5rem;
             height: auto;
+        }
+
+
+    /* TODAY */
+        .weatherNewsContainer {
+            flex-direction: row;
+        }
+        .weatherCardToday {
+            width: 65vw;
+        }
+        .newsCard {
+            width: 20vw;
         }
 }
 
