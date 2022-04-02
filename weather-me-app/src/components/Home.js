@@ -43,20 +43,99 @@ const Home = () => {
     });
 
 
-    //Fetch user current location with ip info api. Then, use location to fetch weather
-    fetch("https://ipinfo.io/json?token=4c8e901b28bf22")
-    .then(response => response.json())
-    .then(location => {
-      fetch(`https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&city=${location.city}&units=I`)
-      .then(response => response.json())
-      .then(currWeather => {
-          setWeather(currWeather.data[0]);
-          setLoading('');
-      })
-      .catch(error => {
-        console.error(error);
-      });
-    })
+
+    function geoFindMe() {
+      
+      // Success functionality = fetch using users current latitude and longitude
+      function success(position) {
+        const latitude  = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        console.log(latitude);
+        console.log(longitude);
+        
+        fetch(`https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&lat=${latitude}&lon=${longitude}&units=I`)
+        .then(response => response.json())
+        .then(currWeather => {
+            setWeather(currWeather.data[0]);
+            setLoading('');
+        })
+        .catch(error => {
+            console.error(error);
+        });
+      }
+    
+      // Failure functionality = fetch using users local storage lat and lon or New York as default if no local storage exists
+      function error() {
+        console.log("Unable to retrieve your location");
+        
+        if(localStorage.getItem('lat') && localStorage.getItem('lon')) {
+            console.log('using local storage lat and lon');
+            let lat = Number(localStorage.getItem('lat'));
+            let lon = Number(localStorage.getItem('lon'));
+            let latLonUrl = `https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I`;
+            
+            fetch(latLonUrl)
+            .then(response => response.json())
+            .then(rtnWeather => {
+              setWeather(rtnWeather.data[0]);
+              setLoading('');
+            })
+            .catch(error => {
+              console.error(error);
+            });
+        } else {
+            console.log('using NYC as default');
+            fetch(`https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&city=New York&units=I`)
+            .then(response => response.json())
+            .then(nycWeather => {
+              setWeather(nycWeather.data[0]);
+              setLoading('');
+            })
+            .catch(error => {
+              console.error(error);
+            });
+        }
+      }
+    
+      // Geolocation not supported functionality = same as failure functionality above
+      if(!navigator.geolocation) {
+        console.log("Geolocation is not supported by your browser");
+
+        if(localStorage.getItem('lat') && localStorage.getItem('lon')) {
+          console.log('using local storage lat and lon');
+          let lat = Number(localStorage.getItem('lat'));
+          let lon = Number(localStorage.getItem('lon'));
+          let latLonUrl = `https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I`;
+          
+          fetch(latLonUrl)
+          .then(response => response.json())
+          .then(rtnWeather => {
+            setWeather(rtnWeather.data[0]);
+            setLoading('');
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      } else {
+          console.log('using NYC as default');
+          fetch(`https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&city=New York&units=I`)
+          .then(response => response.json())
+          .then(nycWeather => {
+            setWeather(nycWeather.data[0]);
+            setLoading('');
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      }
+        return;
+      } else {
+        navigator.geolocation.getCurrentPosition(success, error);
+      }
+    }
+
+    geoFindMe();
+        
 
 
 /*     if(localStorage.getItem('lat') && localStorage.getItem('lon')) {
@@ -68,7 +147,7 @@ const Home = () => {
       fetch(latLonUrl)
       .then(response => response.json())
       .then(currentWeather => {
-          //setWeather(allWeather.data);
+          //setWeather(allWeather.data[0]);
           console.log(currentWeather.data);
       })
       .catch(error => {
