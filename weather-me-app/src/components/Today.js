@@ -12,11 +12,11 @@ const Today = () => {
     const [long, setLongitude] = useState(Number(localStorage.getItem('lon')));
 
     useEffect(() => {
-        const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+        const weather_api_key = process.env.REACT_APP_WEATHER_API_KEY;
     
         //Current Weather API Endpoint
+        let url = `https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&lat=${lati}&lon=${long}&units=I`;
         //let urlInitialSearch = `https://api.weatherbit.io/v2.0/current?key=${API_KEY}&lat=${latitude}&lon=${longitude}&units=I`;
-        let url = `https://api.weatherbit.io/v2.0/current?key=${API_KEY}&lat=${lati}&lon=${long}&units=I`;
 
         if(lati === 0 & long === 0) {
             //try to fetch based on user computer location
@@ -40,9 +40,10 @@ const Today = () => {
 
 
     return (
-      <div className="todayContainer d-flex flex-column">
+      <div className="pageContainer d-flex flex-column">
         <div className="nonFooterWrapper">
-    
+
+            {/* setLat and setLon are props equal to a function that sets your state functions (setLatitude and setLongitude) */}
             <SearchNav setLat={latitude => setLatitude(latitude)} setLon={longitude => setLongitude(longitude)} />
 
             <div className="weatherNewsContainer mx-auto mt-4 mb-4 pt-4 pb-3 d-flex">

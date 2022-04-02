@@ -15,7 +15,7 @@ const SearchNav = (props) => {
                 <Navbar collapseOnSelect expand="md" /* bg="dark" variant="dark" */ className="mainNav d-flex flex-column pt-3">
                         <Row className="d-flex justify-content-between" style={{width: "100vw"}}>
                             <Col xs={9} sm={4} lg={2} className="navBrandCol">
-                                <Navbar.Brand href="#" className="">
+                                <Navbar.Brand href="/" className="">
                                     <img
                                         alt=""
                                         src={TestBrand}

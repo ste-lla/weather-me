@@ -13,6 +13,17 @@
     flex: 1 0 auto;
 }
 
+.pageContainer{
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: rgb(108,193,182);
+    background: -moz-linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
+    background: -webkit-linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
+    background: linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6cc1b6",endColorstr="#095985",GradientType=1);
+}
+
 
 
 /* ----------------------------------------------------------------- */
@@ -51,12 +62,6 @@ elements, but this wrapper won't be ignored
 .navLinks {
     color: white !important;
 }
-
-.hiddenInputs {
-    display: none;
-}
-
-
 
 
 
@@ -109,14 +114,14 @@ my content downward to make space for itself
 /* HOME */
 
 .homeContainer {
-    height: 100vh;
+/*     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
     background: rgb(108,193,182);
     background: -moz-linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
     background: -webkit-linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
     background: linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6cc1b6",endColorstr="#095985",GradientType=1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6cc1b6",endColorstr="#095985",GradientType=1); */
 
 /* VERY Blue */
 /*     background: rgb(5,117,230);
@@ -172,7 +177,7 @@ my content downward to make space for itself
 
 /* TODAY */
 
-.todayContainer {
+/* .todayContainer {
     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
@@ -181,7 +186,7 @@ my content downward to make space for itself
     background: -webkit-linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
     background: linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6cc1b6",endColorstr="#095985",GradientType=1);
-}
+} */
 
 .weatherNewsContainer {
     width: 90vw;
@@ -478,7 +483,7 @@ my content downward to make space for itself
         .navLinks:hover {
             border-bottom: 3px solid #FF7722;
             padding-bottom: 3px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
     
 
