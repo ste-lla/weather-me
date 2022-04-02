@@ -40,8 +40,11 @@ import PlacesAutocomplete, {
           //Used props on <LocationSearchInput /> in SearchNav.js return
           this.props.setLatitude(this.state.lat);
           this.props.setLongitude(this.state.lon);
+
+          //Redirect user from Home.js to Today.js after selecting a city
+          this.props.redirect();
         })
-        .catch(error => console.error('Error', error));
+        .catch(error => console.error(error));
     };
 
     render() {

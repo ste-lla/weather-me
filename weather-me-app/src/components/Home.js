@@ -5,21 +5,15 @@ import Card from 'react-bootstrap/Card';
 import SearchNav from "./SearchNav";
 import Footer from "./Footer";
 import Spinner from 'react-bootstrap/Spinner';
-//import overcast from "../images/apiImgs/c04d.png";
-//import TestBrand from "../images/cloud.jpeg"
-//import { BsSunFill } from "react-icons/bs"
+import { useHistory } from 'react-router-dom'
 
 
 const Home = () => {
+  const history = useHistory();
   const [newsReturned, setNewsReturned] = useState([]);
   const [weather, setWeather] = useState();
   const [loading, setLoading] = useState('');
-  const [lati, setLatitude] = useState(Number(localStorage.getItem('lat')));
-  const [long, setLongitude] = useState(Number(localStorage.getItem('lon')));
 
-  console.log(lati);
-  console.log(long);
- 
   
   useEffect(() => {
     setLoading(
@@ -31,7 +25,7 @@ const Home = () => {
     const newsUrl = 'https://content.guardianapis.com/search?format=json&show-fields=headline,short-url,thumbnail,trailText&api-key=1cc443ab-d1d1-4546-87b0-c2d68710146d&page-size=14&section=environment';
     const weather_api_key = process.env.REACT_APP_WEATHER_API_KEY;
     //const ip_info_token = process.env.REACT_APP_IP_INFO_API_TOKEN;
-    //const API_KEY = process.env.REACT_APP_GUARDIAN_API_KEY;
+    //const guardian_api_key = process.env.REACT_APP_GUARDIAN_API_KEY;
 
     fetch(newsUrl)
     .then(response => response.json())
@@ -43,7 +37,7 @@ const Home = () => {
     });
 
 
-
+    //Mozilla Geolocation API functionality
     function geoFindMe() {
       
       // Success functionality = fetch using users current latitude and longitude
@@ -136,25 +130,15 @@ const Home = () => {
 
     geoFindMe();
         
-
-
-/*     if(localStorage.getItem('lat') && localStorage.getItem('lon')) {
-      //console.log('there is a lat and lon')
-      let lat = Number(localStorage.getItem('lat'));
-      let lon = Number(localStorage.getItem('lon'));
-      let latLonUrl = `https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I`;
-      
-      fetch(latLonUrl)
-      .then(response => response.json())
-      .then(currentWeather => {
-          //setWeather(allWeather.data[0]);
-          console.log(currentWeather.data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-    } */
   }, []);
+
+
+
+  let redirectToToday = () => {
+    //console.log('redirect was triggered');
+    history.push('/weather/today');
+  }
+
 
 
   let allNews = newsReturned.map((article, index) => {
@@ -190,7 +174,9 @@ const Home = () => {
       ) : (
         <div>
           <div className="nonFooterWrapper">
-              <SearchNav setLat={latitude => setLatitude(latitude)} setLon={longitude => setLongitude(longitude)} />
+              <SearchNav 
+                  redirectUser={() => redirectToToday()}
+              />
 
               <main>
                   <Row className="homeWeatherRow">

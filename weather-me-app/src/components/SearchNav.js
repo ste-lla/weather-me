@@ -29,7 +29,11 @@ const SearchNav = (props) => {
 
                             <Col xs={12} sm={6} md={4} lg={8} className="navFormCol">
                                 <div className="searchInputTagWrapper">
-                                    <LocationSearchInput setLatitude={props.setLat} setLongitude={props.setLon} />
+                                    <LocationSearchInput 
+                                        setLatitude={props.setLat} 
+                                        setLongitude={props.setLon} 
+                                        redirect={props.redirectUser}
+                                    />
                                 </div>
                                 {/* <Form>
                                     <Form.Control id="autocomplete" type="text" placeholder="Search City or Zip Code" />
