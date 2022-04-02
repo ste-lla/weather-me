@@ -13,6 +13,11 @@ const Home = () => {
   const [newsReturned, setNewsReturned] = useState([]);
   const [weather, setWeather] = useState();
   const [loading, setLoading] = useState('');
+  const [lati, setLatitude] = useState(Number(localStorage.getItem('lat')));
+  const [long, setLongitude] = useState(Number(localStorage.getItem('lon')));
+
+  console.log(lati);
+  console.log(long);
 
   
   useEffect(() => {
@@ -175,6 +180,8 @@ const Home = () => {
         <div>
           <div className="nonFooterWrapper">
               <SearchNav 
+                  setLat={latitude => setLatitude(latitude)} 
+                  setLon={longitude => setLongitude(longitude)}
                   redirectUser={() => redirectToToday()}
               />
 
