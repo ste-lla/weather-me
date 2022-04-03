@@ -17,11 +17,17 @@
     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
-    background: rgb(108,193,182);
+/*     background: rgb(108,193,182);
     background: -moz-linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
     background: -webkit-linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
     background: linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6cc1b6",endColorstr="#095985",GradientType=1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6cc1b6",endColorstr="#095985",GradientType=1); */
+
+    background: rgb(5,117,230);
+    background: -moz-linear-gradient(104deg, rgba(5,117,230,1) 19%, rgba(2,27,121,1) 100%);
+    background: -webkit-linear-gradient(104deg, rgba(5,117,230,1) 19%, rgba(2,27,121,1) 100%);
+    background: linear-gradient(104deg, rgba(5,117,230,1) 19%, rgba(2,27,121,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0575e6",endColorstr="#021b79",GradientType=1);
 }
 
 
@@ -114,14 +120,6 @@ my content downward to make space for itself
 /* HOME */
 
 .homeContainer {
-/*     height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background: rgb(108,193,182);
-    background: -moz-linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
-    background: -webkit-linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
-    background: linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6cc1b6",endColorstr="#095985",GradientType=1); */
 
 /* VERY Blue */
 /*     background: rgb(5,117,230);
@@ -153,6 +151,7 @@ my content downward to make space for itself
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
+
 
 .newsContainer {
     width: 80vw;
@@ -210,8 +209,6 @@ my content downward to make space for itself
 .footer {
     flex-shrink: 0;
     padding: 1rem;
-    /* background-color: #00187a; */
-    /* background-color: #272A63; */
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
 
 }
@@ -281,6 +278,7 @@ my content downward to make space for itself
 
         .navLinks:hover {
             font-size: 1.1rem;
+            color: #FF7722 !important;
         }
 
 
@@ -295,6 +293,10 @@ my content downward to make space for itself
 
 
     /* HOME */
+        .homeWeather {
+            font-size: 1.05rem;
+        }
+
         .imgWrap {
             display: flex;
             justify-content: center;
@@ -480,10 +482,15 @@ my content downward to make space for itself
             justify-content: space-around;
         }
 
+        .navLinks {
+            font-size: 1.1rem;
+        }
+
         .navLinks:hover {
             border-bottom: 3px solid #FF7722;
             padding-bottom: 3px;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
+            color: white !important;
         }
     
 
@@ -612,6 +619,16 @@ my content downward to make space for itself
 
 /*  MIN WIDTH 1200px  */
 @media only screen and (min-width: 1200px) {
+    /* NAVBAR */
+        .navLinks {
+            font-size: 1.15rem;
+        }
+
+        .navLinks:hover {
+            font-size: 1.15rem;
+        }
+
+
     /* LOCATION SEARCH INPUT */
         .location-search-input {
             width: 19rem;
@@ -620,6 +637,7 @@ my content downward to make space for itself
         .autocomplete-dropdown-container {
             width: 19rem;
         }
+
 
     /* HOME */
         #articleImg {
@@ -651,7 +669,11 @@ my content downward to make space for itself
         }
 
         .navLinks {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+        }
+
+        .navLinks:hover {
+            font-size: 1.2rem;
         }
         
 
@@ -676,45 +698,254 @@ my content downward to make space for itself
 
 
 
+
 /* MIN WIDTH 2560px
-   MacBook PRO 13"/15"/16"   */
-   @media only screen and (min-width: 2560px) {
+   MacBook PRO 13"   */
+@media only screen and (min-width: 2560px) {
     /* NAVBAR */
         .brandName {
-            font-size: 2rem;
+            font-size: 2.75rem;
         }
 
         .navLinks {
-            /* font-size: 2.2rem; */
-            font-size: 1.35rem;
+            font-size: 2.2rem;
+        }
+
+        .navLinks:hover {
+            font-size: 2.2rem;
         }
 
     
     /* LOCATION SEARCH INPUT */
         .location-search-input {
-            width: 42rem;
+            width: 38.5rem;
             height: 2.5rem;
         }
 
         .autocomplete-dropdown-container {
-            width: 42rem;
+            width: 38.5rem;
+        }
+
+        .location-search-input::placeholder {
+            font-size: 1.25rem; /* hides placeholder text when input is clicked */
+        }
+        /* For IE Browsers */
+        .location-search-input:-ms-input-placeholder {
+            font-size: 1.25rem;
+        }
+
+
+    /* HOME */
+        .homeWeather {
+            font-size: 1.7rem;
+        }
+
+        .weatherNewsHeader{
+            font-size: 3.25rem;
+        }
+
+        #articleImg {
+            width: 34rem;
+            height: auto;
+        }
+
+        #articleHeadline {
+            font-size: 2.25rem;
+        }
+
+        #articleTrailText {
+            font-size: 1.75rem;
         }
 
 
     /* FOOTER */
         .footerLinks {
-            font-size: 1.25rem;
+            font-size: 2rem;
         }
 
         .connectWithUs {
-            font-size: 1.25rem;
+            font-size: 2rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .socMediaLinks {
+            padding: 1.25rem 0.9rem;
+            margin-right: 0.5rem;
+
         }
 
         .socMediaIcons {
-            font-size: 1.2rem;
+            font-size: 1.95rem;
+        }
+}
+
+
+
+
+
+/* MIN WIDTH 2880px
+   MacBook PRO 15"   */
+@media only screen and (min-width: 2880px) {
+    /* NAVBAR */
+        .brandName {
+            font-size: 3rem;
         }
 
+        .navLinks {
+            font-size: 2.48rem;
+        }
+
+        .navLinks:hover {
+            font-size: 2.48rem;
+        }
+
+    
+    /* LOCATION SEARCH INPUT */
+        .location-search-input {
+            width: 43.3rem;
+            height: 2.5rem;
+        }
+
+        .autocomplete-dropdown-container {
+            width: 43.3rem;
+        }
+
+        .location-search-input::placeholder {
+            font-size: 1.4rem; /* hides placeholder text when input is clicked */
+        }
+        /* For IE Browsers */
+        .location-search-input:-ms-input-placeholder {
+            font-size: 1.4rem;
+        }
+
+
+    /* HOME */
+        .homeWeather {
+            font-size: 1.9rem;
+        }
+
+        .weatherNewsHeader{
+            font-size: 3.65rem;
+        }
+
+        #articleImg {
+            width: 38rem;
+            height: auto;
+        }
+
+        #articleHeadline {
+            font-size: 2.5rem;
+        }
+
+        #articleTrailText {
+            font-size: 2rem;
+        }
+
+
+    /* FOOTER */
+        .footerLinks {
+            font-size: 2.25rem;
+        }
+
+        .connectWithUs {
+            font-size: 2.25rem;
+        }
+
+        .socMediaLinks {
+            padding: 1.4rem 1rem;
+        }
+
+        .socMediaIcons {
+            font-size: 2.2rem;
+        }
 }
+
+
+
+
+/* MIN WIDTH 3072px
+   MacBook PRO 16"   */
+@media only screen and (min-width: 3072px) {
+    /* NAVBAR */
+        .brandName {
+            font-size: 3.3rem;
+        }
+
+        .navLinks {
+            font-size: 2.64rem;
+        }
+
+        .navLinks:hover {
+            font-size: 2.64rem;
+        }
+
+    /* LOCATION SEARCH INPUT */
+        .location-search-input {
+            width: 46.2rem;
+            height: 3rem;
+        }
+
+        .autocomplete-dropdown-container {
+            width: 46.2rem;
+        }
+
+        .location-search-input::placeholder {
+            font-size: 1.5rem; /* hides placeholder text when input is clicked */
+        }
+        /* For IE Browsers */
+        .location-search-input:-ms-input-placeholder {
+            font-size: 1.5rem;
+        }
+
+
+    /* HOME */
+        .homeWeather {
+            font-size: 2rem;
+        }
+
+        .weatherNewsHeader{
+            font-size: 3.9rem;
+        }
+
+        #articleImg {
+            width: 40.8rem;
+            height: auto;
+        }
+
+        #articleHeadline {
+            font-size: 2.7rem;
+        }
+
+        #articleTrailText {
+            font-size: 2.1rem;
+        }
+
+
+    /* FOOTER */
+        .footerLinks {
+            font-size: 2.4rem;
+        }
+
+        .connectWithUs {
+            font-size: 2.4rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .socMediaLinks {
+            padding: 1.75rem 1.05rem;
+
+        }
+
+        .socMediaIcons {
+            font-size: 2.64rem;
+        }
+}
+
+
+
+
+
+
 
 
 

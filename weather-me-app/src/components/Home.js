@@ -38,7 +38,7 @@ const Home = () => {
       setNewsReturned(data.response.results);
     })
     .catch(error => {
-      console.error(error);
+      console.log(error);
     });
 
 
@@ -189,7 +189,8 @@ const Home = () => {
                   <Row className="homeWeatherRow">
                     <Col>
                       <div className="homeWeatherWrapper d-flex justify-content-center align-items-center">
-                        <img height="38" width="auto" src={`https://www.weatherbit.io/static/img/icons/${weather.weather.icon}.png`} alt={`${weather.weather.description} weather icon`} /> <span className="ms-2">{Math.round(weather.temp)}&#xb0; {weather.city_name}, {weather.state_code}</span>
+                        <img height="38" width="auto" src={`https://www.weatherbit.io/static/img/icons/${weather.weather.icon}.png`} alt={`${weather.weather.description} weather icon`} /> 
+                        <span className="ms-2 homeWeather">{Math.round(weather.temp)}&#xb0; {weather.city_name}, {weather.state_code}</span>
                       </div>
                     </Col>
                   </Row>

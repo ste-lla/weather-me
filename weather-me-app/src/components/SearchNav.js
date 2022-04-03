@@ -17,7 +17,7 @@ const SearchNav = (props) => {
                             <Col xs={9} sm={4} lg={2} className="navBrandCol">
                                 <Navbar.Brand href="/" className="">
                                     <img
-                                        alt=""
+                                        alt="Weather Star logo"
                                         src={TestBrand}
                                         width="auto"
                                         height="30"
