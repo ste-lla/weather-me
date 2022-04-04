@@ -46,6 +46,7 @@ const Today = () => {
                         setWeatherReturned(currWeather.data[0]);
                         //setLoading('');
                         console.log('geoFineMe success');
+                        console.log(weatherReturned);
                     })
                     .catch(error => {
                         console.error(error);
