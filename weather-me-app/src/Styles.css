@@ -176,17 +176,6 @@ my content downward to make space for itself
 
 /* TODAY */
 
-/* .todayContainer {
-    height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background: rgb(108,193,182);
-    background: -moz-linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
-    background: -webkit-linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
-    background: linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6cc1b6",endColorstr="#095985",GradientType=1);
-} */
-
 .weatherNewsContainer {
     width: 90vw;
     height: auto;
@@ -194,6 +183,20 @@ my content downward to make space for itself
     border-radius: 1rem;
     overflow: hidden;
     /* border: 3px solid #038E9C; */
+}
+
+.todayAside {
+    border-radius: 1rem;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    /* background-color: white; */
+    /* border: 3px solid #FF7722; */
+    /* height: 65vh; */
+    /* overflow-x: none; */
+    /* overflow-y: auto; */
+}
+
+.worldNewsHeadline {
+    color: white;
 }
 
 
@@ -321,6 +324,22 @@ my content downward to make space for itself
             width: 75vw;
         }
 
+        .worldNewsCol {
+            margin-top: 2.5rem;
+        }
+
+        .todayAside {
+            padding: 1.2rem;
+        }
+
+        #articleHeadlineToday {
+            font-size: 1rem;
+        }
+
+        #articleTextToday {
+            font-size: 0.8rem;
+        }
+
 
     /* FOOTER */
         .footerLinks {
@@ -391,8 +410,13 @@ my content downward to make space for itself
         .weatherCardToday {
             width: 85vw;
         }
+
         .newsCard {
             width: 60vw;
+        }
+
+        #articleTextToday {
+            font-size: 0.9rem;
         }
 }
 
@@ -437,6 +461,14 @@ my content downward to make space for itself
     /* TODAY */
         .newsCard {
             width: 50vw;
+        }
+
+        #articleHeadlineToday {
+            font-size: 1.1rem;
+        }
+
+        #articleTextToday {
+            font-size: 0.9rem;
         }
 
 
@@ -512,14 +544,24 @@ my content downward to make space for itself
 
 
     /* TODAY */
-        .weatherNewsContainer {
-            flex-direction: row;
-        }
         .weatherCardToday {
-            width: 65vw;
+            width: 78vw;
         }
+
         .newsCard {
-            width: 20vw;
+            width: 40vw;
+        }
+        
+        .worldNewsCol {
+            margin-top: 0rem;
+        }
+
+        #articleHeadlineToday {
+            font-size: 1.1rem;
+        }
+
+        #articleTextToday {
+            font-size: 1rem;
         }
 }
 
@@ -589,6 +631,27 @@ my content downward to make space for itself
             justify-content: flex-start;
             align-items: center;
         }
+
+
+    /* TODAY */
+        .weatherNewsContainer {
+            flex-direction: row;
+        }
+
+        .todayAside {
+            height: 60vh;
+            overflow-x: none;
+            overflow-y: auto;            
+        }
+
+        .weatherCardToday {
+            width: 62vw;
+        }
+
+        .newsCard {
+            width: 17vw;
+        }
+
 }
 
 
@@ -644,6 +707,12 @@ my content downward to make space for itself
             width: 17.5rem;
             height: auto;
         }
+
+
+    /* TODAY */
+        .newsCard {
+            width: 14vw;
+        }
 }
 
 
@@ -692,6 +761,9 @@ my content downward to make space for itself
             width: 19rem;
             height: auto;
         }
+    
+    /* TODAY */
+       
 
 }
 
@@ -755,6 +827,24 @@ my content downward to make space for itself
 
         #articleTrailText {
             font-size: 1.75rem;
+        }
+
+
+    /* TODAY */
+        .todayAside {
+            padding: 2.1rem;
+        }
+
+        .worldNewsHeadline {
+            font-size: 2.75rem;
+        }
+
+        #articleHeadlineToday {
+            font-size: 2rem;
+        }
+
+        #articleTextToday {
+            font-size: 1.83rem;
         }
 
 
@@ -842,6 +932,20 @@ my content downward to make space for itself
         }
 
 
+    /* TODAY */
+        .worldNewsHeadline {
+            font-size: 3.1rem;
+        }
+
+        #articleHeadlineToday {
+            font-size: 2.25rem;
+        }
+
+        #articleTextToday {
+            font-size: 2.05rem;
+        }
+
+
     /* FOOTER */
         .footerLinks {
             font-size: 2.25rem;
@@ -918,6 +1022,20 @@ my content downward to make space for itself
 
         #articleTrailText {
             font-size: 2.1rem;
+        }
+
+
+    /* TODAY */
+        .worldNewsHeadline {
+            font-size: 3.7rem;
+        }
+
+        #articleHeadlineToday {
+            font-size: 2.7rem;
+        }
+
+        #articleTextToday {
+            font-size: 2.46rem;
         }
 
 

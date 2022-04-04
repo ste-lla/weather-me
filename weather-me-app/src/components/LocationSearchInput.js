@@ -41,8 +41,10 @@ import PlacesAutocomplete, {
           this.props.setLatitude(this.state.lat);
           this.props.setLongitude(this.state.lon);
 
-          //Redirect user from Home.js to Today.js after selecting a city
-          this.props.redirect();
+          //Redirect user from Home.js to Today.js after selecting a city. Run this function only if current url is home page
+          if(window.location.href === 'http://localhost:3000/' || window.location.href === 'https://weather-star.netlify.app/') {
+            this.props.redirect();
+          }
         })
         .catch(error => console.error(error));
     };

@@ -5,7 +5,8 @@ import Card from 'react-bootstrap/Card';
 import SearchNav from "./SearchNav";
 import Footer from "./Footer";
 import Spinner from 'react-bootstrap/Spinner';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+//import {getEnvironmentNews} from '../myFunctions/news.js';
 
 
 const Home = () => {
@@ -27,11 +28,12 @@ const Home = () => {
       </Spinner>
     )
    
-    const newsUrl = 'https://content.guardianapis.com/search?format=json&show-fields=headline,short-url,thumbnail,trailText&api-key=1cc443ab-d1d1-4546-87b0-c2d68710146d&page-size=14&section=environment';
     const weather_api_key = process.env.REACT_APP_WEATHER_API_KEY;
+    const newsUrl = 'https://content.guardianapis.com/search?format=json&show-fields=headline,short-url,thumbnail,trailText&api-key=1cc443ab-d1d1-4546-87b0-c2d68710146d&page-size=14&section=environment';
     //const ip_info_token = process.env.REACT_APP_IP_INFO_API_TOKEN;
     //const guardian_api_key = process.env.REACT_APP_GUARDIAN_API_KEY;
 
+    //Fetch news data
     fetch(newsUrl)
     .then(response => response.json())
     .then(data => {
@@ -40,8 +42,9 @@ const Home = () => {
     .catch(error => {
       console.log(error);
     });
-
-
+    
+   
+    
     //Mozilla Geolocation API functionality
     function geoFindMe() {
       
@@ -49,8 +52,6 @@ const Home = () => {
       function success(position) {
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
-        console.log(latitude);
-        console.log(longitude);
         
         fetch(`https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&lat=${latitude}&lon=${longitude}&units=I`)
         .then(response => response.json())
@@ -68,7 +69,7 @@ const Home = () => {
         console.log("Unable to retrieve your location");
         
         if(localStorage.getItem('lat') && localStorage.getItem('lon')) {
-            console.log('using local storage lat and lon');
+            //console.log('using local storage lat and lon');
             let lat = Number(localStorage.getItem('lat'));
             let lon = Number(localStorage.getItem('lon'));
             let latLonUrl = `https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I`;
@@ -83,7 +84,7 @@ const Home = () => {
               console.error(error);
             });
         } else {
-            console.log('using NYC as default');
+            //console.log('using NYC as default');
             fetch(`https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&city=New York&units=I`)
             .then(response => response.json())
             .then(nycWeather => {
@@ -101,7 +102,7 @@ const Home = () => {
         console.log("Geolocation is not supported by your browser");
 
         if(localStorage.getItem('lat') && localStorage.getItem('lon')) {
-          console.log('using local storage lat and lon');
+          //console.log('using local storage lat and lon');
           let lat = Number(localStorage.getItem('lat'));
           let lon = Number(localStorage.getItem('lon'));
           let latLonUrl = `https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I`;
@@ -116,7 +117,7 @@ const Home = () => {
             console.error(error);
           });
       } else {
-          console.log('using NYC as default');
+          //console.log('using NYC as default');
           fetch(`https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&city=New York&units=I`)
           .then(response => response.json())
           .then(nycWeather => {
@@ -138,36 +139,38 @@ const Home = () => {
   }, []);
 
 
-
-  let redirectToToday = () => {
-    //console.log('redirect was triggered');
-    history.push('/weather/today');
-  }
+    let redirectToToday = () => {
+      history.push('/weather/today');
+    }
 
 
+    let allNews = newsReturned.map((article, index) => {
+      return(
+        <Col xs={12} key={index} className="mb-4">
+          <section className="d-flex justify-content-center">
+            <Card style={{ width: '65vw'}} className="p-3">
+              <Row>
+                  <Col lg={5} className="imgWrap">
+                      <Card.Img id="articleImg" variant="top" src={article.fields.thumbnail} />
+                  </Col>
+    
+                  <Col lg={7}>
+                      <Card.Body>
+                          <Card.Title id="articleHeadline">
+                              <a href={article.webUrl} target="_blank" rel="noopener noreferrer">
+                                  {article.fields.headline}
+                              </a>
+                          </Card.Title>
+                          <Card.Text id="articleTrailText" dangerouslySetInnerHTML={ {__html: article.fields.trailText} }/>
+                      </Card.Body>
+                  </Col>
+              </Row>
+            </Card>
+          </section>
+        </Col>
+      )
+    })
 
-  let allNews = newsReturned.map((article, index) => {
-    return(
-      <Col xs={12} key={index} className="mb-4">
-        <section className="d-flex justify-content-center">
-          <Card style={{ width: '65vw'}} className="p-3">
-            <Row>
-              <Col lg={5} className="imgWrap">
-                <Card.Img id="articleImg" variant="top" src={article.fields.thumbnail} />
-              </Col>
-
-              <Col lg={7}>
-                <Card.Body>
-                  <Card.Title id="articleHeadline"><a href={article.webUrl} target="_blank" rel="noopener noreferrer">{article.fields.headline}</a></Card.Title>
-                  <Card.Text id="articleTrailText" dangerouslySetInnerHTML={ {__html: article.fields.trailText} }/>
-                </Card.Body>
-              </Col>
-            </Row>
-          </Card>
-        </section>
-      </Col>
-    )
-  })
 
 
   return(
