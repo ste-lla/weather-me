@@ -181,6 +181,12 @@ my content downward to make space for itself
 
 /* TODAY */
 
+.todayContentWrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .weatherNewsContainer {
     width: 90vw;
     height: auto;
@@ -303,11 +309,8 @@ my content downward to make space for itself
 
 
 
-
-
-
-
 /* ----------------------------------------------------------------- */
+
 
 
 /* FOOTER */

@@ -220,7 +220,7 @@ const Today = () => {
                 <div className="text-center">{loading}</div>
             </div>
           ) : (
-            <div>
+            <div className="todayContentWrapper">
                 <div className="nonFooterWrapper">
                     {/* setLat and setLon are props equal to a function that calls your state functions, setLatitude and setLongitude */}
                     <SearchNav setLat={latitude => setLatitude(latitude)} setLon={longitude => setLongitude(longitude)} />
