@@ -4,15 +4,28 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import SearchNav from "./SearchNav";
 import Footer from "./Footer";
+import Spinner from 'react-bootstrap/Spinner';
+import { BsWind } from 'react-icons/bs';
+import { SiRainmeter } from 'react-icons/si';
+import { BsFillSunFill } from 'react-icons/bs';
 
 
 const Today = () => {
     const [weatherReturned, setWeatherReturned] = useState();
     const [newsReturned, setNewsReturned] = useState([]);
+    const [loading, setLoading] = useState('');
     const [lati, setLatitude] = useState(Number(localStorage.getItem('lat')));
     const [long, setLongitude] = useState(Number(localStorage.getItem('lon')));
+    const [localTime, setLocalTime] = useState('');
+    //const [timeZone, setTimeZone] = useState('');
 
     useEffect(() => {
+        setLoading(
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+        )
+        
         const weather_api_key = process.env.REACT_APP_WEATHER_API_KEY;
         const newsUrl = 'https://content.guardianapis.com/search?format=json&show-fields=headline,short-url,thumbnail,trailText&api-key=1cc443ab-d1d1-4546-87b0-c2d68710146d&page-size=8&section=world';
         //const ip_info_token = process.env.REACT_APP_IP_INFO_API_TOKEN;
@@ -23,7 +36,6 @@ const Today = () => {
         .then(response => response.json())
         .then(data => {
           setNewsReturned(data.response.results);
-          console.log(data.response.results);
         })
         .catch(error => {
           console.log(error);
@@ -44,7 +56,8 @@ const Today = () => {
                     .then(response => response.json())
                     .then(currWeather => {
                         setWeatherReturned(currWeather.data[0]);
-                        //setLoading('');
+                        //setTimeZone(currWeather.data[0].timezone);
+                        setLoading('');
                         console.log('geoFineMe success');
                         console.log(weatherReturned);
                     })
@@ -67,7 +80,7 @@ const Today = () => {
                         .then(response => response.json())
                         .then(rtnWeather => {
                             setWeatherReturned(rtnWeather.data[0]);
-                            //setLoading('');
+                            setLoading('');
                             console.log('geoFineMe failed. Using loc storage');
                         })
                         .catch(error => {
@@ -79,7 +92,7 @@ const Today = () => {
                         .then(response => response.json())
                         .then(nycWeather => {
                             setWeatherReturned(nycWeather.data[0]);
-                            //setLoading('');
+                            setLoading('');
                             console.log('geoFineMe failed. Using NYC default');
                         })
                         .catch(error => {
@@ -102,7 +115,7 @@ const Today = () => {
                         .then(response => response.json())
                         .then(rtnWeather => {
                             setWeatherReturned(rtnWeather.data[0]);
-                            //setLoading('');
+                            setLoading('');
                             console.log('geoFindMe not sprtd. Using loc storage');
                         })
                         .catch(error => {
@@ -114,7 +127,7 @@ const Today = () => {
                         .then(response => response.json())
                         .then(nycWeather => {
                             setWeatherReturned(nycWeather.data[0]);
-                            //setLoading('');
+                            setLoading('');
                             console.log('geoFindMe not sprtd. Using NYC default');
                         })
                         .catch(error => {
@@ -137,14 +150,34 @@ const Today = () => {
             .then(response => response.json())
             .then(allWeather => {
                 setWeatherReturned(allWeather.data[0]);
+                //setTimeZone(allWeather.data[0].timezone);
                 console.log(allWeather.data[0]);
             })
             .catch((error) => {
             console.error('Error:', error);
             });
         }
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [long]);
+
+
+
+      useEffect(() => {
+        //Get user local time using new Date() & .toLocaleString
+        if(weatherReturned !== undefined) {
+            let userLocalTime = new Date().toLocaleString("en-US", {timeZone: `${weatherReturned.timezone}`});
+            let timeOnly = userLocalTime.slice(10);
+            let finalTime = timeOnly.split(":");
+            let todArray = finalTime[2].split(" ");
+            let hr = finalTime[0];
+            let min = finalTime[1]
+            let tod = todArray[1];
+            
+            //let localTime = `${hr}:${min} ${tod}`;
+            setLocalTime(`${hr}:${min} ${tod}`);
+        }
+      }, [weatherReturned])
 
     
 
@@ -175,45 +208,97 @@ const Today = () => {
         )
     })
 
+    
 
+    
+   
+    
     return (
       <div className="pageContainer d-flex flex-column">
-        <div className="nonFooterWrapper">
-
-            {/* setLat and setLon are props equal to a function that calls your state functions, setLatitude and setLongitude */}
-            <SearchNav setLat={latitude => setLatitude(latitude)} setLon={longitude => setLongitude(longitude)} />
-
-            <div className="weatherNewsContainer mx-auto mt-4 mb-4 pt-4 pb-3 ps-2 pe-2 d-flex">
-                <Col xs={12} lg={9} className="d-flex justify-content-center">
-                    <main className="">
-                        <section className="">
-                            <Card className="weatherCardToday">
-                                <Card.Body>
-                                    <Card.Title>Card Title</Card.Title>
-                                    <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-                                    <Card.Text>
-                                        Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.
-                                    </Card.Text>
-                                    <Card.Link href="#">Card Link</Card.Link>
-                                    <Card.Link href="#">Another Link</Card.Link>
-                                </Card.Body>
-                            </Card>
-                        </section>
-                    </main>
-                </Col>
-
-                <Col xs={12} lg={3} className="d-flex justify-content-center worldNewsCol">
-                    <aside className="todayAside">
-                        <h4 className="text-center worldNewsHeadline">World News Today</h4>
-                        {allNews}
-                    </aside>
-                </Col>
+        {weatherReturned === undefined ? (
+            <div className="mt-5">
+                <div className="text-center">{loading}</div>
             </div>
-        </div>
+          ) : (
+            <div>
+                <div className="nonFooterWrapper">
+                    {/* setLat and setLon are props equal to a function that calls your state functions, setLatitude and setLongitude */}
+                    <SearchNav setLat={latitude => setLatitude(latitude)} setLon={longitude => setLongitude(longitude)} />
 
-        <Footer />
+                    <div className="weatherNewsContainer mx-auto d-flex">
+                        <Col xs={12} lg={9} className="d-flex justify-content-center">
+                            <main className="">
+                                <section className="weatherSectionCurrently">
+                                    <Card className="weatherCardCurrently ps-2 pe-2">
+                                        <Card.Body>
+                                            <Row className="mb-3 currentWeatherRow">
+                                                <Col className="me-2">
+                                                    <div>
+                                                        <Card.Title className="cityStateCurrently">Currently in {weatherReturned.city_name}, {weatherReturned.state_code}</Card.Title>
+                                                        <Card.Text className="currentTime">{localTime}</Card.Text>
+                                                        <Card.Text className="descriptionCurrently">{weatherReturned.weather.description}</Card.Text>                       
+                                                    </div>
+                                                </Col>
+                                                
+                                                <Col className="d-flex justify-content-center">
+                                                    <div>
+                                                        <div className="d-flex currentTempContainer">
+                                                            <div className="weatherImgContainer">
+                                                                <img height="100" width="auto" src={`https://www.weatherbit.io/static/img/icons/${weatherReturned.weather.icon}.png`} alt={`${weatherReturned.weather.description} weather icon`} /> 
+                                                            </div>
+                                                            <div className="currentTemp">{Math.round(weatherReturned.temp)}&deg;<span id="fahrenheit">F</span></div>
+                                                            {/* <div className="degSymbol"></div>
+                                                            <div className="farSymbol">F</div> */}
+                                                        </div>
 
+                                                        <div className="feelsLike">
+                                                            Feels Like {Math.round(weatherReturned.app_temp)}&#8457;
+                                                        </div> 
+                                                    </div>                                                                                         
+                                                </Col>
+                                            </Row>
+
+                                            <Row className="conditionsRow">
+                                                <Col className="windCol conditionsCol d-flex justify-content-center align-items-center">
+                                                    <div className="d-flex align-items-center windContainer conditionsContainer">
+                                                        <BsWind className="weatherIcons" /> 
+                                                        <Card.Text className="ms-2 conditions">Wind {Math.round(weatherReturned.wind_spd)}mph {weatherReturned.wind_cdir}</Card.Text>                                                                            
+                                                    </div>
+                                                </Col>
+
+                                                <Col className="humidityCol conditionsCol d-flex justify-content-center align-items-center">
+                                                    <div className="d-flex align-items-center humidityContainer conditionsContainer">
+                                                        <SiRainmeter className="weatherIcons" />
+                                                        <Card.Text className="ms-2 conditions">Humidity {Math.round(weatherReturned.rh)}&#37;</Card.Text>                                                                                      
+                                                    </div>
+                                                </Col>
+
+                                                <Col className="uvCol conditionsCol d-flex justify-content-center align-items-center">
+                                                    <div className="d-flex align-items-center uvContainer conditionsContainer">
+                                                        <BsFillSunFill className="weatherIcons" />
+                                                        <Card.Text className="ms-2 conditions">UV Index {parseInt(weatherReturned.uv)}</Card.Text>                                                                                          
+                                                    </div>
+                                                </Col>
+                                            </Row>
+                                        </Card.Body>
+                                    </Card>
+                                </section>
+                            </main>
+                        </Col>
+
+                        <Col xs={12} lg={3} className="d-flex justify-content-center worldNewsCol">
+                            <aside className="todayAside">
+                                <h4 className="text-center worldNewsHeadline">World News Today</h4>
+                                {allNews}
+                            </aside>
+                        </Col>
+                    </div>
+                </div>
+
+                <Footer />
+            </div>
+          )
+        }
       </div>
     );
 }

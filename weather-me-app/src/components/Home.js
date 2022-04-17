@@ -198,7 +198,7 @@ const Home = () => {
                     </Col>
                   </Row>
 
-                  <div className="newsContainer mx-auto mt-4 mb-4 pt-4 pb-3 d-flex flex-column">
+                  <div className="newsContainer mx-auto mt-3 mb-4 d-flex flex-column">
                     <h1 className="weatherNewsHeader text-center mb-4" style={{color: "white"}}>News</h1>
                     {allNews}
                   </div>
