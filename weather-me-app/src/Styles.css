@@ -307,6 +307,54 @@ my content downward to make space for itself
     border-radius: 0.5rem;
 }
 
+.uvAICardsSection {
+    /* border: 2px solid orange; */
+    color: white;
+    background-color: #0F3D5C !important;
+    border-radius: 1rem !important;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+
+.uvAICards {
+    border: none !important;
+}
+
+.aiCard {
+    background: rgb(15,61,92);
+    background: -moz-linear-gradient(351deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+    background: -webkit-linear-gradient(351deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+    background: linear-gradient(351deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+}
+
+.uvCard {
+    background: rgb(15,61,92);
+    background: -moz-linear-gradient(14deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+    background: -webkit-linear-gradient(14deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+    background: linear-gradient(14deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+}
+
+#aqiCircleColor {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-left: 0.65rem;
+}
+
+#uvCircleColor {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-left: 0.65rem;
+}
+
+#creditGovText {
+    color:#FF7722 !important;
+}
+
+
 
 
 /* ----------------------------------------------------------------- */
@@ -418,6 +466,9 @@ my content downward to make space for itself
 
 
     /* TODAY */
+
+        /* CURRENT WEATHER */
+
         .weatherNewsContainer {
             flex-direction: column;
             margin-top: 1rem;
@@ -446,6 +497,23 @@ my content downward to make space for itself
         .conditionsContainer {
             padding: 1rem;
         }
+
+
+        /* TODAYS WEATHER */
+
+        .uvAICards {
+            width: 88vw;
+            border-radius: 1rem !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .aiCard {
+            margin-bottom: 1rem;
+        }
+
+
+        /* WORLD NEWS */
         
         .newsCard {
             width: 75vw;
@@ -502,6 +570,15 @@ my content downward to make space for itself
         #articleImg {
             width: 11.5rem;
             height: auto;
+        }
+
+    
+    /* TODAY */
+
+        /* TODAYS WEATHER */
+
+        .uvAICards {
+            width: 80vw;
         }
         
 }
@@ -563,9 +640,22 @@ my content downward to make space for itself
 /*  MIN WIDTH 448px  */
 @media only screen and (min-width: 448px) {
     /* TODAY */
+
+        /* CURRENT WEATHER */
+
         .weatherCardCurrently {
             width: 85vw;
         }
+
+
+        /* TODAYS WEATHER */
+
+        .uvAICards {
+            width: 75vw;
+        }
+
+
+        /* WORLD NEWS */
 
         .newsCard {
             width: 60vw;
@@ -634,6 +724,8 @@ my content downward to make space for itself
 
     /* TODAY */
 
+        /* CURRENT WEATHER */
+
         .cityStateCurrently {
             font-size: 1.06rem !important;
         }
@@ -653,6 +745,24 @@ my content downward to make space for itself
         .weatherIcons {
             font-size: 1.1rem;
         }
+
+
+        /* TODAYS WEATHER */
+
+        .uvAICardsContainer {
+            display: flex;
+        }
+
+        .uvAICards {
+            width: 40vw;
+        }
+
+        .aiCard {
+            margin-bottom: 0rem;
+        }
+
+
+        /* WORLD NEWS */
 
         .newsCard {
             width: 50vw;
@@ -739,6 +849,9 @@ my content downward to make space for itself
 
 
     /* TODAY */
+
+        /* CURRENT WEATHER */
+
         .weatherCardCurrently {
             width: 78vw;
         }
@@ -775,6 +888,15 @@ my content downward to make space for itself
             font-size: 1.12rem;
         }
 
+
+        /* TODAYS WEATHER */
+
+        .uvAICards {
+            width: 35vw;
+        }
+
+
+        /* WORLD NEWS */
         .newsCard {
             width: 40vw;
         }
@@ -858,6 +980,8 @@ my content downward to make space for itself
 
     /* TODAY */
 
+        /* CURRENT WEATHER */
+
         .weatherNewsContainer {
             flex-direction: row;
         }
@@ -886,12 +1010,22 @@ my content downward to make space for itself
             font-size: 1.2rem;
         }
 
+
+        /* TODAYS WEATHER */
+
+        .uvAICards {
+            width: 27vw;
+        }
+
+
+        /* WORLD NEWS */
+
         .worldNewsCol {
             margin-top: 0rem;
         }
 
         .todayAside {
-            height: 60vh;
+            height: 78vh;
             overflow-x: none;
             overflow-y: auto;            
         }
@@ -959,6 +1093,8 @@ my content downward to make space for itself
 
     /* TODAY */
 
+        /* CURRENT WEATHER */
+
         .cityStateCurrently {
             font-size: 1.24rem !important;
         }
@@ -978,6 +1114,12 @@ my content downward to make space for itself
         .conditionsContainer {
             padding: 1.75rem
         }
+
+
+        /* TODAYS WEATHER */
+
+
+        /* WORLD NEWS */
 
         .newsCard {
             width: 14vw;
@@ -1031,7 +1173,11 @@ my content downward to make space for itself
             height: auto;
         }
     
-    /* TODAY CURRENTLY */
+
+    /* TODAY */
+
+        /* CURRENT WEATHER */
+
         .cityStateCurrently {
             font-size: 1.3rem !important;
         }
@@ -1065,10 +1211,7 @@ my content downward to make space for itself
             font-size: 1.25rem;
         }
 
-        
-
-    /* TODAY */
-    
+        /* TODAYS WEATHER */
 
 }
 
@@ -1136,6 +1279,15 @@ my content downward to make space for itself
 
 
     /* TODAY */
+
+        /* CURRENT WEATHER */
+
+
+        /* TODAYS WEATHER */
+
+
+        /* WORLD NEWS */
+
         .todayAside {
             padding: 2.1rem;
         }
@@ -1238,6 +1390,15 @@ my content downward to make space for itself
 
 
     /* TODAY */
+
+        /* CURRENT WEATHER */
+
+
+        /* TODAYS WEATHER */
+
+
+        /* WORLD NEWS */
+
         .worldNewsHeadline {
             font-size: 3.1rem;
         }
@@ -1331,6 +1492,14 @@ my content downward to make space for itself
 
 
     /* TODAY */
+
+        /* CURRENT WEATHER */
+
+
+        /* TODAYS WEATHER */
+
+        /* WORLD NEWS */
+
         .worldNewsHeadline {
             font-size: 3.7rem;
         }

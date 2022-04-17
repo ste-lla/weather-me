@@ -17,7 +17,12 @@ const Today = () => {
     const [lati, setLatitude] = useState(Number(localStorage.getItem('lat')));
     const [long, setLongitude] = useState(Number(localStorage.getItem('lon')));
     const [localTime, setLocalTime] = useState('');
-    //const [timeZone, setTimeZone] = useState('');
+    const [airIndex, setAirIndex] = useState('');
+    const [airIndexDescription, setAirIndexDescription] = useState('Air quality index description cannot be pulled at this time.');
+    const [airIndexColor, setAirIndexColor] = useState('black');
+    const [uvIndex, setUvIndex] = useState('');
+    const [uvIndexDescription, setUvIndexDescription] = useState('UV index description cannot be pulled at this time.');
+    const [uvIndexColor, setUvIndexColor] = useState('black');
 
     useEffect(() => {
         setLoading(
@@ -164,8 +169,8 @@ const Today = () => {
 
 
       useEffect(() => {
-        //Get user local time using new Date() & .toLocaleString
         if(weatherReturned !== undefined) {
+            //Get user local time using new Date() & .toLocaleString
             let userLocalTime = new Date().toLocaleString("en-US", {timeZone: `${weatherReturned.timezone}`});
             let timeOnly = userLocalTime.slice(10);
             let finalTime = timeOnly.split(":");
@@ -173,9 +178,80 @@ const Today = () => {
             let hr = finalTime[0];
             let min = finalTime[1]
             let tod = todArray[1];
-            
-            //let localTime = `${hr}:${min} ${tod}`;
             setLocalTime(`${hr}:${min} ${tod}`);
+            //let localTime = `${hr}:${min} ${tod}`;
+
+
+            //Set Air Quality Index Level 
+            if(weatherReturned.aqi <= 50) {
+                setAirIndex('Good');
+                setAirIndexDescription('Air quality is satisfactory, and air pollution poses little or no risk.');
+                setAirIndexColor('limegreen');
+            }
+
+            if(weatherReturned.aqi >= 51 && weatherReturned.aqi <= 100 ) {
+                setAirIndex('Moderate');
+                setAirIndexDescription('Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.');
+                setAirIndexColor('yellow');
+            }
+
+            if(weatherReturned.aqi >= 101 && weatherReturned.aqi <= 150 ) {
+                setAirIndex('Unhealthy for Sensitive Groups');
+                setAirIndexDescription('Members of sensitive groups may experience health effects. The general public is less likely to be affected.');
+                setAirIndexColor('orange');
+            }
+
+            if(weatherReturned.aqi >= 151 && weatherReturned.aqi <= 200 ) {
+                setAirIndex('Unhealthy');
+                setAirIndexDescription('Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.');
+                setAirIndexColor('red');
+            }
+
+            if(weatherReturned.aqi >= 201 && weatherReturned.aqi <= 300 ) {
+                setAirIndex('Very Unhealthy');
+                setAirIndexDescription('Health alert: The risk of health effects is increased for everyone.');
+                setAirIndexColor('purple');
+            }
+
+            if(weatherReturned.aqi >= 301) {
+                setAirIndex('Hazardous');
+                setAirIndexDescription('Health warning of emergency conditions: everyone is more likely to be affected.');
+                setAirIndexColor('maroon');;
+            }
+
+
+
+            //Set UV Index Levels
+            if(parseInt(weatherReturned.uv) <= 2) {
+                setUvIndex('Low');
+                setUvIndexDescription('No protection needed. You can safely stay outside using minimal sun protection.');
+                setUvIndexColor('limegreen');
+            }
+
+            if(parseInt(weatherReturned.uv) >= 3 && parseInt(weatherReturned.uv) <= 5) {
+                setUvIndex('Moderate');
+                setUvIndexDescription('Protection needed. Seek shade during late morning through mid-afternoon.');
+                setUvIndexColor('yellow');
+            }
+
+            if(parseInt(weatherReturned.uv) >= 6 && parseInt(weatherReturned.uv) <= 7) {
+                setUvIndex('High');
+                setUvIndexDescription('Protection needed. Seek shade during late morning through mid-afternoon.');
+                setUvIndexColor('orange');
+            }
+
+            if(parseInt(weatherReturned.uv) >= 8 && parseInt(weatherReturned.uv) <= 10) {
+                setUvIndex('Very High');
+                setUvIndexDescription('Extra protection needed. Be careful outside, especially during late morning through mid-afternoon.');
+                setUvIndexColor('red');
+            }
+
+            if(parseInt(weatherReturned.uv) > 11) {
+                setUvIndex('Extreme');
+                setUvIndexDescription('Extra protection needed. Be careful outside, especially during late morning through mid-afternoon.');
+                setUvIndexColor('purple');
+            }
+
         }
       }, [weatherReturned])
 
@@ -225,7 +301,7 @@ const Today = () => {
                     {/* setLat and setLon are props equal to a function that calls your state functions, setLatitude and setLongitude */}
                     <SearchNav setLat={latitude => setLatitude(latitude)} setLon={longitude => setLongitude(longitude)} />
 
-                    <div className="weatherNewsContainer mx-auto d-flex">
+                    <div className="weatherNewsContainer mx-auto mt-4 d-flex">
                         <Col xs={12} lg={9} className="d-flex justify-content-center">
                             <main className="">
                                 <section className="weatherSectionCurrently">
@@ -234,7 +310,7 @@ const Today = () => {
                                             <Row className="mb-3 currentWeatherRow">
                                                 <Col className="me-2">
                                                     <div>
-                                                        <Card.Title className="cityStateCurrently">Currently in {weatherReturned.city_name}, {weatherReturned.state_code}</Card.Title>
+                                                        <Card.Title className="cityStateCurrently">Currently in {weatherReturned.city_name}</Card.Title>
                                                         <Card.Text className="currentTime">{localTime}</Card.Text>
                                                         <Card.Text className="descriptionCurrently">{weatherReturned.weather.description}</Card.Text>                       
                                                     </div>
@@ -283,6 +359,38 @@ const Today = () => {
                                         </Card.Body>
                                     </Card>
                                 </section>
+
+                                <section className="uvAICardsSection mt-4">
+                                    <div className="uvAICardsContainer">
+                                        <Card className="aiCard uvAICards">
+                                            <Card.Body>
+                                                <div className="d-flex">
+                                                    <Card.Title>Air Quality Index</Card.Title>
+                                                    <div id="aqiCircleColor" style={{backgroundColor: `${airIndexColor}`}}></div>
+                                                </div>
+                                                <Card.Subtitle className="mb-2">{weatherReturned.aqi} | {airIndex}</Card.Subtitle>
+                                                <Card.Text>{airIndexDescription}</Card.Text>
+                                                <Card.Text style={{fontSize: "0.8rem"}} className="mt-3">
+                                                    *Credit to <a id="creditGovText" href="https://www.airnow.gov/aqi/aqi-basics/" target="_blank" rel="noopener noreferrer">airnow.gov</a> for AQI Descriptions
+                                                </Card.Text>
+                                            </Card.Body>
+                                        </Card>
+
+                                        <Card className="uvCard uvAICards">
+                                            <Card.Body>
+                                                <div className="d-flex">
+                                                    <Card.Title>UV Index</Card.Title>
+                                                    <div id="uvCircleColor" style={{backgroundColor: `${uvIndexColor}`}}></div>
+                                                </div>
+                                                <Card.Subtitle className="mb-2">{parseInt(weatherReturned.uv)} | {uvIndex} </Card.Subtitle>
+                                                <Card.Text>{uvIndexDescription}</Card.Text>        
+                                                <Card.Text style={{fontSize: "0.8rem"}} className="mt-3">
+                                                    *Credit to <a id="creditGovText" href="https://www.epa.gov/sunsafety/uv-index-scale-0" target="_blank" rel="noopener noreferrer">epa.gov</a> for UV Index Descriptions
+                                                </Card.Text>                                                                                   
+                                            </Card.Body>
+                                        </Card>
+                                    </div>
+                                </section>
                             </main>
                         </Col>
 
@@ -291,7 +399,7 @@ const Today = () => {
                                 <h4 className="text-center worldNewsHeadline">World News Today</h4>
                                 {allNews}
                             </aside>
-                        </Col>
+                        </Col>  
                     </div>
                 </div>
 
