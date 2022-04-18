@@ -39,6 +39,7 @@
 /* SEARCH NAV */
 
 /* 
+NOTE: 
 This is used bc my search input (.inputDropdownWrapper) needs to be absolutely 
 positioned relative to this navbar (.mainNav) parent element. This allows the 
 drop-down menu suggestions to overlay my content instead of it pushing my content 
@@ -51,6 +52,7 @@ downward to make space for itself
 
 
 /*  
+NOTE:
 This is just a container around my <LocationSearchInput /> tag. It's a trick to help 
 prevent my search input from overflowing it's parent Navbar (.mainNav) more especially 
 on smaller screen widths (280px-575px.) Elements on page ignore absolutely positioned
@@ -72,16 +74,14 @@ elements, but this wrapper won't be ignored
 
 
 
-
-
-
-
 /* ----------------------------------------------------------------- */
+
 
 
 /* LOCATION SEARCH INPUT */
 
 /* 
+NOTE:
 This allows the drop-down menu suggestions to overlay my content instead of it pushing 
 my content downward to make space for itself
 */
@@ -122,6 +122,7 @@ my content downward to make space for itself
 /* ----------------------------------------------------------------- */
 
 
+
 /* HOME */
 
 .homeContainer {
@@ -157,13 +158,11 @@ my content downward to make space for itself
     padding-bottom: 0.5rem;
 }
 
-
 .newsContainer {
     width: 80vw;
     height: auto;
    /*  border: 3px solid #022538;
     border-radius: 1rem; */
-    /* border: 3px solid #038E9C; */
 }
 
 #articleHeadline {
@@ -179,181 +178,257 @@ my content downward to make space for itself
 /* ----------------------------------------------------------------- */
 
 
+
 /* TODAY */
 
-.todayContentWrapper {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
+    /* GENERAL */
 
-.weatherNewsContainer {
-    width: 90vw;
-    height: auto;
-    border-radius: 1rem;
-    overflow: hidden;
-    /* border: 3px solid #022538; */
-}
+    .todayContentWrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
 
-.todayAside {
-    border-radius: 1rem;
-    background-color: #0F3D5C;
-    /* background-color: #032030; */
-   
-   
-    /* background-color: white; */
-    /* border: 3px solid #FF7722; */
-    /* height: 65vh; */
-    /* overflow-x: none; */
-    /* overflow-y: auto; */
-}
+    .weatherNewsContainer {
+        width: 90vw;
+        height: auto;
+        border-radius: 1rem;
+        overflow: hidden;
+        /* border: 3px solid #022538; */
+    }
 
-.worldNewsHeadline {
-    color: white;
-}
 
-.weatherCardCurrently {
-    color: white;
-    background-color: #0F3D5C !important;
-    border-radius: 1rem !important;
-    /* background-color: #032030 !important */;
-}
+    /* NEWS */
 
-.currentWeatherRow {
-/*     background: rgb(6,58,86);
-    background: -moz-linear-gradient(158deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-    background: -webkit-linear-gradient(158deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-    background: linear-gradient(158deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#063a56",endColorstr="#91a8b5",GradientType=1); */
-
-    background: rgb(15,61,92);
-    background: -moz-linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    background: -webkit-linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    background: linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
-
-    border-radius: 0.5rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 0.5rem;
-}
-
-.currentTempContainer {
-    position: relative;
+    .todayAside {
+        border-radius: 1rem;
+        background-color: #0F3D5C;
+        /* background-color: #032030; */
     
-}
+        /* background-color: white; */
+        /* border: 3px solid #FF7722; */
+        /* height: 65vh; */
+        /* overflow-x: none; */
+        /* overflow-y: auto; */
+    }
 
-/* .degSymbol {
-    height: 10px;
-    border: 2px solid white;
-    padding: 0.3rem;
-    border-radius: 50%;
-    position: absolute;
-    left: 11.7rem;
-    top: 2rem;
-} */
+    .worldNewsHeadline {
+        color: white;
+    }
 
-/* .farSymbol {
-    position: absolute;
-    left: 11.9rem;
-    top: 3.8rem 
-} */
 
-.windCol {
-/*     background: rgb(6,58,86);
-    background: -moz-linear-gradient(202deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-    background: -webkit-linear-gradient(202deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-    background: linear-gradient(202deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#063a56",endColorstr="#91a8b5",GradientType=1); */
+    /* BOTH WEATHER CARDS */
 
-    background: rgb(15,61,92);
-    background: -moz-linear-gradient(202deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    background: -webkit-linear-gradient(202deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    background: linear-gradient(202deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+    .weatherCard {
+        color: white;
+        background-color: #0F3D5C !important;
+        border-radius: 1rem !important;
+        /* background-color: #032030 !important */;
+    }
 
-    border-radius: 0.5rem;
-}
+    .currentTodayWeatherRows {
+        /*     background: rgb(6,58,86);
+            background: -moz-linear-gradient(158deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
+            background: -webkit-linear-gradient(158deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
+            background: linear-gradient(158deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#063a56",endColorstr="#91a8b5",GradientType=1); */
+    
+            background: rgb(15,61,92);
+            background: -moz-linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+            background: -webkit-linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+            background: linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+    
+            border-radius: 0.5rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            padding-left: 0.5rem;
+        }
 
-.humidityCol {
-/*     background: rgb(6,58,86);
-    background: -moz-linear-gradient(58deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-    background: -webkit-linear-gradient(58deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-    background: linear-gradient(58deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#063a56",endColorstr="#91a8b5",GradientType=1); */
+        .tempContainer {
+            position: relative;
+            
+        }
 
-    background: rgb(15,61,92);
-    background: -moz-linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    background: -webkit-linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    background: linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
 
-    border-radius: 0.5rem;
-}
+    /* CURRENT WEATHER CARD */
 
-.uvCol {
-/*     background: rgb(6,58,86);
-    background: -moz-linear-gradient(295deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-    background: -webkit-linear-gradient(295deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-    background: linear-gradient(295deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#063a56",endColorstr="#91a8b5",GradientType=1); */
+    .windCol {
+    /*     background: rgb(6,58,86);
+        background: -moz-linear-gradient(202deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
+        background: -webkit-linear-gradient(202deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
+        background: linear-gradient(202deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#063a56",endColorstr="#91a8b5",GradientType=1); */
 
-    background: rgb(15,61,92);
-    background: -moz-linear-gradient(295deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    background: -webkit-linear-gradient(295deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    background: linear-gradient(295deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+        background: rgb(15,61,92);
+        background: -moz-linear-gradient(202deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(202deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(202deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
 
-    border-radius: 0.5rem;
-}
+        border-radius: 0.5rem;
+    }
 
-.uvAICardsSection {
-    /* border: 2px solid orange; */
-    color: white;
-    background-color: #0F3D5C !important;
-    border-radius: 1rem !important;
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
-}
+    .humidityCol {
+    /*     background: rgb(6,58,86);
+        background: -moz-linear-gradient(58deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
+        background: -webkit-linear-gradient(58deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
+        background: linear-gradient(58deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#063a56",endColorstr="#91a8b5",GradientType=1); */
 
-.uvAICards {
-    border: none !important;
-}
+        background: rgb(15,61,92);
+        background: -moz-linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
 
-.aiCard {
-    background: rgb(15,61,92);
-    background: -moz-linear-gradient(351deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    background: -webkit-linear-gradient(351deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    background: linear-gradient(351deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
-}
+        border-radius: 0.5rem;
+    }
 
-.uvCard {
-    background: rgb(15,61,92);
-    background: -moz-linear-gradient(14deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    background: -webkit-linear-gradient(14deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    background: linear-gradient(14deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
-}
+    .uvCol {
+    /*     background: rgb(6,58,86);
+        background: -moz-linear-gradient(295deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
+        background: -webkit-linear-gradient(295deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
+        background: linear-gradient(295deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#063a56",endColorstr="#91a8b5",GradientType=1); */
 
-#aqiCircleColor {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    margin-left: 0.65rem;
-}
+        background: rgb(15,61,92);
+        background: -moz-linear-gradient(295deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(295deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(295deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
 
-#uvCircleColor {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    margin-left: 0.65rem;
-}
+        border-radius: 0.5rem;
+    }
 
-#creditGovText {
-    color:#FF7722 !important;
-}
+        /* .degSymbol {
+        height: 10px;
+        border: 2px solid white;
+        padding: 0.3rem;
+        border-radius: 50%;
+        position: absolute;
+        left: 11.7rem;
+        top: 2rem;
+    } */
 
+    /* .farSymbol {
+        position: absolute;
+        left: 11.9rem;
+        top: 3.8rem 
+    } */
+
+
+    /* AIR QUAL INDEX & UV INDEX CARDS */
+
+    .uvAICardsSection {
+        /* border: 2px solid orange; */
+        color: white;
+        background-color: #0F3D5C !important;
+        border-radius: 1rem !important;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+    }
+
+    .uvAICards {
+        border: none !important;
+    }
+
+    .aiCard {
+        background: rgb(15,61,92);
+        background: -moz-linear-gradient(351deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(351deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(351deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+    }
+
+    .uvCard {
+        background: rgb(15,61,92);
+        background: -moz-linear-gradient(14deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(14deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(14deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+    }
+
+    #aqiCircleColor {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        margin-left: 0.65rem;
+    }
+
+    #uvCircleColor {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        margin-left: 0.65rem;
+    }
+
+    #creditGovText {
+        color:#FF7722 !important;
+    }
+
+
+    /* TODAYS WEATHER CARD */
+
+    .hiLoCol {
+        background: rgb(15,61,92);
+        background: -moz-linear-gradient(20deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(20deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(20deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+
+        border-radius: 0.5rem;
+    }
+
+    .humidTodayCol {
+        background: rgb(15,61,92);
+        background: -moz-linear-gradient(224deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(224deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(224deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+
+        border-radius: 0.5rem;
+    }
+
+    .visibilityCol {
+        background: rgb(15,61,92);
+        background: -moz-linear-gradient(302deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(302deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(302deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+
+        border-radius: 0.5rem;
+    }
+
+    .pressureCol {
+        background: rgb(15,61,92);
+        background: -moz-linear-gradient(110deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(110deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(110deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+
+        border-radius: 0.5rem;
+    }
+
+    .dewPointCol {
+        background: rgb(15,61,92);
+        background: -moz-linear-gradient(41deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(41deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(41deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+
+        border-radius: 0.5rem;
+    }
+
+    .sunriseSunsetCol {
+        background: rgb(15,61,92);
+        background: -moz-linear-gradient(8deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(8deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(8deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+
+        border-radius: 0.5rem;
+    }
 
 
 
@@ -474,7 +549,7 @@ my content downward to make space for itself
             margin-top: 1rem;
         }
 
-        .weatherCardCurrently {
+        .weatherCard {
             width: 88vw;
         }
 
@@ -499,7 +574,7 @@ my content downward to make space for itself
         }
 
 
-        /* TODAYS WEATHER */
+        /* AQI & UV INDEX CARDS */
 
         .uvAICards {
             width: 88vw;
@@ -510,6 +585,13 @@ my content downward to make space for itself
 
         .aiCard {
             margin-bottom: 1rem;
+        }
+
+
+        /* TODAYS WEATHER */
+
+        .conditionsTodayContainer {
+            padding: 0.75rem; /* DOUBLE CHECK THIS LOOKS OK */
         }
 
 
@@ -643,7 +725,7 @@ my content downward to make space for itself
 
         /* CURRENT WEATHER */
 
-        .weatherCardCurrently {
+        .weatherCard {
             width: 85vw;
         }
 
@@ -726,11 +808,11 @@ my content downward to make space for itself
 
         /* CURRENT WEATHER */
 
-        .cityStateCurrently {
+        .cityToday {
             font-size: 1.06rem !important;
         }
 
-        .descriptionCurrently {
+        .descriptionToday {
             font-size: 1.2rem;
         }
 
@@ -747,7 +829,7 @@ my content downward to make space for itself
         }
 
 
-        /* TODAYS WEATHER */
+        /* AQI & UV INDEX CARDS */
 
         .uvAICardsContainer {
             display: flex;
@@ -759,6 +841,13 @@ my content downward to make space for itself
 
         .aiCard {
             margin-bottom: 0rem;
+        }
+
+
+        /* TODAYS WEATHER */
+
+        #currentlyText {
+            font-size: 1.06rem !important;
         }
 
 
@@ -852,15 +941,15 @@ my content downward to make space for itself
 
         /* CURRENT WEATHER */
 
-        .weatherCardCurrently {
+        .weatherCard {
             width: 78vw;
         }
 
-        .cityStateCurrently {
+        .cityToday {
             font-size: 1.12rem !important;
         }
 
-        .descriptionCurrently {
+        .descriptionToday {
             font-size: 1.4rem;
         }
 
@@ -889,13 +978,20 @@ my content downward to make space for itself
         }
 
 
-        /* TODAYS WEATHER */
+        /* AQI & UV INDEX CARDS */
 
         .uvAICards {
             width: 35vw;
         }
 
 
+        /* TODAYS WEATHER */
+
+        #currentlyText {
+            font-size: 1.12rem !important;
+        }
+
+ 
         /* WORLD NEWS */
         .newsCard {
             width: 40vw;
@@ -986,15 +1082,15 @@ my content downward to make space for itself
             flex-direction: row;
         }
 
-        .weatherCardCurrently {
+        .weatherCard {
             width: 62vw;
         }
 
-        .cityStateCurrently {
+        .cityToday {
             font-size: 1.18rem !important;
         }
 
-        .descriptionCurrently {
+        .descriptionToday {
             font-size: 1.6rem;
         }
 
@@ -1010,11 +1106,18 @@ my content downward to make space for itself
             font-size: 1.2rem;
         }
 
-
-        /* TODAYS WEATHER */
+        
+        /* AQI & UV INDEX CARDS */
 
         .uvAICards {
             width: 27vw;
+        }
+
+
+        /* TODAYS WEATHER */
+
+        #currentlyText {
+            font-size: 1.18rem !important;
         }
 
 
@@ -1095,11 +1198,11 @@ my content downward to make space for itself
 
         /* CURRENT WEATHER */
 
-        .cityStateCurrently {
+        .cityToday {
             font-size: 1.24rem !important;
         }
 
-        .descriptionCurrently {
+        .descriptionToday {
             font-size: 1.8rem;
         }
 
@@ -1117,6 +1220,14 @@ my content downward to make space for itself
 
 
         /* TODAYS WEATHER */
+        
+        #currentlyText {
+            font-size: 1.24rem !important;
+        }
+
+        .conditionsTodayContainer {
+            padding: 1.25rem /* DOUBLE CHECK THIS LOOKS OK */
+        }
 
 
         /* WORLD NEWS */
@@ -1178,11 +1289,11 @@ my content downward to make space for itself
 
         /* CURRENT WEATHER */
 
-        .cityStateCurrently {
+        .cityToday {
             font-size: 1.3rem !important;
         }
 
-        .descriptionCurrently {
+        .descriptionToday {
             font-size: 2rem;
         }
 
@@ -1211,7 +1322,16 @@ my content downward to make space for itself
             font-size: 1.25rem;
         }
 
+
         /* TODAYS WEATHER */
+
+        #currentlyText {
+            font-size: 1.3rem !important;
+        }
+
+        .conditionsTodayContainer {
+            padding: 1.5rem 
+        }
 
 }
 

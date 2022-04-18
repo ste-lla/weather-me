@@ -8,10 +8,13 @@ import Spinner from 'react-bootstrap/Spinner';
 import { BsWind } from 'react-icons/bs';
 import { SiRainmeter } from 'react-icons/si';
 import { BsFillSunFill } from 'react-icons/bs';
+import { BiRadioCircle } from 'react-icons/bi';
+
 
 
 const Today = () => {
     const [weatherReturned, setWeatherReturned] = useState();
+    const [todaysWeather, setTodaysWeather] = useState();
     const [newsReturned, setNewsReturned] = useState([]);
     const [loading, setLoading] = useState('');
     const [lati, setLatitude] = useState(Number(localStorage.getItem('lat')));
@@ -23,6 +26,7 @@ const Today = () => {
     const [uvIndex, setUvIndex] = useState('');
     const [uvIndexDescription, setUvIndexDescription] = useState('UV index description cannot be pulled at this time.');
     const [uvIndexColor, setUvIndexColor] = useState('black');
+
 
     useEffect(() => {
         setLoading(
@@ -57,14 +61,26 @@ const Today = () => {
                     const latitude  = position.coords.latitude;
                     const longitude = position.coords.longitude;
                     
+                    //fetch current weather
                     fetch(`https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&lat=${latitude}&lon=${longitude}&units=I`)
                     .then(response => response.json())
                     .then(currWeather => {
                         setWeatherReturned(currWeather.data[0]);
-                        //setTimeZone(currWeather.data[0].timezone);
                         setLoading('');
-                        console.log('geoFineMe success');
-                        console.log(weatherReturned);
+                        console.log('geoFindMe success. Using user geo lat/lon current weather');
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+
+                    //fetch todays weather
+                    fetch(`https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${latitude}&lon=${longitude}&units=I&days=1`)
+                    .then(response => response.json())
+                    .then(todaysWeather => {
+                        setTodaysWeather(todaysWeather.data[0]);
+                        setLoading('');
+                        console.log('geoFineMe success. Using user geo lat/lon todays weather');
+                        console.log(todaysWeather.data[0]);
                     })
                     .catch(error => {
                         console.error(error);
@@ -80,25 +96,59 @@ const Today = () => {
                         let lat = Number(localStorage.getItem('lat'));
                         let lon = Number(localStorage.getItem('lon'));
                         let latLonUrl = `https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I`;
+                        let todaysUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I&days=1`
                         
+                        //fetch current weather
                         fetch(latLonUrl)
                         .then(response => response.json())
                         .then(rtnWeather => {
                             setWeatherReturned(rtnWeather.data[0]);
                             setLoading('');
-                            console.log('geoFineMe failed. Using loc storage');
+                            console.log('geoFindMe failed. Using loc storage for current weather');
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+
+                        //fetch todays weather
+                        fetch(todaysUrl)
+                        .then(response => response.json())
+                        .then(todaysWeather => {
+                            setTodaysWeather(todaysWeather.data[0]);
+                            setLoading('');
+                            console.log('geoFindMe failed. Using loc storage for todays weather');
+                            console.log(todaysWeather.data[0]);
                         })
                         .catch(error => {
                             console.error(error);
                         });
                     } else {
                         console.log('using NYC as default');
-                        fetch(`https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&city=New York&units=I`)
+
+                        let currentNYCUrl = `https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&city=New York&units=I`
+                        let todayNYCUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&city=New York&units=I&days=1`
+                        
+                        //fetch current weather
+                        fetch(currentNYCUrl)
                         .then(response => response.json())
                         .then(nycWeather => {
                             setWeatherReturned(nycWeather.data[0]);
                             setLoading('');
-                            console.log('geoFineMe failed. Using NYC default');
+                            console.log('geoFindMe failed. No loc storage. Using NYC default current weather');
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+
+
+                        //fetch todays weather
+                        fetch(todayNYCUrl)
+                        .then(response => response.json())
+                        .then(todaysWeather => {
+                            setTodaysWeather(todaysWeather.data[0]);
+                            setLoading('');
+                            console.log('geoFindMe failed. No loc storage. Using NYC default todays weather');
+                            console.log(todaysWeather.data[0]);
                         })
                         .catch(error => {
                             console.error(error);
@@ -115,28 +165,61 @@ const Today = () => {
                         let lat = Number(localStorage.getItem('lat'));
                         let lon = Number(localStorage.getItem('lon'));
                         let latLonUrl = `https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I`;
+                        let todaysUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I&days=1`
                         
+                        //fetch current weather
                         fetch(latLonUrl)
                         .then(response => response.json())
                         .then(rtnWeather => {
                             setWeatherReturned(rtnWeather.data[0]);
                             setLoading('');
-                            console.log('geoFindMe not sprtd. Using loc storage');
+                            console.log('geoFindMe not supported. Using loc storage for current weather');
                         })
                         .catch(error => {
                         console.error(error);
                         });
+
+                        //fetch todays weather
+                        fetch(todaysUrl)
+                        .then(response => response.json())
+                        .then(todaysWeather => {
+                            setTodaysWeather(todaysWeather.data[0]);
+                            setLoading('');
+                            console.log('geoFindMe not supported. Using loc storage for todays weather');
+                            console.log(todaysWeather.data[0]);
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
                     } else {
                         console.log('using NYC as default');
-                        fetch(`https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&city=New York&units=I`)
+
+                        let currentNYCUrl = `https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&city=New York&units=I`
+                        let todayNYCUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&city=New York&units=I&days=1`
+
+                        //fetch current weather
+                        fetch(currentNYCUrl)
                         .then(response => response.json())
                         .then(nycWeather => {
                             setWeatherReturned(nycWeather.data[0]);
                             setLoading('');
-                            console.log('geoFindMe not sprtd. Using NYC default');
+                            console.log('geoFindMe not supported. Using NYC default for current weather');
                         })
                         .catch(error => {
                         console.error(error);
+                        });
+
+                        //fetch todays weather
+                        fetch(todayNYCUrl)
+                        .then(response => response.json())
+                        .then(todaysWeather => {
+                            setTodaysWeather(todaysWeather.data[0]);
+                            setLoading('');
+                            console.log('geoFindMe not supported. Using NYC default for todays weather');
+                            console.log(todaysWeather.data[0]);
+                        })
+                        .catch(error => {
+                            console.error(error);
                         });
                     }
                     return;
@@ -149,17 +232,33 @@ const Today = () => {
         } 
         //If lat and lon are in local storage...
         else {
-            const url = `https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&lat=${lati}&lon=${long}&units=I`;
+            const currentUrl = `https://api.weatherbit.io/v2.0/current?key=${weather_api_key}&lat=${lati}&lon=${long}&units=I`;
+            const todayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lati}&lon=${long}&units=I&days=1`
             
-            fetch(url)
+            //fetch current weather
+            fetch(currentUrl)
             .then(response => response.json())
             .then(allWeather => {
                 setWeatherReturned(allWeather.data[0]);
-                //setTimeZone(allWeather.data[0].timezone);
+                setLoading('');
                 console.log(allWeather.data[0]);
+                //console.log('geoFindMe success. Using local storage for current weather');
             })
             .catch((error) => {
             console.error('Error:', error);
+            });
+
+            //fetch todays weather
+            fetch(todayUrl)
+            .then(response => response.json())
+            .then(todaysWeather => {
+                setTodaysWeather(todaysWeather.data[0]);
+                setLoading('');
+                console.log(todaysWeather.data[0]);
+                //console.log('geoFindMe success. Using local storage for todays weather');
+            })
+            .catch(error => {
+                console.error(error);
             });
         }
 
@@ -218,7 +317,6 @@ const Today = () => {
                 setAirIndexDescription('Health warning of emergency conditions: everyone is more likely to be affected.');
                 setAirIndexColor('maroon');;
             }
-
 
 
             //Set UV Index Levels
@@ -291,7 +389,7 @@ const Today = () => {
     
     return (
       <div className="pageContainer d-flex flex-column">
-        {weatherReturned === undefined ? (
+        {weatherReturned === undefined && todaysWeather === undefined ? (
             <div className="mt-5">
                 <div className="text-center">{loading}</div>
             </div>
@@ -305,20 +403,20 @@ const Today = () => {
                         <Col xs={12} lg={9} className="d-flex justify-content-center">
                             <main className="">
                                 <section className="weatherSectionCurrently">
-                                    <Card className="weatherCardCurrently ps-2 pe-2">
+                                    <Card className="weatherCard ps-2 pe-2">
                                         <Card.Body>
-                                            <Row className="mb-3 currentWeatherRow">
+                                            <Row className="mb-3 currentTodayWeatherRows">
                                                 <Col className="me-2">
                                                     <div>
-                                                        <Card.Title className="cityStateCurrently">Currently in {weatherReturned.city_name}</Card.Title>
+                                                        <Card.Title className="cityToday">Currently in {weatherReturned.city_name}</Card.Title>
                                                         <Card.Text className="currentTime">{localTime}</Card.Text>
-                                                        <Card.Text className="descriptionCurrently">{weatherReturned.weather.description}</Card.Text>                       
+                                                        <Card.Text className="descriptionToday">{weatherReturned.weather.description}</Card.Text>                       
                                                     </div>
                                                 </Col>
                                                 
                                                 <Col className="d-flex justify-content-center">
                                                     <div>
-                                                        <div className="d-flex currentTempContainer">
+                                                        <div className="d-flex tempContainer">
                                                             <div className="weatherImgContainer">
                                                                 <img height="100" width="auto" src={`https://www.weatherbit.io/static/img/icons/${weatherReturned.weather.icon}.png`} alt={`${weatherReturned.weather.description} weather icon`} /> 
                                                             </div>
@@ -336,21 +434,21 @@ const Today = () => {
 
                                             <Row className="conditionsRow">
                                                 <Col className="windCol conditionsCol d-flex justify-content-center align-items-center">
-                                                    <div className="d-flex align-items-center windContainer conditionsContainer">
+                                                    <div className="d-flex align-items-center conditionsContainer">
                                                         <BsWind className="weatherIcons" /> 
                                                         <Card.Text className="ms-2 conditions">Wind {Math.round(weatherReturned.wind_spd)}mph {weatherReturned.wind_cdir}</Card.Text>                                                                            
                                                     </div>
                                                 </Col>
 
                                                 <Col className="humidityCol conditionsCol d-flex justify-content-center align-items-center">
-                                                    <div className="d-flex align-items-center humidityContainer conditionsContainer">
+                                                    <div className="d-flex align-items-center conditionsContainer">
                                                         <SiRainmeter className="weatherIcons" />
                                                         <Card.Text className="ms-2 conditions">Humidity {Math.round(weatherReturned.rh)}&#37;</Card.Text>                                                                                      
                                                     </div>
                                                 </Col>
 
                                                 <Col className="uvCol conditionsCol d-flex justify-content-center align-items-center">
-                                                    <div className="d-flex align-items-center uvContainer conditionsContainer">
+                                                    <div className="d-flex align-items-center conditionsContainer">
                                                         <BsFillSunFill className="weatherIcons" />
                                                         <Card.Text className="ms-2 conditions">UV Index {parseInt(weatherReturned.uv)}</Card.Text>                                                                                          
                                                     </div>
@@ -359,6 +457,7 @@ const Today = () => {
                                         </Card.Body>
                                     </Card>
                                 </section>
+
 
                                 <section className="uvAICardsSection mt-4">
                                     <div className="uvAICardsContainer">
@@ -390,6 +489,82 @@ const Today = () => {
                                             </Card.Body>
                                         </Card>
                                     </div>
+                                </section>
+
+
+                                <section className="weatherSectionCurrently mt-4 mb-4">
+                                    <Card className="weatherCard ps-2 pe-2">
+                                        <Card.Body>
+                                            <Row className="mb-3 currentTodayWeatherRows">
+                                                <Col className="me-2">
+                                                    <div>
+                                                        <Card.Title className="cityToday">Today in {weatherReturned.city_name}</Card.Title>
+                                                        <Card.Text className="descriptionToday">{weatherReturned.weather.description}</Card.Text>                       
+                                                    </div>
+                                                </Col>
+                                                
+                                                <Col className="d-flex justify-content-center">
+                                                    <div>
+                                                        <Card.Title id="currentlyText">Currently</Card.Title>
+                                                        <div className="d-flex tempContainer">
+                                                            <div className="weatherImgContainer">
+                                                                <img height="100" width="auto" src={`https://www.weatherbit.io/static/img/icons/${weatherReturned.weather.icon}.png`} alt={`${weatherReturned.weather.description} weather icon`} /> 
+                                                            </div>
+                                                            <div className="currentTemp">{Math.round(weatherReturned.temp)}&deg;<span id="fahrenheit">F</span></div>
+                                                            {/* <div className="degSymbol"></div>
+                                                            <div className="farSymbol">F</div> */}
+                                                        </div>
+                                                    </div>                                                                                         
+                                                </Col>
+                                            </Row>
+
+                                            <Row className="">
+                                                <Col className="hiLoCol conditionsCol d-flex justify-content-center align-items-center">
+                                                    <div className="d-flex align-items-center conditionsTodayContainer">
+                                                        <BiRadioCircle className="weatherIcons" /> 
+                                                        <Card.Text className="ms-2 conditions"><span className="me-3">High|Low</span>{Math.round(todaysWeather.high_temp)}&deg;|{Math.round(todaysWeather.low_temp)}&deg;</Card.Text>                                                                            
+                                                    </div>
+                                                </Col>
+
+                                                <Col className="humidTodayCol conditionsCol d-flex justify-content-center align-items-center">
+                                                    <div className="d-flex align-items-center conditionsTodayContainer">
+                                                        <SiRainmeter className="weatherIcons" />
+                                                        <Card.Text className="ms-2 conditions">Humidity {Math.round(weatherReturned.rh)}&#37;</Card.Text>                                                                                      
+                                                    </div>
+                                                </Col>
+
+                                                <Col className="visibilityCol conditionsCol d-flex justify-content-center align-items-center">
+                                                    <div className="d-flex align-items-center conditionsTodayContainer">
+                                                        <BsFillSunFill className="weatherIcons" />
+                                                        <Card.Text className="ms-2 conditions">UV Index {parseInt(weatherReturned.uv)}</Card.Text>                                                                                          
+                                                    </div>
+                                                </Col>
+                                            </Row>
+
+                                            <Row className="">
+                                                <Col className="pressureCol conditionsCol d-flex justify-content-center align-items-center">
+                                                    <div className="d-flex align-items-center conditionsTodayContainer">
+                                                        <BsWind className="weatherIcons" /> 
+                                                        <Card.Text className="ms-2 conditions">Wind {Math.round(weatherReturned.wind_spd)}mph {weatherReturned.wind_cdir}</Card.Text>                                                                            
+                                                    </div>
+                                                </Col>
+
+                                                <Col className="dewPointCol conditionsCol d-flex justify-content-center align-items-center">
+                                                    <div className="d-flex align-items-center conditionsTodayContainer">
+                                                        <SiRainmeter className="weatherIcons" />
+                                                        <Card.Text className="ms-2 conditions">Humidity {Math.round(weatherReturned.rh)}&#37;</Card.Text>                                                                                      
+                                                    </div>
+                                                </Col>
+
+                                                <Col className="sunriseSunsetCol conditionsCol d-flex justify-content-center align-items-center">
+                                                    <div className="d-flex align-items-center conditionsTodayContainer">
+                                                        <BsFillSunFill className="weatherIcons" />
+                                                        <Card.Text className="ms-2 conditions">UV Index {parseInt(weatherReturned.uv)}</Card.Text>                                                                                          
+                                                    </div>
+                                                </Col>
+                                            </Row>
+                                        </Card.Body>
+                                    </Card>
                                 </section>
                             </main>
                         </Col>
