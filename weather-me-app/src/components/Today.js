@@ -383,205 +383,202 @@ const Today = () => {
     })
 
     
+    if(weatherReturned !== undefined && todaysWeather !== undefined) {
+        return (
+            <div className="pageContainer d-flex flex-column">
+                <div className="todayContentWrapper">
+                    <div className="nonFooterWrapper">
+                        {/* setLat and setLon are props equal to a function that calls your state functions, setLatitude and setLongitude */}
+                        <SearchNav setLat={latitude => setLatitude(latitude)} setLon={longitude => setLongitude(longitude)} />
 
-    
-   
+                        <div className="weatherNewsContainer mx-auto mt-4 d-flex">
+                            <Col xs={12} lg={9} className="d-flex justify-content-center">
+                                <main className="">
+                                    <section className="weatherSectionCurrently">
+                                        <Card className="weatherCard ps-2 pe-2">
+                                            <Card.Body>
+                                                <Row className="mb-3 currentTodayWeatherRows">
+                                                    <Col className="me-2">
+                                                        <div>
+                                                            <Card.Title className="cityToday">Currently in {weatherReturned.city_name}</Card.Title>
+                                                            <Card.Text className="currentTime">{localTime}</Card.Text>
+                                                            <Card.Text className="descriptionToday">{weatherReturned.weather.description}</Card.Text>                       
+                                                        </div>
+                                                    </Col>
+                                                    
+                                                    <Col className="d-flex justify-content-center">
+                                                        <div>
+                                                            <div className="d-flex tempContainer">
+                                                                <div className="weatherImgContainer">
+                                                                    <img height="100" width="auto" src={`https://www.weatherbit.io/static/img/icons/${weatherReturned.weather.icon}.png`} alt={`${weatherReturned.weather.description} weather icon`} /> 
+                                                                </div>
+                                                                <div className="currentTemp">{Math.round(weatherReturned.temp)}&deg;<span id="fahrenheit">F</span></div>
+                                                                {/* <div className="degSymbol"></div>
+                                                                <div className="farSymbol">F</div> */}
+                                                            </div>
+
+                                                            <div className="feelsLike">
+                                                                Feels Like {Math.round(weatherReturned.app_temp)}&#8457;
+                                                            </div> 
+                                                        </div>                                                                                         
+                                                    </Col>
+                                                </Row>
+
+                                                <Row className="conditionsRow">
+                                                    <Col className="windCol conditionsCol d-flex justify-content-center align-items-center">
+                                                        <div className="d-flex align-items-center conditionsContainer">
+                                                            <BsWind className="weatherIcons" /> 
+                                                            <Card.Text className="ms-2 conditions">Wind {Math.round(weatherReturned.wind_spd)}mph {weatherReturned.wind_cdir}</Card.Text>                                                                            
+                                                        </div>
+                                                    </Col>
+
+                                                    <Col className="humidityCol conditionsCol d-flex justify-content-center align-items-center">
+                                                        <div className="d-flex align-items-center conditionsContainer">
+                                                            <SiRainmeter className="weatherIcons" />
+                                                            <Card.Text className="ms-2 conditions">Humidity {Math.round(weatherReturned.rh)}&#37;</Card.Text>                                                                                      
+                                                        </div>
+                                                    </Col>
+
+                                                    <Col className="uvCol conditionsCol d-flex justify-content-center align-items-center">
+                                                        <div className="d-flex align-items-center conditionsContainer">
+                                                            <BsFillSunFill className="weatherIcons" />
+                                                            <Card.Text className="ms-2 conditions">UV Index {parseInt(weatherReturned.uv)}</Card.Text>                                                                                          
+                                                        </div>
+                                                    </Col>
+                                                </Row>
+                                            </Card.Body>
+                                        </Card>
+                                    </section>
+
+
+                                    <section className="uvAICardsSection mt-4">
+                                        <div className="uvAICardsContainer">
+                                            <Card className="aiCard uvAICards">
+                                                <Card.Body>
+                                                    <div className="d-flex">
+                                                        <Card.Title>Air Quality Index</Card.Title>
+                                                        <div id="aqiCircleColor" style={{backgroundColor: `${airIndexColor}`}}></div>
+                                                    </div>
+                                                    <Card.Subtitle className="mb-2">{weatherReturned.aqi} | {airIndex}</Card.Subtitle>
+                                                    <Card.Text>{airIndexDescription}</Card.Text>
+                                                    <Card.Text style={{fontSize: "0.8rem"}} className="mt-3">
+                                                        *Credit to <a id="creditGovText" href="https://www.airnow.gov/aqi/aqi-basics/" target="_blank" rel="noopener noreferrer">airnow.gov</a> for AQI Descriptions
+                                                    </Card.Text>
+                                                </Card.Body>
+                                            </Card>
+
+                                            <Card className="uvCard uvAICards">
+                                                <Card.Body>
+                                                    <div className="d-flex">
+                                                        <Card.Title>UV Index</Card.Title>
+                                                        <div id="uvCircleColor" style={{backgroundColor: `${uvIndexColor}`}}></div>
+                                                    </div>
+                                                    <Card.Subtitle className="mb-2">{parseInt(weatherReturned.uv)} | {uvIndex} </Card.Subtitle>
+                                                    <Card.Text>{uvIndexDescription}</Card.Text>        
+                                                    <Card.Text style={{fontSize: "0.8rem"}} className="mt-3">
+                                                        *Credit to <a id="creditGovText" href="https://www.epa.gov/sunsafety/uv-index-scale-0" target="_blank" rel="noopener noreferrer">epa.gov</a> for UV Index Descriptions
+                                                    </Card.Text>                                                                                   
+                                                </Card.Body>
+                                            </Card>
+                                        </div>
+                                    </section>
+
+
+                                    <section className="weatherSectionCurrently mt-4 mb-4">
+                                        <Card className="weatherCard ps-2 pe-2">
+                                            <Card.Body>
+                                                <Row className="mb-3 currentTodayWeatherRows">
+                                                    <Col className="me-2">
+                                                        <div>
+                                                            <Card.Title className="cityToday">Today in {weatherReturned.city_name}</Card.Title>
+                                                            <Card.Text className="descriptionToday">{weatherReturned.weather.description}</Card.Text>                       
+                                                        </div>
+                                                    </Col>
+                                                    
+                                                    <Col className="d-flex justify-content-center">
+                                                        <div>
+                                                            <Card.Title id="currentlyText">Currently</Card.Title>
+                                                            <div className="d-flex tempContainer">
+                                                                <div className="weatherImgContainer">
+                                                                    <img height="100" width="auto" src={`https://www.weatherbit.io/static/img/icons/${weatherReturned.weather.icon}.png`} alt={`${weatherReturned.weather.description} weather icon`} /> 
+                                                                </div>
+                                                                <div className="currentTemp">{Math.round(weatherReturned.temp)}&deg;<span id="fahrenheit">F</span></div>
+                                                                {/* <div className="degSymbol"></div>
+                                                                <div className="farSymbol">F</div> */}
+                                                            </div>
+                                                        </div>                                                                                         
+                                                    </Col>
+                                                </Row>
+
+                                                <Row className="">
+                                                    <Col className="hiLoCol conditionsCol d-flex justify-content-center align-items-center">
+                                                        <div className="d-flex align-items-center conditionsTodayContainer">
+                                                            <BiRadioCircle className="weatherIcons" /> 
+                                                            <Card.Text className="ms-2 conditions"><span className="me-3">High|Low</span>{Math.round(todaysWeather.high_temp)}&deg;|{Math.round(todaysWeather.low_temp)}&deg;</Card.Text>                                                                            
+                                                        </div>
+                                                    </Col>
+
+                                                    <Col className="humidTodayCol conditionsCol d-flex justify-content-center align-items-center">
+                                                        <div className="d-flex align-items-center conditionsTodayContainer">
+                                                            <SiRainmeter className="weatherIcons" />
+                                                            <Card.Text className="ms-2 conditions">Humidity {Math.round(weatherReturned.rh)}&#37;</Card.Text>                                                                                      
+                                                        </div>
+                                                    </Col>
+
+                                                    <Col className="visibilityCol conditionsCol d-flex justify-content-center align-items-center">
+                                                        <div className="d-flex align-items-center conditionsTodayContainer">
+                                                            <BsFillSunFill className="weatherIcons" />
+                                                            <Card.Text className="ms-2 conditions">UV Index {parseInt(weatherReturned.uv)}</Card.Text>                                                                                          
+                                                        </div>
+                                                    </Col>
+                                                </Row>
+
+                                                <Row className="">
+                                                    <Col className="pressureCol conditionsCol d-flex justify-content-center align-items-center">
+                                                        <div className="d-flex align-items-center conditionsTodayContainer">
+                                                            <BsWind className="weatherIcons" /> 
+                                                            <Card.Text className="ms-2 conditions">Wind {Math.round(weatherReturned.wind_spd)}mph {weatherReturned.wind_cdir}</Card.Text>                                                                            
+                                                        </div>
+                                                    </Col>
+
+                                                    <Col className="dewPointCol conditionsCol d-flex justify-content-center align-items-center">
+                                                        <div className="d-flex align-items-center conditionsTodayContainer">
+                                                            <SiRainmeter className="weatherIcons" />
+                                                            <Card.Text className="ms-2 conditions">Humidity {Math.round(weatherReturned.rh)}&#37;</Card.Text>                                                                                      
+                                                        </div>
+                                                    </Col>
+
+                                                    <Col className="sunriseSunsetCol conditionsCol d-flex justify-content-center align-items-center">
+                                                        <div className="d-flex align-items-center conditionsTodayContainer">
+                                                            <BsFillSunFill className="weatherIcons" />
+                                                            <Card.Text className="ms-2 conditions">UV Index {parseInt(weatherReturned.uv)}</Card.Text>                                                                                          
+                                                        </div>
+                                                    </Col>
+                                                </Row>
+                                            </Card.Body>
+                                        </Card>
+                                    </section>
+                                </main>
+                            </Col>
+
+                            <Col xs={12} lg={3} className="d-flex justify-content-center worldNewsCol">
+                                <aside className="todayAside">
+                                    <h4 className="text-center worldNewsHeadline">World News Today</h4>
+                                    {allNews}
+                                </aside>
+                            </Col>  
+                        </div>
+                    </div>
+
+                    <Footer />
+                </div>
+            </div>
+        );
+    }
     
     return (
       <div className="pageContainer d-flex flex-column">
-        {weatherReturned === undefined && todaysWeather === undefined ? (
-            <div className="mt-5">
-                <div className="text-center">{loading}</div>
-            </div>
-          ) : (
-            <div className="todayContentWrapper">
-                <div className="nonFooterWrapper">
-                    {/* setLat and setLon are props equal to a function that calls your state functions, setLatitude and setLongitude */}
-                    <SearchNav setLat={latitude => setLatitude(latitude)} setLon={longitude => setLongitude(longitude)} />
-
-                    <div className="weatherNewsContainer mx-auto mt-4 d-flex">
-                        <Col xs={12} lg={9} className="d-flex justify-content-center">
-                            <main className="">
-                                <section className="weatherSectionCurrently">
-                                    <Card className="weatherCard ps-2 pe-2">
-                                        <Card.Body>
-                                            <Row className="mb-3 currentTodayWeatherRows">
-                                                <Col className="me-2">
-                                                    <div>
-                                                        <Card.Title className="cityToday">Currently in {weatherReturned.city_name}</Card.Title>
-                                                        <Card.Text className="currentTime">{localTime}</Card.Text>
-                                                        <Card.Text className="descriptionToday">{weatherReturned.weather.description}</Card.Text>                       
-                                                    </div>
-                                                </Col>
-                                                
-                                                <Col className="d-flex justify-content-center">
-                                                    <div>
-                                                        <div className="d-flex tempContainer">
-                                                            <div className="weatherImgContainer">
-                                                                <img height="100" width="auto" src={`https://www.weatherbit.io/static/img/icons/${weatherReturned.weather.icon}.png`} alt={`${weatherReturned.weather.description} weather icon`} /> 
-                                                            </div>
-                                                            <div className="currentTemp">{Math.round(weatherReturned.temp)}&deg;<span id="fahrenheit">F</span></div>
-                                                            {/* <div className="degSymbol"></div>
-                                                            <div className="farSymbol">F</div> */}
-                                                        </div>
-
-                                                        <div className="feelsLike">
-                                                            Feels Like {Math.round(weatherReturned.app_temp)}&#8457;
-                                                        </div> 
-                                                    </div>                                                                                         
-                                                </Col>
-                                            </Row>
-
-                                            <Row className="conditionsRow">
-                                                <Col className="windCol conditionsCol d-flex justify-content-center align-items-center">
-                                                    <div className="d-flex align-items-center conditionsContainer">
-                                                        <BsWind className="weatherIcons" /> 
-                                                        <Card.Text className="ms-2 conditions">Wind {Math.round(weatherReturned.wind_spd)}mph {weatherReturned.wind_cdir}</Card.Text>                                                                            
-                                                    </div>
-                                                </Col>
-
-                                                <Col className="humidityCol conditionsCol d-flex justify-content-center align-items-center">
-                                                    <div className="d-flex align-items-center conditionsContainer">
-                                                        <SiRainmeter className="weatherIcons" />
-                                                        <Card.Text className="ms-2 conditions">Humidity {Math.round(weatherReturned.rh)}&#37;</Card.Text>                                                                                      
-                                                    </div>
-                                                </Col>
-
-                                                <Col className="uvCol conditionsCol d-flex justify-content-center align-items-center">
-                                                    <div className="d-flex align-items-center conditionsContainer">
-                                                        <BsFillSunFill className="weatherIcons" />
-                                                        <Card.Text className="ms-2 conditions">UV Index {parseInt(weatherReturned.uv)}</Card.Text>                                                                                          
-                                                    </div>
-                                                </Col>
-                                            </Row>
-                                        </Card.Body>
-                                    </Card>
-                                </section>
-
-
-                                <section className="uvAICardsSection mt-4">
-                                    <div className="uvAICardsContainer">
-                                        <Card className="aiCard uvAICards">
-                                            <Card.Body>
-                                                <div className="d-flex">
-                                                    <Card.Title>Air Quality Index</Card.Title>
-                                                    <div id="aqiCircleColor" style={{backgroundColor: `${airIndexColor}`}}></div>
-                                                </div>
-                                                <Card.Subtitle className="mb-2">{weatherReturned.aqi} | {airIndex}</Card.Subtitle>
-                                                <Card.Text>{airIndexDescription}</Card.Text>
-                                                <Card.Text style={{fontSize: "0.8rem"}} className="mt-3">
-                                                    *Credit to <a id="creditGovText" href="https://www.airnow.gov/aqi/aqi-basics/" target="_blank" rel="noopener noreferrer">airnow.gov</a> for AQI Descriptions
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-
-                                        <Card className="uvCard uvAICards">
-                                            <Card.Body>
-                                                <div className="d-flex">
-                                                    <Card.Title>UV Index</Card.Title>
-                                                    <div id="uvCircleColor" style={{backgroundColor: `${uvIndexColor}`}}></div>
-                                                </div>
-                                                <Card.Subtitle className="mb-2">{parseInt(weatherReturned.uv)} | {uvIndex} </Card.Subtitle>
-                                                <Card.Text>{uvIndexDescription}</Card.Text>        
-                                                <Card.Text style={{fontSize: "0.8rem"}} className="mt-3">
-                                                    *Credit to <a id="creditGovText" href="https://www.epa.gov/sunsafety/uv-index-scale-0" target="_blank" rel="noopener noreferrer">epa.gov</a> for UV Index Descriptions
-                                                </Card.Text>                                                                                   
-                                            </Card.Body>
-                                        </Card>
-                                    </div>
-                                </section>
-
-
-                                <section className="weatherSectionCurrently mt-4 mb-4">
-                                    <Card className="weatherCard ps-2 pe-2">
-                                        <Card.Body>
-                                            <Row className="mb-3 currentTodayWeatherRows">
-                                                <Col className="me-2">
-                                                    <div>
-                                                        <Card.Title className="cityToday">Today in {weatherReturned.city_name}</Card.Title>
-                                                        <Card.Text className="descriptionToday">{weatherReturned.weather.description}</Card.Text>                       
-                                                    </div>
-                                                </Col>
-                                                
-                                                <Col className="d-flex justify-content-center">
-                                                    <div>
-                                                        <Card.Title id="currentlyText">Currently</Card.Title>
-                                                        <div className="d-flex tempContainer">
-                                                            <div className="weatherImgContainer">
-                                                                <img height="100" width="auto" src={`https://www.weatherbit.io/static/img/icons/${weatherReturned.weather.icon}.png`} alt={`${weatherReturned.weather.description} weather icon`} /> 
-                                                            </div>
-                                                            <div className="currentTemp">{Math.round(weatherReturned.temp)}&deg;<span id="fahrenheit">F</span></div>
-                                                            {/* <div className="degSymbol"></div>
-                                                            <div className="farSymbol">F</div> */}
-                                                        </div>
-                                                    </div>                                                                                         
-                                                </Col>
-                                            </Row>
-
-                                            <Row className="">
-                                                <Col className="hiLoCol conditionsCol d-flex justify-content-center align-items-center">
-                                                    <div className="d-flex align-items-center conditionsTodayContainer">
-                                                        <BiRadioCircle className="weatherIcons" /> 
-                                                        <Card.Text className="ms-2 conditions"><span className="me-3">High|Low</span>{Math.round(todaysWeather.high_temp)}&deg;|{Math.round(todaysWeather.low_temp)}&deg;</Card.Text>                                                                            
-                                                    </div>
-                                                </Col>
-
-                                                <Col className="humidTodayCol conditionsCol d-flex justify-content-center align-items-center">
-                                                    <div className="d-flex align-items-center conditionsTodayContainer">
-                                                        <SiRainmeter className="weatherIcons" />
-                                                        <Card.Text className="ms-2 conditions">Humidity {Math.round(weatherReturned.rh)}&#37;</Card.Text>                                                                                      
-                                                    </div>
-                                                </Col>
-
-                                                <Col className="visibilityCol conditionsCol d-flex justify-content-center align-items-center">
-                                                    <div className="d-flex align-items-center conditionsTodayContainer">
-                                                        <BsFillSunFill className="weatherIcons" />
-                                                        <Card.Text className="ms-2 conditions">UV Index {parseInt(weatherReturned.uv)}</Card.Text>                                                                                          
-                                                    </div>
-                                                </Col>
-                                            </Row>
-
-                                            <Row className="">
-                                                <Col className="pressureCol conditionsCol d-flex justify-content-center align-items-center">
-                                                    <div className="d-flex align-items-center conditionsTodayContainer">
-                                                        <BsWind className="weatherIcons" /> 
-                                                        <Card.Text className="ms-2 conditions">Wind {Math.round(weatherReturned.wind_spd)}mph {weatherReturned.wind_cdir}</Card.Text>                                                                            
-                                                    </div>
-                                                </Col>
-
-                                                <Col className="dewPointCol conditionsCol d-flex justify-content-center align-items-center">
-                                                    <div className="d-flex align-items-center conditionsTodayContainer">
-                                                        <SiRainmeter className="weatherIcons" />
-                                                        <Card.Text className="ms-2 conditions">Humidity {Math.round(weatherReturned.rh)}&#37;</Card.Text>                                                                                      
-                                                    </div>
-                                                </Col>
-
-                                                <Col className="sunriseSunsetCol conditionsCol d-flex justify-content-center align-items-center">
-                                                    <div className="d-flex align-items-center conditionsTodayContainer">
-                                                        <BsFillSunFill className="weatherIcons" />
-                                                        <Card.Text className="ms-2 conditions">UV Index {parseInt(weatherReturned.uv)}</Card.Text>                                                                                          
-                                                    </div>
-                                                </Col>
-                                            </Row>
-                                        </Card.Body>
-                                    </Card>
-                                </section>
-                            </main>
-                        </Col>
-
-                        <Col xs={12} lg={3} className="d-flex justify-content-center worldNewsCol">
-                            <aside className="todayAside">
-                                <h4 className="text-center worldNewsHeadline">World News Today</h4>
-                                {allNews}
-                            </aside>
-                        </Col>  
-                    </div>
-                </div>
-
-                <Footer />
-            </div>
-          )
-        }
+          <div className="mt-5 text-center">{loading}</div>
       </div>
     );
 }
