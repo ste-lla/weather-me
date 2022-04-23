@@ -154,6 +154,8 @@ my content downward to make space for itself
 .homeWeatherRow {
     color: black;
     background-color: #dadcfb60;
+    /* color: white;
+    background-color: #0F3D5C; */
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
@@ -161,8 +163,8 @@ my content downward to make space for itself
 .newsContainer {
     width: 80vw;
     height: auto;
-   /*  border: 3px solid #022538;
-    border-radius: 1rem; */
+    background-color: #0F3D5C !important;
+    border-radius: 1rem !important;
 }
 
 #articleHeadline {
@@ -380,11 +382,11 @@ my content downward to make space for itself
         border-radius: 0.5rem;
     }
 
-    .humidTodayCol {
+    .popCol {
         background: rgb(15,61,92);
-        background: -moz-linear-gradient(224deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-        background: -webkit-linear-gradient(224deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-        background: linear-gradient(224deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -moz-linear-gradient(190deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(190deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(190deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
 
         border-radius: 0.5rem;
@@ -402,9 +404,9 @@ my content downward to make space for itself
 
     .pressureCol {
         background: rgb(15,61,92);
-        background: -moz-linear-gradient(110deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-        background: -webkit-linear-gradient(110deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-        background: linear-gradient(110deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -moz-linear-gradient(340deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(340deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(340deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
 
         border-radius: 0.5rem;
@@ -412,15 +414,15 @@ my content downward to make space for itself
 
     .dewPointCol {
         background: rgb(15,61,92);
-        background: -moz-linear-gradient(41deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-        background: -webkit-linear-gradient(41deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-        background: linear-gradient(41deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -moz-linear-gradient(0deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(0deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(0deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
 
         border-radius: 0.5rem;
     }
 
-    .sunriseSunsetCol {
+    .cloudCoverCol {
         background: rgb(15,61,92);
         background: -moz-linear-gradient(8deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
         background: -webkit-linear-gradient(8deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
@@ -566,12 +568,13 @@ my content downward to make space for itself
         }
         
         .conditionsCol {
-           margin-bottom: 0.75rem;     
+           margin-bottom: 0.75rem;
+           padding: 1rem;     
         }
 
-        .conditionsContainer {
+        /* .conditionsContainer {
             padding: 1rem;
-        }
+        } */
 
 
         /* AQI & UV INDEX CARDS */
@@ -673,9 +676,9 @@ my content downward to make space for itself
 @media only screen and (min-width: 320px) {
     /* TODAY */
 
-        .humidityCol {
+        /* .humidityCol {
             margin-right: 0.5rem;
-        }
+        } */
         
 }
 
@@ -684,13 +687,13 @@ my content downward to make space for itself
 @media only screen and (min-width: 320px) {
     /* TODAY */
 
-        .windCol {
+       /*  .windCol {
             margin-right: 0.5rem;
-        }
+        } */
 
-        .humidityCol {
+       /*  .humidityCol {
             margin-right: 0rem;
-        }
+        } */
         
 }
 
@@ -756,13 +759,13 @@ my content downward to make space for itself
 @media only screen and (min-width: 320px) {
     /* TODAY */
 
-        .windCol {
+       /*  .windCol {
             margin-right: 0.5rem;
-        }
+        } */
 
-        .humidityCol {
+       /*  .humidityCol {
             margin-right: 0.5rem;
-        }
+        } */
         
 }
 
@@ -828,6 +831,20 @@ my content downward to make space for itself
             font-size: 1.1rem;
         }
 
+        .windCol {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .humidityCol {
+            margin-right: 0.5rem;
+            margin-left: auto;
+        }
+
+        .uvCol {
+            margin-right: auto;
+        }
+
 
         /* AQI & UV INDEX CARDS */
 
@@ -850,6 +867,34 @@ my content downward to make space for itself
             font-size: 1.06rem !important;
         }
 
+        .hiLoCol {
+            margin-left: auto;
+            margin-right: 0.5rem;
+        }
+        
+        .popCol {
+            margin-right: auto;
+        }
+
+        .visibilityCol {
+            margin-left: auto;
+            margin-right: 0.5rem;
+        }
+
+        .dewPointCol {
+            margin-left: 0rem;
+            margin-right: auto;
+        }
+        
+        .cloudCoverCol {
+            margin-left: auto;
+            margin-right: 0.5rem;
+        }
+        
+        .pressureCol {
+            margin-right: auto;
+            margin-left: 0rem;
+        }
 
         /* WORLD NEWS */
 
@@ -867,7 +912,8 @@ my content downward to make space for itself
 
 
     /* FOOTER */
-        .footerCtrCol {
+        
+        .footerCols {
             display: flex;
             justify-content: center;
         }
@@ -965,13 +1011,13 @@ my content downward to make space for itself
             font-size: 1.1rem;
         }
 
-        .windCol {
+        /* .windCol {
             margin-right: 1rem;
-        }
+        } */
 
-        .humidityCol {
+       /*  .humidityCol {
             margin-right: 1rem;
-        }
+        } */
 
         .conditions {
             font-size: 1.12rem;
@@ -1106,6 +1152,20 @@ my content downward to make space for itself
             font-size: 1.2rem;
         }
 
+        .windCol {
+            margin-left: auto;
+            margin-right: 0rem;
+        }
+
+        .humidityCol {
+            margin-right: 0.5rem;
+            margin-left: 0.5rem;
+        }
+
+        .uvCol {
+            margin-right: auto;
+        }
+
         
         /* AQI & UV INDEX CARDS */
 
@@ -1120,6 +1180,19 @@ my content downward to make space for itself
             font-size: 1.18rem !important;
         }
 
+        /* .hiLoCol {
+            margin-right: 0.5rem;
+            margin-left: auto;
+        } */
+        
+       /*  .popCol {
+            margin-right: 0.5rem;
+        } */
+
+        .visibilityCol {
+            margin-right: auto;
+        }
+
 
         /* WORLD NEWS */
 
@@ -1128,7 +1201,8 @@ my content downward to make space for itself
         }
 
         .todayAside {
-            height: 78vh;
+            /* height: 78vh; */
+            height: 75rem;
             overflow-x: none;
             overflow-y: auto;            
         }
@@ -1214,9 +1288,13 @@ my content downward to make space for itself
             font-size: 2.6rem;
         }
 
-        .conditionsContainer {
-            padding: 1.75rem
+        .conditionsCol {
+            padding: 1.75rem;     
         }
+
+        /* .conditionsContainer {
+            padding: 1.75rem
+        } */
 
 
         /* TODAYS WEATHER */
@@ -1227,6 +1305,35 @@ my content downward to make space for itself
 
         .conditionsTodayContainer {
             padding: 1.75rem 1.25rem; /* DOUBLE CHECK THIS LOOKS OK */
+        }
+
+        .hiLoCol {
+            margin-left: auto;
+            margin-right: 0.5rem;
+        }
+        
+        .popCol {
+            margin-right: 0rem;
+        }
+
+        .visibilityCol {
+            margin-left: 0.5rem;
+            margin-right: auto;
+        }
+
+        .pressureCol {
+            margin-left: 0.5rem;
+            margin-right: auto;
+        }
+
+        .dewPointCol {
+            margin-left: auto;
+            margin-right: 0.5rem;
+        }
+
+        .cloudCoverCol {
+            margin-left: 0rem;
+            margin-right: 0rem;
         }
 
 
@@ -1310,9 +1417,13 @@ my content downward to make space for itself
             font-size: 1.2rem;
         }
 
-        .conditionsContainer {
-            padding: 2.5rem;
+        .conditionsCol {
+            padding: 2.5rem;     
         }
+
+        /* .conditionsContainer {
+            padding: 2.5rem;
+        } */
 
         .weatherIcons {
             font-size: 1.3rem;

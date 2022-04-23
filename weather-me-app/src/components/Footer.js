@@ -9,25 +9,25 @@ import { BsYoutube } from "react-icons/bs";
 
 const Footer = () => {
   return(
-    <footer className="footerContainer">
+    <footer className="">
       <Row className="footer">
-        <Col xs={6} sm={3} md={2} lg={3} xl={4}>
-          <div className="footerLeft">
+        <Col xs={6} sm={3} md={2} lg={3} xl={4} className="footerCols">
+          <div className="">
             <div><Link to="#" className="footerLinks">About Us</Link></div>
             <div><Link to="#" className="footerLinks">Contact</Link></div>
             <div><Link to="#" className="footerLinks">Careers</Link></div>
           </div>
         </Col>
 
-        <Col xs={6} sm={4} md={7} lg={6} xl={4} className="footerCtrCol">
-          <div className="footerCenter">
+        <Col xs={6} sm={4} md={7} lg={6} xl={4} className="footerCols">
+          <div className="">
             <div><Link to="#" className="footerLinks">Feedback</Link></div>
             <div><Link to="#" className="footerLinks">Terms of Use</Link></div>
             <div><Link to="#" className="footerLinks">Privacy Policy</Link></div>
           </div>
         </Col>
 
-        <Col xs={12} sm={5} md={3} lg={3} xl={4}>
+        <Col xs={12} sm={5} md={3} lg={3} xl={4} className="footerCols">
           <div className="footerRight">
             <div className="connectWithUs">Connect With Us</div>
             <div className="mt-3 socMedIconContainer">
