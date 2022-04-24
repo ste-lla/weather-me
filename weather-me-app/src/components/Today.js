@@ -14,6 +14,8 @@ import { FaRegEye } from 'react-icons/fa';
 import { BsArrowsCollapse } from 'react-icons/bs';
 import { MdWaterDrop } from 'react-icons/md';
 import { IoIosCloud } from 'react-icons/io';
+import { BsSunriseFill } from 'react-icons/bs';
+import { FiSunset } from 'react-icons/fi';
 
 
 
@@ -395,7 +397,33 @@ const Today = () => {
         let pressure = todaysWeather.pres * 0.0295301;
         pressure = pressure.toFixed(2);
 
+        const unixSunrise = todaysWeather.sunrise_ts;
+        const unixSunset = todaysWeather.sunset_ts;
 
+        const millisecondsSunrise = unixSunrise * 1000;
+        const millisecondsSunset = unixSunset * 1000;
+
+        const dateObjectSunrise = new Date(millisecondsSunrise);
+        const dateObjectSunset = new Date(millisecondsSunset);
+
+        const sunriseDate = dateObjectSunrise.toLocaleString("en-US", {timeZone: `${weatherReturned.timezone}`});
+        const sunsetDate = dateObjectSunset.toLocaleString("en-US", {timeZone: `${weatherReturned.timezone}`});
+
+        let splitSunrise = sunriseDate.split(',')[1].split(":");
+        let splitSunset = sunsetDate.split(',')[1].split(":");
+
+        let sunriseHr = splitSunrise[0];
+        let sunsetHr = splitSunset[0];
+        
+        let sunriseMin = splitSunrise[1];
+        let sunsetMin = splitSunset[1];
+
+        let sunriseTime = `${sunriseHr}:${sunriseMin} AM`
+        let sunsetTime = `${sunsetHr}:${sunsetMin} PM`
+
+        //console.log(sunriseTime, sunsetTime);
+        
+      
         return (
             <div className="pageContainer d-flex flex-column">
                 <div className="todayContentWrapper">
@@ -437,7 +465,7 @@ const Today = () => {
                                                 </Row>
 
                                                 <Row className="">
-                                                    <Col xs={12} sm={9} lg={4} xl={5} className="windCol conditionsCol d-flex align-items-center justify-content-around">
+                                                    <Col xs={12} sm={9} lg={4} xl={4} className="windCol conditionsCol d-flex align-items-center justify-content-around">
                                                         <div className="">
                                                             <BsWind className="weatherIcons me-2" />
                                                             <span className="conditions">Wind</span>
@@ -448,7 +476,7 @@ const Today = () => {
                                                         </Card.Text>                                                                            
                                                     </Col>
 
-                                                    <Col xs={12} sm={7} lg={4} xl={3} className="humidityCol conditionsCol d-flex align-items-center justify-content-around">
+                                                    <Col xs={12} sm={7} lg={4} xl={4} className="humidityCol conditionsCol d-flex align-items-center justify-content-around">
                                                         <div className="">
                                                             <SiRainmeter className="weatherIcons me-2" />
                                                             <span className="conditions">Humidity</span>
@@ -600,6 +628,28 @@ const Today = () => {
                                                         
                                                         <Card.Text className="conditions">
                                                             {pressure} in
+                                                        </Card.Text>                                                                            
+                                                    </Col>
+
+                                                    <Col xs={12} sm={6} className="sunriseCol conditionsCol d-flex align-items-center justify-content-around">
+                                                        <div className="">
+                                                            <BsSunriseFill className="weatherIcons me-2" /> 
+                                                            <span className="conditions">Sunrise</span>
+                                                        </div>
+                                                        
+                                                        <Card.Text className="conditions">
+                                                            {sunriseTime}
+                                                        </Card.Text>                                                                            
+                                                    </Col>
+
+                                                    <Col xs={12} sm={5} className="sunsetCol conditionsCol d-flex align-items-center justify-content-around">
+                                                        <div className="">
+                                                            <FiSunset className="weatherIcons me-2" /> 
+                                                            <span className="conditions">Sunset</span>
+                                                        </div>
+                                                        
+                                                        <Card.Text className="conditions">
+                                                            {sunsetTime}
                                                         </Card.Text>                                                                            
                                                     </Col>
                                                 </Row>

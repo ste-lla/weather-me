@@ -303,22 +303,6 @@ my content downward to make space for itself
         border-radius: 0.5rem;
     }
 
-        /* .degSymbol {
-        height: 10px;
-        border: 2px solid white;
-        padding: 0.3rem;
-        border-radius: 50%;
-        position: absolute;
-        left: 11.7rem;
-        top: 2rem;
-    } */
-
-    /* .farSymbol {
-        position: absolute;
-        left: 11.9rem;
-        top: 3.8rem 
-    } */
-
 
     /* AIR QUAL INDEX & UV INDEX CARDS */
 
@@ -432,6 +416,45 @@ my content downward to make space for itself
         border-radius: 0.5rem;
     }
 
+    .sunriseCol {
+        background: rgb(15,61,92);
+        background: -moz-linear-gradient(246deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(246deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(246deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+
+        border-radius: 0.5rem;
+    }
+
+    .sunsetCol {
+        background: rgb(15,61,92);
+        background: -moz-linear-gradient(175deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(175deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(175deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+
+        border-radius: 0.5rem;
+    }
+
+
+
+/* ----------------------------------------------------------------- */
+
+
+/* FIVE DAY WEATHER */
+
+
+.accordion {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ----------------------------------------------------------------- */
+
+
+
+/* TEN DAY WEATHER */
 
 
 /* ----------------------------------------------------------------- */
@@ -572,10 +595,6 @@ my content downward to make space for itself
            padding: 1rem;     
         }
 
-        /* .conditionsContainer {
-            padding: 1rem;
-        } */
-
 
         /* AQI & UV INDEX CARDS */
 
@@ -618,6 +637,13 @@ my content downward to make space for itself
 
         #articleTextToday {
             font-size: 0.8rem;
+        }
+
+    
+    /* FIVE DAY WEATHER */
+
+        .accordion {
+            width: 90vw;
         }
 
 
@@ -896,6 +922,15 @@ my content downward to make space for itself
             margin-left: 0rem;
         }
 
+        .sunriseCol {
+            margin-left: auto;
+            margin-right: 0.5rem;
+        }
+
+        .sunsetCol {
+            margin-right: auto;
+        }
+
         /* WORLD NEWS */
 
         .newsCard {
@@ -908,6 +943,13 @@ my content downward to make space for itself
 
         #articleTextToday {
             font-size: 0.9rem;
+        }
+
+
+    /* FIVE DAY WEATHER */
+
+        .accordion {
+            width: 85vw;
         }
 
 
@@ -1011,14 +1053,6 @@ my content downward to make space for itself
             font-size: 1.1rem;
         }
 
-        /* .windCol {
-            margin-right: 1rem;
-        } */
-
-       /*  .humidityCol {
-            margin-right: 1rem;
-        } */
-
         .conditions {
             font-size: 1.12rem;
         }
@@ -1050,6 +1084,9 @@ my content downward to make space for itself
         #articleTextToday {
             font-size: 1rem;
         }
+
+
+
 }
 
 
@@ -1202,13 +1239,20 @@ my content downward to make space for itself
 
         .todayAside {
             /* height: 78vh; */
-            height: 75rem;
+            height: 77.2rem;
             overflow-x: none;
             overflow-y: auto;            
         }
 
         .newsCard {
             width: 17vw;
+        }
+
+
+    /* FIVE DAY WEATHER */
+
+        .accordion {
+            width: 80vw;
         }
 
 }
@@ -1443,6 +1487,13 @@ my content downward to make space for itself
         .conditionsTodayContainer {
             padding: 2.5rem 1.5rem;
         }
+
+    
+    /* FIVE DAY WEATHER */
+
+        .accordion {
+            width: 75vw;
+        }   
 
 }
 
