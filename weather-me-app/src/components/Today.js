@@ -60,7 +60,7 @@ const Today = () => {
         });
 
 
-        //If not lat or lon in local storage...
+        //If no lat or lon in local storage...
         if(lati === 0 & long === 0) {
             console.log('nothing in local storage rn');
             //Mozilla Geolocation API functionality

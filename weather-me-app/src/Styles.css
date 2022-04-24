@@ -449,6 +449,11 @@ my content downward to make space for itself
     margin-right: auto;
 }
 
+.accordion-button::after {
+    margin-right: -1.3rem;
+}
+
+
 
 /* ----------------------------------------------------------------- */
 
@@ -646,6 +651,25 @@ my content downward to make space for itself
             width: 90vw;
         }
 
+        button.accordion-button {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dailyDateImgTempCol {
+            justify-content: center;
+        }
+
+        .dailyDescriptionCol {
+            margin-top: 0.5rem;
+            margin-bottom: 0.75rem;
+            justify-content: center;
+        }
+
+        .dailyPopWindCol {
+            justify-content: center;
+        }
+
 
     /* FOOTER */
         .footerLinks {
@@ -690,6 +714,12 @@ my content downward to make space for itself
 
         .uvAICards {
             width: 80vw;
+        }
+    
+    
+    /* FIVE DAY WEATHER */
+        .accordion-header {
+            padding-right: 1rem;
         }
         
 }
@@ -952,6 +982,20 @@ my content downward to make space for itself
             width: 85vw;
         }
 
+        button.accordion-button {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .dailyDescriptionCol {
+            margin-top: 0rem;
+            margin-bottom: 0rem;
+        }
+
+        .dailyPopWindCol {
+            margin-top: 0.5rem;
+        }
+
 
     /* FOOTER */
         
@@ -1019,6 +1063,7 @@ my content downward to make space for itself
 
 
     /* HOME */
+
         #articleImg {
             width: 14.5rem;
             height: auto;
@@ -1085,8 +1130,16 @@ my content downward to make space for itself
             font-size: 1rem;
         }
 
+    
+    /* FIVE DAY WEATHER */
 
+        button.accordion-button {
+            flex-direction: row;
+        }
 
+        /* .accordion-header {
+            padding-right: 1rem;
+        } */
 }
 
 
@@ -1217,15 +1270,6 @@ my content downward to make space for itself
             font-size: 1.18rem !important;
         }
 
-        /* .hiLoCol {
-            margin-right: 0.5rem;
-            margin-left: auto;
-        } */
-        
-       /*  .popCol {
-            margin-right: 0.5rem;
-        } */
-
         .visibilityCol {
             margin-right: auto;
         }
@@ -1239,7 +1283,7 @@ my content downward to make space for itself
 
         .todayAside {
             /* height: 78vh; */
-            height: 77.2rem;
+            height: 81rem;
             overflow-x: none;
             overflow-y: auto;            
         }
@@ -1253,6 +1297,19 @@ my content downward to make space for itself
 
         .accordion {
             width: 80vw;
+        }
+
+        .dailyDateImgTempCol {
+            justify-content: flex-start;
+        }
+
+        .dailyDescriptionCol {
+            /* margin-top: 0rem;
+            margin-bottom: 0rem; */
+        }
+
+        .dailyPopWindCol {
+           justify-content: flex-end;
         }
 
 }
