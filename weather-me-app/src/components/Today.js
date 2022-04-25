@@ -554,16 +554,14 @@ const Today = () => {
                                                                 <div className="weatherImgContainer">
                                                                     <img height="100" width="auto" src={`https://www.weatherbit.io/static/img/icons/${weatherReturned.weather.icon}.png`} alt={`${weatherReturned.weather.description} weather icon`} /> 
                                                                 </div>
-                                                                <div className="currentTemp">{Math.round(weatherReturned.temp)}&deg;<span id="fahrenheit">F</span></div>
-                                                                {/* <div className="degSymbol"></div>
-                                                                <div className="farSymbol">F</div> */}
+                                                                <div className="currentTemp">{Math.round(weatherReturned.temp)}&deg;<span id="fahrenheit">F</span></div>                                                          
                                                             </div>
                                                         </div>                                                                                         
                                                     </Col>
                                                 </Row>
 
                                                 <Row className="">
-                                                    <Col xs={12} sm={7} xl={5} className="hiLoCol conditionsCol d-flex align-items-center justify-content-around">
+                                                    <Col xs={12} sm={7} xl={4} className="hiLoCol conditionsCol d-flex align-items-center justify-content-around">
                                                         <div className="">
                                                             <FaTemperatureLow className="weatherIcons me-2" /> 
                                                             <span className="conditions">High|Low</span>
@@ -585,7 +583,7 @@ const Today = () => {
                                                         </Card.Text> 
                                                     </Col>
 
-                                                    <Col xs={12} sm={4} xl={3} className="visibilityCol conditionsCol d-flex align-items-center justify-content-around">                                       
+                                                    <Col xs={12} sm={4} xl={4} className="visibilityCol conditionsCol d-flex align-items-center justify-content-around">                                       
                                                         <div className="">
                                                             <FaRegEye className="weatherIcons me-2" />
                                                             <span className="conditions">Visibility</span>
@@ -609,7 +607,7 @@ const Today = () => {
                                                         </Card.Text>                                                                                      
                                                     </Col>
 
-                                                    <Col xs={12} sm={5} xl={4} xxl={3} className="cloudCoverCol conditionsCol d-flex align-items-center justify-content-around">
+                                                    <Col xs={12} sm={5} xl={4} className="cloudCoverCol conditionsCol d-flex align-items-center justify-content-around">
                                                         <div className="">
                                                             <IoIosCloud className="weatherIcons me-2" />
                                                             <span className="conditions">Cloud Cover</span>
@@ -620,7 +618,7 @@ const Today = () => {
                                                         </Card.Text>                                                                                          
                                                     </Col>
 
-                                                    <Col xs={12} sm={6} xl={4} xxl={5} className="pressureCol conditionsCol d-flex align-items-center justify-content-around">
+                                                    <Col xs={12} sm={6} xl={4} className="pressureCol conditionsCol d-flex align-items-center justify-content-around">
                                                         <div className="">
                                                             <BsArrowsCollapse className="weatherIcons me-2" /> 
                                                             <span className="conditions">Pressure</span>

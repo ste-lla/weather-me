@@ -1594,10 +1594,6 @@ div.accordion-item {
             padding: 2.5rem;     
         }
 
-        /* .conditionsContainer {
-            padding: 2.5rem;
-        } */
-
         .weatherIcons {
             font-size: 1.3rem;
         }
@@ -1614,7 +1610,7 @@ div.accordion-item {
         }
 
         .conditionsTodayContainer {
-            padding: 2.5rem 1.5rem;
+            /* padding: 2.5rem 0rem; */
         }
 
     
