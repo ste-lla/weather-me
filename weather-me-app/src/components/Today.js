@@ -596,7 +596,7 @@ const Today = () => {
                                                 {/* </Row> */}
 
                                                 {/* <Row className=""> */}
-                                                    <Col xs={12} sm={7} xl={3} className="dewPointCol conditionsCol d-flex align-items-center justify-content-around">
+                                                    <Col xs={12} sm={7} xl={4} className="dewPointCol conditionsCol d-flex align-items-center justify-content-around">
                                                         <div className="">
                                                             <MdWaterDrop className="weatherIcons me-2" />
                                                             <span className="conditions">Dew Point</span>
@@ -618,7 +618,7 @@ const Today = () => {
                                                         </Card.Text>                                                                                          
                                                     </Col>
 
-                                                    <Col xs={12} sm={6} xl={4} className="pressureCol conditionsCol d-flex align-items-center justify-content-around">
+                                                    <Col xs={12} sm={6} xl={3} className="pressureCol conditionsCol d-flex align-items-center justify-content-around">
                                                         <div className="">
                                                             <BsArrowsCollapse className="weatherIcons me-2" /> 
                                                             <span className="conditions">Pressure</span>

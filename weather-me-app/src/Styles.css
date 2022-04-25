@@ -641,9 +641,6 @@ div.accordion-item {
 
         /* TODAYS WEATHER */
 
-        .conditionsTodayContainer {
-            padding: 1rem 0.75rem; /* DOUBLE CHECK THIS LOOKS OK */
-        }
 
 
         /* WORLD NEWS */
@@ -1469,9 +1466,6 @@ div.accordion-item {
             font-size: 1.24rem !important;
         }
 
-        .conditionsTodayContainer {
-            padding: 1.75rem 1.25rem; /* DOUBLE CHECK THIS LOOKS OK */
-        }
 
         .hiLoCol {
             margin-left: auto;
@@ -1609,9 +1603,6 @@ div.accordion-item {
             font-size: 1.3rem !important;
         }
 
-        .conditionsTodayContainer {
-            /* padding: 2.5rem 0rem; */
-        }
 
     
     /* FIVE DAY WEATHER */
