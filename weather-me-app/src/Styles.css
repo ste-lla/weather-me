@@ -225,7 +225,12 @@ my content downward to make space for itself
         color: white;
         background-color: #0F3D5C !important;
         border-radius: 1rem !important;
-        /* background-color: #032030 !important */;
+    }
+
+    .weatherCardCurrently {
+        color: white;
+        background-color: #0F3D5C !important;
+        border-radius: 1rem !important;
     }
 
     .currentTodayWeatherRows {
@@ -355,6 +360,8 @@ my content downward to make space for itself
 
 
     /* TODAYS WEATHER CARD */
+
+    
 
     .hiLoCol {
         background: rgb(15,61,92);
@@ -607,6 +614,11 @@ div.accordion-item {
             width: 88vw;
         }
 
+        .weatherCardCurrently {
+            width: 88vw;
+        }
+
+
         .weatherImgContainer {
             order: 2;
             margin-left: 0.75rem;
@@ -814,6 +826,12 @@ div.accordion-item {
         .weatherCard {
             width: 85vw;
         }
+
+        .weatherCardCurrently {
+            width: 85vw;
+        }
+
+        
 
 
         /* TODAYS WEATHER */
@@ -1138,6 +1156,10 @@ div.accordion-item {
             width: 78vw;
         }
 
+        .weatherCardCurrently {
+            width: 78vw;
+        }
+
         .cityToday {
             font-size: 1.12rem !important;
         }
@@ -1284,7 +1306,11 @@ div.accordion-item {
         }
 
         .weatherCard {
-            width: 62vw;
+            width: 65vw;
+        }
+
+        .weatherCardCurrently {
+            width: 68vw;
         }
 
         .cityToday {

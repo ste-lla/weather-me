@@ -434,7 +434,7 @@ const Today = () => {
                         <div className="weatherNewsContainer mx-auto mt-4 d-flex">
                             <Col xs={12} lg={9} className="d-flex justify-content-center">
                                 <main className="">
-                                    <section className="weatherSectionCurrently">
+                                    <section className="">
                                         <Card className="weatherCard ps-2 pe-2">
                                             <Card.Body>
                                                 <Row className="mb-3 currentTodayWeatherRows">
@@ -536,7 +536,7 @@ const Today = () => {
                                     </section>
 
 
-                                    <section className="weatherSectionCurrently mt-5">
+                                    <section className="mt-5">
                                         <Card className="weatherCard ps-2 pe-2">
                                             <Card.Body>
                                                 <Row className="mb-3 currentTodayWeatherRows">
@@ -607,7 +607,7 @@ const Today = () => {
                                                         </Card.Text>                                                                                      
                                                     </Col>
 
-                                                    <Col xs={12} sm={5} xl={4} className="cloudCoverCol conditionsCol d-flex align-items-center justify-content-around">
+                                                    <Col xs={12} sm={5} xl={3} className="cloudCoverCol conditionsCol d-flex align-items-center justify-content-around">
                                                         <div className="">
                                                             <IoIosCloud className="weatherIcons me-2" />
                                                             <span className="conditions">Cloud Cover</span>
@@ -618,7 +618,7 @@ const Today = () => {
                                                         </Card.Text>                                                                                          
                                                     </Col>
 
-                                                    <Col xs={12} sm={6} xl={3} className="pressureCol conditionsCol d-flex align-items-center justify-content-around">
+                                                    <Col xs={12} sm={6} xl={4} className="pressureCol conditionsCol d-flex align-items-center justify-content-around">
                                                         <div className="">
                                                             <BsArrowsCollapse className="weatherIcons me-2" /> 
                                                             <span className="conditions">Pressure</span>
