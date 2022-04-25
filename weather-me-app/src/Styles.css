@@ -443,7 +443,6 @@ my content downward to make space for itself
 
 /* FIVE DAY WEATHER */
 
-
 .accordion {
     margin-left: auto;
     margin-right: auto;
@@ -452,6 +451,31 @@ my content downward to make space for itself
 .accordion-button::after {
     margin-right: -1.3rem;
 }
+
+button.accordion-button {
+    background: rgb(15,61,92);
+    background: -moz-linear-gradient(200deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+    background: -webkit-linear-gradient(200deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+    background: linear-gradient(200deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
+
+    color: white !important;
+}
+
+button.accordion-button:focus {
+    box-shadow: none !important;
+}
+
+div.accordion-item {
+    background: rgb(15,61,92);
+    background: -moz-linear-gradient(200deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+    background: -webkit-linear-gradient(200deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+    background: linear-gradient(200deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);  
+    
+    color: white;
+}
+
 
 
 
@@ -654,6 +678,7 @@ my content downward to make space for itself
         button.accordion-button {
             display: flex;
             flex-direction: column;
+            
         }
 
         .dailyDateImgTempCol {
@@ -668,6 +693,11 @@ my content downward to make space for itself
 
         .dailyPopWindCol {
             justify-content: center;
+        }
+
+        .dailyConditionsContainer {
+            border-bottom: 2px solid #FF7722;
+            margin-bottom: 1rem;
         }
 
 
@@ -977,6 +1007,10 @@ my content downward to make space for itself
 
 
     /* FIVE DAY WEATHER */
+        
+        .cityName {
+            font-size: 1.1rem;
+        }
 
         .accordion {
             width: 85vw;
@@ -994,6 +1028,35 @@ my content downward to make space for itself
 
         .dailyPopWindCol {
             margin-top: 0.5rem;
+        }
+
+        .dailyConditionsContainer {
+            border-bottom: none;
+            margin-bottom: 0rem;
+        }
+
+        .dailyUVContainer {
+            border-bottom: 2px solid #FF7722;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .dailyHumidContainer {
+            border-bottom: 2px solid #FF7722;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        button.accordion-button.collapsed::after {
+            border: 2px solid black !important;
+            border-radius: 50%;
+            background-color: rgb(37, 37, 37);
+        }
+        
+        button.accordion-button::after {
+            border: 2px solid black !important;
+            border-radius: 50%;
+            background-color: rgb(37, 37, 37);
         }
 
 
@@ -1132,14 +1195,19 @@ my content downward to make space for itself
 
     
     /* FIVE DAY WEATHER */
+        .cityName {
+            font-size: 1.2rem;
+        }
 
         button.accordion-button {
             flex-direction: row;
         }
 
-        /* .accordion-header {
-            padding-right: 1rem;
-        } */
+        .accordion {
+            background-color: #0F3D5C;
+            padding: 2rem;
+            border-radius: 1rem;
+        }
 }
 
 
@@ -1294,18 +1362,15 @@ my content downward to make space for itself
 
 
     /* FIVE DAY WEATHER */
-
+        .cityName {
+            font-size: 1.3rem;
+        }
         .accordion {
             width: 80vw;
         }
 
         .dailyDateImgTempCol {
             justify-content: flex-start;
-        }
-
-        .dailyDescriptionCol {
-            /* margin-top: 0rem;
-            margin-bottom: 0rem; */
         }
 
         .dailyPopWindCol {
@@ -1443,6 +1508,13 @@ my content downward to make space for itself
         .newsCard {
             width: 14vw;
         }
+
+
+    /* FIVE DAY WEATHER */
+
+        .cityName {
+            font-size: 1.4rem;
+        }
 }
 
 
@@ -1551,6 +1623,10 @@ my content downward to make space for itself
         .accordion {
             width: 75vw;
         }   
+
+        .cityName {
+            font-size: 1.5rem;
+        }
 
 }
 

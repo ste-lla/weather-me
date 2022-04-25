@@ -35,9 +35,6 @@ const SearchNav = (props) => {
                                         redirect={props.redirectUser}
                                     />
                                 </div>
-                                {/* <Form>
-                                    <Form.Control id="autocomplete" type="text" placeholder="Search City or Zip Code" />
-                                </Form> */}
                             </Col>
 
                             <Col xs={3} sm={2} md={4} lg={2} className="navToggleCol mb-1">
@@ -50,7 +47,7 @@ const SearchNav = (props) => {
                                 <div style={{width: "100vw"}}>
                                     <Nav className="navLinksWrapper">
                                         <Nav.Link href="/weather/today" className="navLinks">Today</Nav.Link>
-                                        <Nav.Link href="/weather/hourly" className="navLinks">Hourly</Nav.Link>
+                                        {/* <Nav.Link href="/weather/hourly" className="navLinks">Hourly</Nav.Link> */}
                                         <Nav.Link href="/weather/fiveday" className="navLinks">5 Day</Nav.Link>
                                         <Nav.Link href="/weather/tenday" className="navLinks">10 Day</Nav.Link>
                                         <Nav.Link href="/weather/weekend" className="navLinks">Weekend</Nav.Link> 

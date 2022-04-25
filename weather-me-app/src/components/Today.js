@@ -397,6 +397,7 @@ const Today = () => {
         let pressure = todaysWeather.pres * 0.0295301;
         pressure = pressure.toFixed(2);
 
+        //Convert unix time to milliseconds. Use new Date(milliseconds) and convert to localeString
         const unixSunrise = todaysWeather.sunrise_ts;
         const unixSunset = todaysWeather.sunset_ts;
 
@@ -422,7 +423,6 @@ const Today = () => {
         let sunsetTime = `${sunsetHr}:${sunsetMin} PM`
 
         //console.log(sunriseTime, sunsetTime);
-        
       
         return (
             <div className="pageContainer d-flex flex-column">

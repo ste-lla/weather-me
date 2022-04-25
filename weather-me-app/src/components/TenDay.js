@@ -12,7 +12,7 @@ import { BsSunriseFill } from 'react-icons/bs';
 import { FiSunset } from 'react-icons/fi';
 
 
-const FiveDay = () => {
+const TenDay = () => {
     const [weather, setWeather] = useState();
     const [city, setCity] = useState();
     const [timezone, setTimezone] = useState();
@@ -41,7 +41,7 @@ const FiveDay = () => {
                     const longitude = position.coords.longitude;
 
                     //fetch 5 day weather
-                    fetch(`https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${latitude}&lon=${longitude}&units=I&days=6`)
+                    fetch(`https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${latitude}&lon=${longitude}&units=I&days=11`)
                     .then(response => response.json())
                     .then(weatherReturned => {
                         setWeather(weatherReturned.data);
@@ -64,7 +64,7 @@ const FiveDay = () => {
                         console.log('using local storage lat and lon');
                         let lat = Number(localStorage.getItem('lat'));
                         let lon = Number(localStorage.getItem('lon'));
-                        let fiveDayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I&days=6`
+                        let fiveDayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I&days11`
 
                         //fetch 5 day weather
                         fetch(fiveDayUrl)
@@ -82,7 +82,7 @@ const FiveDay = () => {
                         });
                     } else {
                         console.log('using NYC as default');
-                        let fiveDayNycUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&city=New York&units=I&days=6`
+                        let fiveDayNycUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&city=New York&units=I&days=11`
                         
                         //fetch 5 day NYC weather
                         fetch(fiveDayNycUrl)
@@ -108,7 +108,7 @@ const FiveDay = () => {
                         console.log('using local storage lat and lon');
                         let lat = Number(localStorage.getItem('lat'));
                         let lon = Number(localStorage.getItem('lon'));
-                        let fiveDayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I&days=6`
+                        let fiveDayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I&days=11`
                         
                         //fetch 5 day weather
                         fetch(fiveDayUrl)
@@ -125,7 +125,7 @@ const FiveDay = () => {
                         });
                     } else {
                         console.log('using NYC as default');
-                        let fiveDayNycUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&city=New York&units=I&days=6`
+                        let fiveDayNycUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&city=New York&units=I&days=11`
 
                         //fetch 5 day NYC weather
                         fetch(fiveDayNycUrl)
@@ -150,7 +150,7 @@ const FiveDay = () => {
         } 
         //If lat and lon are in local storage...
         else {
-            const fiveDayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lati}&lon=${long}&units=I&days=6`
+            const fiveDayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lati}&lon=${long}&units=I&days=11`
             
             //fetch 5 Day weather
             fetch(fiveDayUrl)
@@ -304,7 +304,7 @@ const FiveDay = () => {
                     <main>
                         <section className="">
                             <Accordion className ="accordion mt-4 mb-4">
-                                <h1 className="text-center" style={{color: "white"}}>5 Day Forecast</h1> 
+                                <h1 className="text-center" style={{color: "white"}}>10 Day Forecast</h1> 
                                 <p className="text-center mb-3 cityName" style={{color: "white"}}>{city}</p>
                                 {weatherDisplayed}           
                             </Accordion>
@@ -324,6 +324,4 @@ const FiveDay = () => {
     );
 }
 
-export default FiveDay;
-
-
+export default TenDay;
