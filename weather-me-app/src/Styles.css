@@ -1326,8 +1326,7 @@ div.accordion-item {
         }
 
         .todayAside {
-            /* height: 78vh; */
-            height: 81rem;
+            height: 74rem;
             overflow-x: none;
             overflow-y: auto;            
         }
@@ -1434,10 +1433,6 @@ div.accordion-item {
             padding: 1.75rem;     
         }
 
-        /* .conditionsContainer {
-            padding: 1.75rem
-        } */
-
 
         /* TODAYS WEATHER */
         
@@ -1477,6 +1472,10 @@ div.accordion-item {
 
 
         /* WORLD NEWS */
+
+        .todayAside {
+            height: 76rem; 
+        }
 
         .newsCard {
             width: 14vw;
@@ -1583,7 +1582,13 @@ div.accordion-item {
         }
 
 
-    
+        /* WORLD NEWS TODAY */
+
+        .todayAside {
+            height: 80rem; 
+        }
+
+
     /* FIVE DAY WEATHER */
 
         .accordion {
