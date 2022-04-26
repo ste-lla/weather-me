@@ -487,7 +487,7 @@ const Weekend = () => {
 
             
             return(
-                <Accordion.Item key={index} eventKey={index} className="mb-2">
+                <Accordion.Item key={index} eventKey={index+3} className="mb-2">
                     <Accordion.Header className="accordionHeader">
                         <Col xs={12} sm={6} md={4} className="d-flex dailyDateImgTempCol">
                             <div className="me-4 d-flex flex-column align-items-center conditions">

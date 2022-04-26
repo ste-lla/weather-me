@@ -431,13 +431,13 @@ const Today = () => {
                         {/* setLat and setLon are props equal to a function that calls your state functions, setLatitude and setLongitude */}
                         <SearchNav setLat={latitude => setLatitude(latitude)} setLon={longitude => setLongitude(longitude)} />
 
-                        <div className="weatherNewsContainer mx-auto mt-4 d-flex">
+                        <div className="weatherNewsContainer mx-auto d-flex">
                             <Col xs={12} lg={9} className="d-flex justify-content-center">
                                 <main className="">
                                     <section className="">
-                                        <Card className="weatherCard ps-2 pe-2">
+                                        <Card className="weatherCard">
                                             <Card.Body>
-                                                <Row className="mb-3 currentTodayWeatherRows">
+                                                <Row className="currentTodayWeatherRows">
                                                     <Col className="me-2">
                                                         <div>
                                                             <Card.Title className="cityToday">Currently in {weatherReturned.city_name}</Card.Title>
@@ -450,7 +450,7 @@ const Today = () => {
                                                         <div>
                                                             <div className="d-flex tempContainer">
                                                                 <div className="weatherImgContainer">
-                                                                    <img height="100" width="auto" src={`https://www.weatherbit.io/static/img/icons/${weatherReturned.weather.icon}.png`} alt={`${weatherReturned.weather.description} weather icon`} /> 
+                                                                    <img className="weatherImgToday" src={`https://www.weatherbit.io/static/img/icons/${weatherReturned.weather.icon}.png`} alt={`${weatherReturned.weather.description} weather icon`} /> 
                                                                 </div>
                                                                 <div className="currentTemp">{Math.round(weatherReturned.temp)}&deg;<span id="fahrenheit">F</span></div>
                                                                 {/* <div className="degSymbol"></div>
@@ -506,28 +506,28 @@ const Today = () => {
                                     <section className="uvAICardsSection mt-5">
                                         <div className="uvAICardsContainer">
                                             <Card className="aiCard uvAICards">
-                                                <Card.Body>
+                                                <Card.Body className="aqiUvCardBody">
                                                     <div className="d-flex">
-                                                        <Card.Title>Air Quality Index</Card.Title>
+                                                        <Card.Title className="aqiUvTitle">Air Quality Index</Card.Title>
                                                         <div id="aqiCircleColor" style={{backgroundColor: `${airIndexColor}`}}></div>
                                                     </div>
-                                                    <Card.Subtitle className="mb-2">{weatherReturned.aqi} | {airIndex}</Card.Subtitle>
-                                                    <Card.Text>{airIndexDescription}</Card.Text>
-                                                    <Card.Text style={{fontSize: "0.8rem"}} className="mt-3">
+                                                    <Card.Subtitle className="mb-2 aqiUvSubtitle">{weatherReturned.aqi} | {airIndex}</Card.Subtitle>
+                                                    <Card.Text className="aqiUvText">{airIndexDescription}</Card.Text>
+                                                    <Card.Text className="mt-3 creditGovText" style={{fontSize: "0.8rem"}}>
                                                         *Credit to <a id="creditGovText" href="https://www.airnow.gov/aqi/aqi-basics/" target="_blank" rel="noopener noreferrer">airnow.gov</a> for AQI Descriptions
                                                     </Card.Text>
                                                 </Card.Body>
                                             </Card>
 
                                             <Card className="uvCard uvAICards">
-                                                <Card.Body>
+                                                <Card.Body className="aqiUvCardBody">
                                                     <div className="d-flex">
-                                                        <Card.Title>UV Index</Card.Title>
+                                                        <Card.Title className="aqiUvTitle">UV Index</Card.Title>
                                                         <div id="uvCircleColor" style={{backgroundColor: `${uvIndexColor}`}}></div>
                                                     </div>
-                                                    <Card.Subtitle className="mb-2">{parseInt(weatherReturned.uv)} | {uvIndex} </Card.Subtitle>
-                                                    <Card.Text>{uvIndexDescription}</Card.Text>        
-                                                    <Card.Text style={{fontSize: "0.8rem"}} className="mt-3">
+                                                    <Card.Subtitle className="mb-2 aqiUvSubtitle">{parseInt(weatherReturned.uv)} | {uvIndex} </Card.Subtitle>
+                                                    <Card.Text className="aqiUvText">{uvIndexDescription}</Card.Text>        
+                                                    <Card.Text className="mt-3 creditGovText" style={{fontSize: "0.8rem"}}>
                                                         *Credit to <a id="creditGovText" href="https://www.epa.gov/sunsafety/uv-index-scale-0" target="_blank" rel="noopener noreferrer">epa.gov</a> for UV Index Descriptions
                                                     </Card.Text>                                                                                   
                                                 </Card.Body>
@@ -537,9 +537,9 @@ const Today = () => {
 
 
                                     <section className="mt-5">
-                                        <Card className="weatherCard ps-2 pe-2">
+                                        <Card className="weatherCard">
                                             <Card.Body>
-                                                <Row className="mb-3 currentTodayWeatherRows">
+                                                <Row className="currentTodayWeatherRows">
                                                     <Col className="me-2">
                                                         <div>
                                                             <Card.Title className="cityToday">Today in {weatherReturned.city_name}</Card.Title>
@@ -552,7 +552,7 @@ const Today = () => {
                                                             <Card.Title id="currentlyText">Currently</Card.Title>
                                                             <div className="d-flex tempContainer">
                                                                 <div className="weatherImgContainer">
-                                                                    <img height="100" width="auto" src={`https://www.weatherbit.io/static/img/icons/${weatherReturned.weather.icon}.png`} alt={`${weatherReturned.weather.description} weather icon`} /> 
+                                                                    <img className="weatherImgToday" src={`https://www.weatherbit.io/static/img/icons/${weatherReturned.weather.icon}.png`} alt={`${weatherReturned.weather.description} weather icon`} /> 
                                                                 </div>
                                                                 <div className="currentTemp">{Math.round(weatherReturned.temp)}&deg;<span id="fahrenheit">F</span></div>                                                          
                                                             </div>
