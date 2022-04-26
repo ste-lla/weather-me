@@ -444,9 +444,11 @@ my content downward to make space for itself
 
 /* FIVE DAY WEATHER */
 
-.accordion {
-    margin-left: auto;
-    margin-right: auto;
+.accordionSection {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .accordion-button::after {
@@ -619,11 +621,6 @@ div.accordion-item {
             margin-left: 0.75rem;
         }
 
-        /* .weatherImgToday {
-            height: 100;
-            width: auto;
-        } */
-
         .currentTemp {
             order: 1;
             font-size: 2rem;
@@ -707,6 +704,19 @@ div.accordion-item {
         .dailyConditionsContainer {
             border-bottom: 2px solid #FF7722;
             margin-bottom: 1rem;
+        }
+
+        .dailyWeatherImg {
+            height: 60px;
+            width: auto;
+        }
+
+        .dailyCondMargin {
+            margin-right: 1rem;
+        }
+
+        .dailyWeatherIcons {
+            margin-right: 0.5rem;
         }
 
 
@@ -974,9 +984,13 @@ div.accordion-item {
         }
 
 
-    /* FIVE DAY WEATHER */
+    /* FIVE DAY, 10 DAY, WEEKEND WEATHER */
         
         .cityName {
+            font-size: 1.1rem;
+        }
+
+        .weekendSubtitle {
             font-size: 1.1rem;
         }
 
@@ -1025,6 +1039,11 @@ div.accordion-item {
             border: 2px solid black !important;
             border-radius: 50%;
             background-color: rgb(37, 37, 37);
+        }
+
+        .dailyWeatherImg {
+            height: 62px;
+            width: auto;
         }
 
 
@@ -1166,8 +1185,13 @@ div.accordion-item {
         }
 
     
-    /* FIVE DAY WEATHER */
+    /* FIVE DAY, 10 DAY, WEEKEND WEATHER */
+
         .cityName {
+            font-size: 1.2rem;
+        }
+
+        .weekendSubtitle {
             font-size: 1.2rem;
         }
 
@@ -1179,6 +1203,11 @@ div.accordion-item {
             background-color: #0F3D5C;
             padding: 2rem;
             border-radius: 1rem;
+        }
+
+        .dailyWeatherImg {
+            height: 64px;
+            width: auto;
         }
 }
 
@@ -1336,10 +1365,16 @@ div.accordion-item {
         }
 
 
-    /* FIVE DAY WEATHER */
+    /* FIVE DAY, 10 DAY, WEEKEND WEATHER */
+
         .cityName {
             font-size: 1.3rem;
         }
+
+        .weekendSubtitle {
+            font-size: 1.3rem;
+        }
+
         .accordion {
             width: 80vw;
         }
@@ -1350,6 +1385,11 @@ div.accordion-item {
 
         .dailyPopWindCol {
            justify-content: flex-end;
+        }
+
+        .dailyWeatherImg {
+            height: 66px;
+            width: auto;
         }
 
 }
@@ -1482,10 +1522,19 @@ div.accordion-item {
         }
 
 
-    /* FIVE DAY WEATHER */
+    /* FIVE DAY, 10 DAY, WEEKEND WEATHER */
 
         .cityName {
             font-size: 1.4rem;
+        }
+
+        .weekendSubtitle {
+            font-size: 1.4rem;
+        }
+
+        .dailyWeatherImg {
+            height: 68px;
+            width: auto;
         }
 }
 
@@ -1589,7 +1638,7 @@ div.accordion-item {
         }
 
 
-    /* FIVE DAY WEATHER */
+    /* FIVE DAY, 10 DAY, WEEKEND WEATHER */
 
         .accordion {
             width: 75vw;
@@ -1597,6 +1646,19 @@ div.accordion-item {
 
         .cityName {
             font-size: 1.5rem;
+        }
+
+        .weekendSubtitle {
+            font-size: 1.5rem;
+        }
+
+        .dailyWeatherImg {
+            height: 70px;
+            width: auto;
+        }
+
+        .dailyCondMargin {
+            margin-right: 1.5rem;
         }
 
 }
@@ -1619,6 +1681,7 @@ div.accordion-item {
 
         .navLinks:hover {
             font-size: 2.2rem;
+            border-bottom: 5px solid #FF7722;
         }
 
     
@@ -1626,6 +1689,7 @@ div.accordion-item {
         .location-search-input {
             width: 38.5rem;
             height: 2.5rem;
+            margin-top: 1rem;
         }
 
         .autocomplete-dropdown-container {
@@ -1633,21 +1697,22 @@ div.accordion-item {
         }
 
         .location-search-input::placeholder {
-            font-size: 1.25rem; /* hides placeholder text when input is clicked */
+            font-size: 1.83rem; 
         }
+
         /* For IE Browsers */
         .location-search-input:-ms-input-placeholder {
-            font-size: 1.25rem;
+            font-size: 1.83rem;
         }
 
 
     /* HOME */
         .homeWeather {
-            font-size: 1.7rem;
+            font-size: 1.9rem;
         }
 
         .weatherNewsHeader{
-            font-size: 3.25rem;
+            font-size: 4rem;
         }
 
         #articleImg {
@@ -1792,7 +1857,7 @@ div.accordion-item {
 
         .todayAside {
             padding: 2.1rem;
-            height: 143rem;
+            height: 151rem;
         }
 
         .worldNewsHeadline {
@@ -1808,6 +1873,70 @@ div.accordion-item {
         }
 
 
+    /* FIVE DAY, 10 DAY, WEEKEND WEATHER */
+
+        .accordionSection {
+            margin-top: 2.75rem;
+            margin-bottom: 2.75rem;
+        }
+
+        .forecastHeader {
+            font-size: 3.5rem;
+        }
+
+        .cityName {
+            font-size: 2.75rem;
+        }
+
+        .weekendSubtitle {
+            font-size: 2.75rem;
+        }
+
+        .accordion-button::after {
+            margin-right: -2rem;
+        }
+
+        .accordionHeader {
+            padding-left: 0.75rem !important;
+            padding-right: 2.5rem !important;
+        }
+
+        button.accordion-button.collapsed::after {
+            border: 2px solid black !important;
+            border-radius: 50%;
+            padding: 0.75rem !important;
+            background-color: rgb(37, 37, 37);
+        }
+        
+        button.accordion-button::after {
+            border: 2px solid black !important;
+            border-radius: 50%;
+            padding: 0.75rem !important;
+            background-color: rgb(37, 37, 37);
+        }
+
+        .dailyWeatherImg {
+            height: 128px;
+            width: auto;
+        }
+
+        .dailyUVContainer {
+            border-bottom: 3.65px solid #FF7722;
+        }
+
+        .dailyHumidContainer {
+            border-bottom: 3.65px solid #FF7722;
+        }
+        
+        .dailyCondMargin {
+            margin-right: 2.7rem;
+        }
+
+        .dailyWeatherIcons {
+            margin-right: 1rem;
+        }
+
+        
     /* FOOTER */
         .footerLinks {
             font-size: 2rem;
@@ -1854,6 +1983,7 @@ div.accordion-item {
         .location-search-input {
             width: 43.3rem;
             height: 2.5rem;
+            margin-top: 1.125;
         }
 
         .autocomplete-dropdown-container {
@@ -1861,11 +1991,11 @@ div.accordion-item {
         }
 
         .location-search-input::placeholder {
-            font-size: 1.4rem; /* hides placeholder text when input is clicked */
+            font-size: 2.06rem; /* hides placeholder text when input is clicked */
         }
         /* For IE Browsers */
         .location-search-input:-ms-input-placeholder {
-            font-size: 1.4rem;
+            font-size: 2.06rem;
         }
 
 
@@ -1875,7 +2005,7 @@ div.accordion-item {
         }
 
         .weatherNewsHeader{
-            font-size: 3.65rem;
+            font-size: 4.5rem;
         }
 
         #articleImg {
@@ -1956,6 +2086,7 @@ div.accordion-item {
         .location-search-input {
             width: 46.2rem;
             height: 3rem;
+            margin-top: 1.35rem;
         }
 
         .autocomplete-dropdown-container {
@@ -1963,11 +2094,11 @@ div.accordion-item {
         }
 
         .location-search-input::placeholder {
-            font-size: 1.5rem; /* hides placeholder text when input is clicked */
+            font-size: 2.47rem; /* hides placeholder text when input is clicked */
         }
         /* For IE Browsers */
         .location-search-input:-ms-input-placeholder {
-            font-size: 1.5rem;
+            font-size: 2.47rem;
         }
 
 
@@ -1977,7 +2108,7 @@ div.accordion-item {
         }
 
         .weatherNewsHeader{
-            font-size: 3.9rem;
+            font-size: 5.4rem;
         }
 
         #articleImg {

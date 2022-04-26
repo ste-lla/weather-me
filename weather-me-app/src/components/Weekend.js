@@ -368,13 +368,13 @@ const Weekend = () => {
                 <Accordion.Item key={index} eventKey={index} className="mb-2">
                     <Accordion.Header className="accordionHeader">
                         <Col xs={12} sm={6} md={4} className="d-flex dailyDateImgTempCol">
-                            <div className="me-4 d-flex flex-column align-items-center conditions">
+                            <div className="dailyCondMargin d-flex flex-column align-items-center conditions">
                                 <div>{dayOfWeek}</div>
                                 <div>{shortDate}</div>
                             </div>
 
-                            <div className="me-4 d-flex align-items-center">
-                                <img height="50" width="auto" src={`https://www.weatherbit.io/static/img/icons/${weatherDay.weather.icon}.png`} alt={`${weatherDay.weather.description} weather icon`} /> 
+                            <div className="dailyCondMargin d-flex align-items-center">
+                                <img className="dailyWeatherImg" src={`https://www.weatherbit.io/static/img/icons/${weatherDay.weather.icon}.png`} alt={`${weatherDay.weather.description} weather icon`} /> 
                             </div>
 
                             <div className="d-flex align-items-center conditions">
@@ -389,14 +389,14 @@ const Weekend = () => {
                         </Col>
 
                         <Col xs={12} md={4} className="d-flex dailyPopWindCol">
-                            <div className="d-flex align-items-center me-4">
+                            <div className="dailyCondMargin d-flex align-items-center me-4">
                                 <IoWater className="weatherIcons" />
                                 <span className="ms-1 conditions">{weatherDay.pop}&#37;</span>
                             </div>
 
-                            <div className="d-flex align-items-center me-2">
+                            <div className="dailyCondMargin d-flex align-items-center me-2">
                                 <BsWind className="weatherIcons" />
-                                <span className="ms-2 me-2 conditions">{Math.round(weatherDay.wind_spd)}mph {weatherDay.wind_cdir}</span>
+                                <span className="ms-2 conditions">{Math.round(weatherDay.wind_spd)}mph {weatherDay.wind_cdir}</span>
                             </div>
                         </Col>                        
                     </Accordion.Header>
@@ -405,17 +405,17 @@ const Weekend = () => {
                         <Row>
                             <Col xs={12} sm={6}>
                                 <div className="d-flex align-items-center justify-content-center dailyConditionsContainer dailyUVContainer">
-                                    <BsSun className="weatherIcons" />
-                                    <span className="ms-2 me-2 conditions">UV Index</span>
-                                    <span className="">{parseInt(weatherDay.uv)}</span>
+                                    <BsSun className="weatherIcons dailyWeatherIcons" />
+                                    <span className="dailyCondMargin conditions">UV Index</span>
+                                    <span className="conditions">{parseInt(weatherDay.uv)}</span>
                                 </div>
                             </Col>
 
                             <Col xs={12} sm={6}>
                                 <div className="d-flex align-items-center justify-content-center dailyConditionsContainer dailyHumidContainer">
-                                    <IoWater className="weatherIcons" />
-                                    <span className="ms-2 me-2 conditions">Humidity</span>
-                                    <span className="">{Math.round(weatherDay.rh)}&#37;</span>
+                                    <IoWater className="weatherIcons dailyWeatherIcons" />
+                                    <span className="dailyCondMargin conditions">Humidity</span>
+                                    <span className="conditions">{Math.round(weatherDay.rh)}&#37;</span>
                                 </div>
                             </Col>
                         </Row>
@@ -423,17 +423,17 @@ const Weekend = () => {
                         <Row>
                             <Col xs={12} sm={6}>
                                 <div className="d-flex align-items-center justify-content-center dailyConditionsContainer dailySunriseContainer">
-                                    <BsSunriseFill className="weatherIcons" />
-                                    <span className="ms-2 me-2 conditions">Sunrise</span>
-                                    <span className="">{sunriseTime}</span>
+                                    <BsSunriseFill className="weatherIcons dailyWeatherIcons" />
+                                    <span className="dailyCondMargin conditions">Sunrise</span>
+                                    <span className="conditions">{sunriseTime}</span>
                                 </div>
                             </Col>
 
                             <Col xs={12} sm={6}>
                                 <div className="d-flex align-items-center justify-content-center dailyConditionsContainer dailySunsetContainer">
-                                    <FiSunset className="weatherIcons" />
-                                    <span className="ms-2 me-2 conditions">Sunset</span>
-                                    <span className="">{sunsetTime}</span>
+                                    <FiSunset className="weatherIcons dailyWeatherIcons" />
+                                    <span className="dailyCondMargin conditions">Sunset</span>
+                                    <span className="conditions">{sunsetTime}</span>
                                 </div>
                             </Col>
                         </Row>
@@ -490,13 +490,13 @@ const Weekend = () => {
                 <Accordion.Item key={index} eventKey={index+3} className="mb-2">
                     <Accordion.Header className="accordionHeader">
                         <Col xs={12} sm={6} md={4} className="d-flex dailyDateImgTempCol">
-                            <div className="me-4 d-flex flex-column align-items-center conditions">
+                            <div className="dailyCondMargin d-flex flex-column align-items-center conditions">
                                 <div>{dayOfWeek}</div>
                                 <div>{shortDate}</div>
                             </div>
 
-                            <div className="me-4 d-flex align-items-center">
-                                <img height="50" width="auto" src={`https://www.weatherbit.io/static/img/icons/${weatherDay.weather.icon}.png`} alt={`${weatherDay.weather.description} weather icon`} /> 
+                            <div className="dailyCondMargin d-flex align-items-center">
+                                <img className="dailyWeatherImg" src={`https://www.weatherbit.io/static/img/icons/${weatherDay.weather.icon}.png`} alt={`${weatherDay.weather.description} weather icon`} /> 
                             </div>
 
                             <div className="d-flex align-items-center conditions">
@@ -511,12 +511,12 @@ const Weekend = () => {
                         </Col>
 
                         <Col xs={12} md={4} className="d-flex dailyPopWindCol">
-                            <div className="d-flex align-items-center me-4">
+                            <div className="dailyCondMargin d-flex align-items-center me-4">
                                 <IoWater className="weatherIcons" />
                                 <span className="ms-1 conditions">{weatherDay.pop}&#37;</span>
                             </div>
 
-                            <div className="d-flex align-items-center me-2">
+                            <div className="dailyCondMargin d-flex align-items-center me-2">
                                 <BsWind className="weatherIcons" />
                                 <span className="ms-2 me-2 conditions">{Math.round(weatherDay.wind_spd)}mph {weatherDay.wind_cdir}</span>
                             </div>
@@ -527,35 +527,35 @@ const Weekend = () => {
                         <Row>
                             <Col xs={12} sm={6}>
                                 <div className="d-flex align-items-center justify-content-center dailyConditionsContainer dailyUVContainer">
-                                    <BsSun className="weatherIcons" />
-                                    <span className="ms-2 me-2 conditions">UV Index</span>
-                                    <span className="">{parseInt(weatherDay.uv)}</span>
+                                    <BsSun className="weatherIcons dailyWeatherIcons" />
+                                    <span className="dailyCondMargin conditions">UV Index</span>
+                                    <span className="conditions">{parseInt(weatherDay.uv)}</span>
                                 </div>
                             </Col>
 
                             <Col xs={12} sm={6}>
                                 <div className="d-flex align-items-center justify-content-center dailyConditionsContainer dailyHumidContainer">
-                                    <IoWater className="weatherIcons" />
-                                    <span className="ms-2 me-2 conditions">Humidity</span>
-                                    <span className="">{Math.round(weatherDay.rh)}&#37;</span>
+                                    <IoWater className="weatherIcons dailyWeatherIcons" />
+                                    <span className="dailyCondMargin conditions">Humidity</span>
+                                    <span className="conditions">{Math.round(weatherDay.rh)}&#37;</span>
                                 </div>
                             </Col>
                         </Row>
 
                         <Row>
                             <Col xs={12} sm={6}>
-                                <div className="d-flex align-items-center justify-content-center dailyConditionsContainer dailySunriseContainer">
-                                    <BsSunriseFill className="weatherIcons" />
-                                    <span className="ms-2 me-2 conditions">Sunrise</span>
-                                    <span className="">{sunriseTime}</span>
+                                <div className="d-flex align-items-center justify-content-center dailyConditionsContainer">
+                                    <BsSunriseFill className="weatherIcons dailyWeatherIcons" />
+                                    <span className="dailyCondMargin conditions">Sunrise</span>
+                                    <span className="conditions">{sunriseTime}</span>
                                 </div>
                             </Col>
 
                             <Col xs={12} sm={6}>
-                                <div className="d-flex align-items-center justify-content-center dailyConditionsContainer dailySunsetContainer">
-                                    <FiSunset className="weatherIcons" />
-                                    <span className="ms-2 me-2 conditions">Sunset</span>
-                                    <span className="">{sunsetTime}</span>
+                                <div className="d-flex align-items-center justify-content-center dailyConditionsContainer">
+                                    <FiSunset className="weatherIcons dailyWeatherIcons" />
+                                    <span className="dailyCondMargin conditions">Sunset</span>
+                                    <span className="conditions">{sunsetTime}</span>
                                 </div>
                             </Col>
                         </Row>
@@ -572,15 +572,15 @@ const Weekend = () => {
                     <SearchNav setLat={latitude => setLatitude(latitude)} setLon={longitude => setLongitude(longitude)} />
     
                     <main>
-                        <section className="">
-                            <Accordion className ="accordion mt-4 mb-4">
-                                <h1 className="text-center" style={{color: "white"}}>Weekend Forecast</h1> 
+                        <section className="accordionSection">
+                            <Accordion className ="accordion">
+                                <h1 className="text-center forecastHeader" style={{color: "white"}}>Weekend Forecast</h1> 
                                 <p className="text-center mb-3 cityName" style={{color: "white"}}>{city}</p>
 
-                                <p className="mb-3 cityName" style={{color: "white"}}>This Weekend</p>
+                                <p className="mb-3 weekendSubtitle" style={{color: "white"}}>This Weekend</p>
                                 {weatherDisplayed} 
 
-                                <p className="mb-3 mt-5 cityName" style={{color: "white"}}>Next Weekend</p>
+                                <p className="mb-3 mt-5 weekendSubtitle" style={{color: "white"}}>Next Weekend</p>
                                 {nextWeekend}         
                             </Accordion>
                         </section>
