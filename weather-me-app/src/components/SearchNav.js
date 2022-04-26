@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import TestBrand from "../images/cloud.jpeg"
+//import TestBrand from "../images/cloud.jpeg"
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import LocationSearchInput from "./LocationSearchInput";
@@ -16,13 +16,13 @@ const SearchNav = (props) => {
                         <Row className="d-flex justify-content-between" style={{width: "100vw"}}>
                             <Col xs={9} sm={4} lg={2} className="navBrandCol">
                                 <Navbar.Brand href="/" className="">
-                                    <img
+                                    {/* <img
                                         alt="Weather Star logo"
                                         src={TestBrand}
                                         width="auto"
                                         height="30"
                                         className="d-inline-block align-top brandLogo"
-                                    />
+                                    /> */}
                                     <span className="ms-2 brandName">Weather Star</span>
                                 </Navbar.Brand>
                             </Col>
