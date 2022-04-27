@@ -67,10 +67,7 @@ elements, but this wrapper won't be ignored
     color: white !important;
 }
 
-/* Maintains orange underline under navlink when it's clicked */
-a.navLinks.nav-link.active {
-    border-bottom: 3px solid #FF7722;
-}
+
 
 
 
