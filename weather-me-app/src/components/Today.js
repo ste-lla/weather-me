@@ -421,8 +421,6 @@ const Today = () => {
 
         let sunriseTime = `${sunriseHr}:${sunriseMin} AM`
         let sunsetTime = `${sunsetHr}:${sunsetMin} PM`
-
-        //console.log(sunriseTime, sunsetTime);
       
         return (
             <div className="pageContainer d-flex flex-column">

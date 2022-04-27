@@ -9,6 +9,16 @@ import LocationSearchInput from "./LocationSearchInput";
 
 const SearchNav = (props) => {
 
+    const activePage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.navLinks');
+    navLinks.forEach(link => {
+        if(link.href.includes(`${activePage}`)) {
+            link.classList.add('active');
+        }
+    })
+
+    console.log(navLinks);
+
     return (
         <div className="navigationContainer">
             <header className="header">
@@ -46,11 +56,33 @@ const SearchNav = (props) => {
                             <Navbar.Collapse id="basic-navbar-nav">
                                 <div style={{width: "100vw"}}>
                                     <Nav className="navLinksWrapper">
-                                        <Nav.Link href="/weather/today" className="navLinks">Today</Nav.Link>
-                                        {/* <Nav.Link href="/weather/hourly" className="navLinks">Hourly</Nav.Link> */}
-                                        <Nav.Link href="/weather/fiveday" className="navLinks">5 Day</Nav.Link>
-                                        <Nav.Link href="/weather/tenday" className="navLinks">10 Day</Nav.Link>
-                                        <Nav.Link href="/weather/weekend" className="navLinks">Weekend</Nav.Link> 
+                                        <Nav.Link 
+                                            href="/weather/today" 
+                                            className="navLinks"
+                                            >
+                                            Today
+                                        </Nav.Link>
+                                        
+                                        <Nav.Link 
+                                            href="/weather/fiveday" 
+                                            className="navLinks"
+                                            >
+                                            5 Day
+                                        </Nav.Link>
+                                        
+                                        <Nav.Link 
+                                            href="/weather/tenday" 
+                                            className="navLinks"
+                                            >
+                                            10 Day
+                                        </Nav.Link>
+
+                                        <Nav.Link 
+                                            href="/weather/weekend" 
+                                            className="navLinks"
+                                            >
+                                            Weekend
+                                        </Nav.Link> 
                                     </Nav>
                                 </div>
                             </Navbar.Collapse>

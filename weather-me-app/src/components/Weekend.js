@@ -134,10 +134,10 @@ const Weekend = () => {
                         console.log('using local storage lat and lon');
                         let lat = Number(localStorage.getItem('lat'));
                         let lon = Number(localStorage.getItem('lon'));
-                        let fiveDayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I&days=${daysReturned}`
+                        let weekendUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I&days=${daysReturned}`
 
                         //fetch weather for this weekend
-                        fetch(fiveDayUrl)
+                        fetch(weekendUrl)
                         .then(response => response.json())
                         .then(weatherReturned => {
                             setWeather(weatherReturned.data);
@@ -167,10 +167,10 @@ const Weekend = () => {
                         });
                     } else {
                         console.log('using NYC as default');
-                        let fiveDayNycUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&city=New York&units=I&days=${daysReturned}`
+                        let weekendNycUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&city=New York&units=I&days=${daysReturned}`
                         
                         //fetch this weekend NYC weather
-                        fetch(fiveDayNycUrl)
+                        fetch(weekendNycUrl)
                         .then(response => response.json())
                         .then(weatherReturned => {
                             setWeather(weatherReturned.data);
@@ -208,10 +208,10 @@ const Weekend = () => {
                         console.log('using local storage lat and lon');
                         let lat = Number(localStorage.getItem('lat'));
                         let lon = Number(localStorage.getItem('lon'));
-                        let fiveDayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I&days=${daysReturned}`
+                        let weekendUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I&days=${daysReturned}`
                         
                         //fetch this weekend weather
-                        fetch(fiveDayUrl)
+                        fetch(weekendUrl)
                         .then(response => response.json())
                         .then(weatherReturned => {
                             setWeather(weatherReturned.data);
@@ -241,10 +241,10 @@ const Weekend = () => {
 
                     } else {
                         console.log('using NYC as default');
-                        let fiveDayNycUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&city=New York&units=I&days=${daysReturned}`
+                        let weekendNycUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&city=New York&units=I&days=${daysReturned}`
 
                         //fetch this weekend NYC weather
-                        fetch(fiveDayNycUrl)
+                        fetch(weekendNycUrl)
                         .then(response => response.json())
                         .then(weatherReturned => {
                             setWeather(weatherReturned.data);
@@ -281,10 +281,10 @@ const Weekend = () => {
         } 
         //If lat and lon are in local storage...
         else {
-            const fiveDayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lati}&lon=${long}&units=I&days=${daysReturned}`
+            const weekendUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lati}&lon=${long}&units=I&days=${daysReturned}`
             
             //fetch this weekend weather
-            fetch(fiveDayUrl)
+            fetch(weekendUrl)
             .then(response => response.json())
             .then(weatherReturned => {
                 setWeather(weatherReturned.data);

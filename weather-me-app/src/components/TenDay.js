@@ -64,10 +64,10 @@ const TenDay = () => {
                         console.log('using local storage lat and lon');
                         let lat = Number(localStorage.getItem('lat'));
                         let lon = Number(localStorage.getItem('lon'));
-                        let fiveDayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I&days11`
+                        let tenDayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I&days11`
 
                         //fetch 5 day weather
-                        fetch(fiveDayUrl)
+                        fetch(tenDayUrl)
                         .then(response => response.json())
                         .then(weatherReturned => {
                             setWeather(weatherReturned.data);
@@ -82,10 +82,10 @@ const TenDay = () => {
                         });
                     } else {
                         console.log('using NYC as default');
-                        let fiveDayNycUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&city=New York&units=I&days=11`
+                        let tenDayNycUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&city=New York&units=I&days=11`
                         
                         //fetch 5 day NYC weather
-                        fetch(fiveDayNycUrl)
+                        fetch(tenDayNycUrl)
                         .then(response => response.json())
                         .then(weatherReturned => {
                             setWeather(weatherReturned.data);
@@ -108,10 +108,10 @@ const TenDay = () => {
                         console.log('using local storage lat and lon');
                         let lat = Number(localStorage.getItem('lat'));
                         let lon = Number(localStorage.getItem('lon'));
-                        let fiveDayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I&days=11`
+                        let tenDayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lat}&lon=${lon}&units=I&days=11`
                         
                         //fetch 5 day weather
-                        fetch(fiveDayUrl)
+                        fetch(tenDayUrl)
                         .then(response => response.json())
                         .then(weatherReturned => {
                             setWeather(weatherReturned.data);
@@ -125,10 +125,10 @@ const TenDay = () => {
                         });
                     } else {
                         console.log('using NYC as default');
-                        let fiveDayNycUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&city=New York&units=I&days=11`
+                        let tenDayNycUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&city=New York&units=I&days=11`
 
                         //fetch 5 day NYC weather
-                        fetch(fiveDayNycUrl)
+                        fetch(tenDayNycUrl)
                         .then(response => response.json())
                         .then(weatherReturned => {
                             setWeather(weatherReturned.data);
@@ -150,10 +150,10 @@ const TenDay = () => {
         } 
         //If lat and lon are in local storage...
         else {
-            const fiveDayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lati}&lon=${long}&units=I&days=11`
+            const tenDayUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weather_api_key}&lat=${lati}&lon=${long}&units=I&days=11`
             
             //fetch 5 Day weather
-            fetch(fiveDayUrl)
+            fetch(tenDayUrl)
             .then(response => response.json())
             .then(weatherReturned => {
                 setWeather(weatherReturned.data);

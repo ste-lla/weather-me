@@ -24,11 +24,6 @@
     background: linear-gradient(104deg, rgba(108,193,182,1) 0%, rgba(9,89,133,1) 79%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6cc1b6",endColorstr="#095985",GradientType=1);
 
-    /* background: rgb(5,117,230);
-    background: -moz-linear-gradient(104deg, rgba(5,117,230,1) 19%, rgba(2,27,121,1) 100%);
-    background: -webkit-linear-gradient(104deg, rgba(5,117,230,1) 19%, rgba(2,27,121,1) 100%);
-    background: linear-gradient(104deg, rgba(5,117,230,1) 19%, rgba(2,27,121,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0575e6",endColorstr="#021b79",GradientType=1); */
 }
 
 
@@ -72,10 +67,15 @@ elements, but this wrapper won't be ignored
     color: white !important;
 }
 
+/* Maintains orange underline under navlink when it's clicked */
+a.navLinks.nav-link.active {
+    border-bottom: 3px solid #FF7722;
+}
+
+
 
 
 /* ----------------------------------------------------------------- */
-
 
 
 /* LOCATION SEARCH INPUT */
@@ -122,40 +122,12 @@ my content downward to make space for itself
 /* ----------------------------------------------------------------- */
 
 
-
 /* HOME */
 
-.homeContainer {
-
-/* VERY Blue */
-/*     background: rgb(5,117,230);
-    background: -moz-linear-gradient(104deg, rgba(5,117,230,1) 19%, rgba(2,27,121,1) 100%);
-    background: -webkit-linear-gradient(104deg, rgba(5,117,230,1) 19%, rgba(2,27,121,1) 100%);
-    background: linear-gradient(104deg, rgba(5,117,230,1) 19%, rgba(2,27,121,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0575e6",endColorstr="#021b79",GradientType=1); */
-
-
-    /* Purple Background */
-/*     background: rgb(88,95,227);
-    background: -moz-linear-gradient(104deg, rgba(88,95,227,1) 0%, rgba(158,162,250,1) 90%);
-    background: -webkit-linear-gradient(104deg, rgba(88,95,227,1) 0%, rgba(158,162,250,1) 90%);
-    background: linear-gradient(104deg, rgba(88,95,227,1) 0%, rgba(158,162,250,1) 90%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#585fe3",endColorstr="#9ea2fa",GradientType=1); */
-    
-    
-    /* Orig Blue background */
-/*  background: rgb(178,254,250);
-    background: -moz-linear-gradient(104deg, rgba(178,254,250,1) 0%, rgba(14,210,247,1) 75%);
-    background: -webkit-linear-gradient(104deg, rgba(178,254,250,1) 0%, rgba(14,210,247,1) 75%);
-    background: linear-gradient(104deg, rgba(178,254,250,1) 0%, rgba(14,210,247,1) 75%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b2fefa",endColorstr="#0ed2f7",GradientType=1); */
-}
 
 .homeWeatherRow {
     color: black;
     background-color: #dadcfb60;
-    /* color: white;
-    background-color: #0F3D5C; */
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
@@ -178,7 +150,6 @@ my content downward to make space for itself
 
 
 /* ----------------------------------------------------------------- */
-
 
 
 /* TODAY */
@@ -205,13 +176,6 @@ my content downward to make space for itself
     .todayAside {
         border-radius: 1rem;
         background-color: #0F3D5C;
-        /* background-color: #032030; */
-    
-        /* background-color: white; */
-        /* border: 3px solid #FF7722; */
-        /* height: 65vh; */
-        /* overflow-x: none; */
-        /* overflow-y: auto; */
     }
 
     .worldNewsHeadline {
@@ -228,40 +192,28 @@ my content downward to make space for itself
     }
 
     .currentTodayWeatherRows {
-        /*     background: rgb(6,58,86);
-            background: -moz-linear-gradient(158deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-            background: -webkit-linear-gradient(158deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-            background: linear-gradient(158deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#063a56",endColorstr="#91a8b5",GradientType=1); */
-    
-            background: rgb(15,61,92);
-            background: -moz-linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-            background: -webkit-linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-            background: linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
-    
-            border-radius: 0.5rem;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-            padding-left: 0.5rem;
-            margin-bottom: 1rem;
-        }
+        background: rgb(15,61,92);
+        background: -moz-linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: -webkit-linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        background: linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f3d5c",endColorstr="#6cc1b6",GradientType=1);
 
-        .tempContainer {
-            position: relative;
-            
-        }
+        border-radius: 0.5rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .tempContainer {
+        position: relative;
+        
+    }
 
 
     /* CURRENT WEATHER CARD */
 
     .windCol {
-    /*     background: rgb(6,58,86);
-        background: -moz-linear-gradient(202deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-        background: -webkit-linear-gradient(202deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-        background: linear-gradient(202deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#063a56",endColorstr="#91a8b5",GradientType=1); */
-
         background: rgb(15,61,92);
         background: -moz-linear-gradient(202deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
         background: -webkit-linear-gradient(202deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
@@ -272,12 +224,6 @@ my content downward to make space for itself
     }
 
     .humidityCol {
-    /*     background: rgb(6,58,86);
-        background: -moz-linear-gradient(58deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-        background: -webkit-linear-gradient(58deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-        background: linear-gradient(58deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#063a56",endColorstr="#91a8b5",GradientType=1); */
-
         background: rgb(15,61,92);
         background: -moz-linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
         background: -webkit-linear-gradient(58deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
@@ -288,12 +234,6 @@ my content downward to make space for itself
     }
 
     .uvCol {
-    /*     background: rgb(6,58,86);
-        background: -moz-linear-gradient(295deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-        background: -webkit-linear-gradient(295deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-        background: linear-gradient(295deg, rgba(6,58,86,1) 0%, rgba(145,168,181,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#063a56",endColorstr="#91a8b5",GradientType=1); */
-
         background: rgb(15,61,92);
         background: -moz-linear-gradient(295deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
         background: -webkit-linear-gradient(295deg, rgba(15,61,92,1) 0%, rgba(108,193,182,1) 100%);
@@ -354,8 +294,6 @@ my content downward to make space for itself
 
 
     /* TODAYS WEATHER CARD */
-
-    
 
     .hiLoCol {
         background: rgb(15,61,92);
@@ -442,7 +380,7 @@ my content downward to make space for itself
 /* ----------------------------------------------------------------- */
 
 
-/* FIVE DAY WEATHER */
+/* FIVE DAY, TEN DAY, WEEKEND WEATHER */
 
 .accordionSection {
     display: flex;
@@ -484,17 +422,7 @@ div.accordion-item {
 }
 
 
-
-
 /* ----------------------------------------------------------------- */
-
-
-
-/* TEN DAY WEATHER */
-
-
-/* ----------------------------------------------------------------- */
-
 
 
 /* FOOTER */
@@ -535,7 +463,6 @@ div.accordion-item {
 
 
 /* ----------------------------------------------------------------- */
-
 
 
 /* MEDIA QUERIES */
