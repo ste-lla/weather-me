@@ -218,7 +218,7 @@ const TenDay = () => {
 
             
             return(
-                <Accordion.Item key={index} eventKey={index} className="mb-2">
+                <Accordion.Item key={index} eventKey={index} className="accordionItemMargin">
                     <Accordion.Header className="accordionHeader">
                         <Col xs={12} sm={6} md={4} className="d-flex dailyDateImgTempCol">
                             <div className="dailyCondMargin d-flex flex-column align-items-center conditions">
@@ -242,7 +242,7 @@ const TenDay = () => {
                         </Col>
 
                         <Col xs={12} md={4} className="d-flex dailyPopWindCol">
-                            <div className="dailyCondMargin d-flex align-items-center me-4">
+                            <div className="dailyCondMargin d-flex align-items-center">
                                 <IoWater className="weatherIcons" />
                                 <span className="ms-1 conditions">{weatherDay.pop}&#37;</span>
                             </div>

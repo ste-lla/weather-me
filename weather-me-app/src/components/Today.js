@@ -466,8 +466,8 @@ const Today = () => {
 
                                                 <Row className="">
                                                     <Col xs={12} sm={9} lg={4} xl={4} className="windCol conditionsCol d-flex align-items-center justify-content-around">
-                                                        <div className="">
-                                                            <BsWind className="weatherIcons me-2" />
+                                                        <div className="d-flex align-items-center">
+                                                            <BsWind className="weatherIcons dailyWeatherIcons" />
                                                             <span className="conditions">Wind</span>
                                                         </div>
                                                         
@@ -477,8 +477,8 @@ const Today = () => {
                                                     </Col>
 
                                                     <Col xs={12} sm={7} lg={4} xl={4} className="humidityCol conditionsCol d-flex align-items-center justify-content-around">
-                                                        <div className="">
-                                                            <SiRainmeter className="weatherIcons me-2" />
+                                                        <div className="d-flex align-items-center">
+                                                            <SiRainmeter className="weatherIcons dailyWeatherIcons" />
                                                             <span className="conditions">Humidity</span>
                                                         </div>
                                                         
@@ -488,8 +488,8 @@ const Today = () => {
                                                     </Col>
 
                                                     <Col xs={12} sm={4} lg={3} className="uvCol conditionsCol d-flex align-items-center justify-content-around">
-                                                        <div className="">
-                                                            <BsFillSunFill className="weatherIcons me-2" />
+                                                        <div className="d-flex align-items-center">
+                                                            <BsFillSunFill className="weatherIcons dailyWeatherIcons" />
                                                             <span className="conditions">UV Index</span>
                                                         </div>
                                                         
@@ -562,8 +562,8 @@ const Today = () => {
 
                                                 <Row className="">
                                                     <Col xs={12} sm={7} xl={4} className="hiLoCol conditionsCol d-flex align-items-center justify-content-around">
-                                                        <div className="">
-                                                            <FaTemperatureLow className="weatherIcons me-2" /> 
+                                                        <div className="d-flex align-items-center">
+                                                            <FaTemperatureLow className="weatherIcons dailyWeatherIcons" /> 
                                                             <span className="conditions">High|Low</span>
                                                         </div>
                                                         
@@ -573,8 +573,8 @@ const Today = () => {
                                                     </Col>
 
                                                     <Col xs={12} sm={4} xl={3} className="popCol conditionsCol d-flex align-items-center justify-content-around">
-                                                        <div className="">
-                                                            <BsFillCloudRainFill className="weatherIcons me-2" />
+                                                        <div className="d-flex align-items-center">
+                                                            <BsFillCloudRainFill className="weatherIcons dailyWeatherIcons" />
                                                             <span className="conditions">POP</span>
                                                         </div>
 
@@ -584,8 +584,8 @@ const Today = () => {
                                                     </Col>
 
                                                     <Col xs={12} sm={4} xl={4} className="visibilityCol conditionsCol d-flex align-items-center justify-content-around">                                       
-                                                        <div className="">
-                                                            <FaRegEye className="weatherIcons me-2" />
+                                                        <div className="d-flex align-items-center">
+                                                            <FaRegEye className="weatherIcons dailyWeatherIcons" />
                                                             <span className="conditions">Visibility</span>
                                                         </div>
                                                         
@@ -597,8 +597,8 @@ const Today = () => {
 
                                                 {/* <Row className=""> */}
                                                     <Col xs={12} sm={7} xl={4} className="dewPointCol conditionsCol d-flex align-items-center justify-content-around">
-                                                        <div className="">
-                                                            <MdWaterDrop className="weatherIcons me-2" />
+                                                        <div className="d-flex align-items-center">
+                                                            <MdWaterDrop className="weatherIcons dailyWeatherIcons" />
                                                             <span className="conditions">Dew Point</span>
                                                         </div>
                                                             
@@ -608,8 +608,8 @@ const Today = () => {
                                                     </Col>
 
                                                     <Col xs={12} sm={5} xl={3} className="cloudCoverCol conditionsCol d-flex align-items-center justify-content-around">
-                                                        <div className="">
-                                                            <IoIosCloud className="weatherIcons me-2" />
+                                                        <div className="d-flex align-items-center">
+                                                            <IoIosCloud className="weatherIcons dailyWeatherIcons" />
                                                             <span className="conditions">Cloud Cover</span>
                                                         </div>
                                                         
@@ -619,8 +619,8 @@ const Today = () => {
                                                     </Col>
 
                                                     <Col xs={12} sm={6} xl={4} className="pressureCol conditionsCol d-flex align-items-center justify-content-around">
-                                                        <div className="">
-                                                            <BsArrowsCollapse className="weatherIcons me-2" /> 
+                                                        <div className="d-flex align-items-center">
+                                                            <BsArrowsCollapse className="weatherIcons dailyWeatherIcons" /> 
                                                             <span className="conditions">Pressure</span>
                                                         </div>
                                                         
@@ -630,8 +630,8 @@ const Today = () => {
                                                     </Col>
 
                                                     <Col xs={12} sm={6} className="sunriseCol conditionsCol d-flex align-items-center justify-content-around">
-                                                        <div className="">
-                                                            <BsSunriseFill className="weatherIcons me-2" /> 
+                                                        <div className="d-flex align-items-center">
+                                                            <BsSunriseFill className="weatherIcons dailyWeatherIcons" /> 
                                                             <span className="conditions">Sunrise</span>
                                                         </div>
                                                         
@@ -641,8 +641,8 @@ const Today = () => {
                                                     </Col>
 
                                                     <Col xs={12} sm={5} className="sunsetCol conditionsCol d-flex align-items-center justify-content-around">
-                                                        <div className="">
-                                                            <FiSunset className="weatherIcons me-2" /> 
+                                                        <div className="d-flex align-items-center">
+                                                            <FiSunset className="weatherIcons dailyWeatherIcons" /> 
                                                             <span className="conditions">Sunset</span>
                                                         </div>
                                                         

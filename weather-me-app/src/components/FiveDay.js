@@ -218,7 +218,7 @@ const FiveDay = () => {
 
             
             return(
-                <Accordion.Item key={index} eventKey={index} className="mb-2">
+                <Accordion.Item key={index} eventKey={index} className="accordionItemMargin">
                     <Accordion.Header className="accordionHeader">
                         <Col xs={12} sm={6} md={4} className="d-flex dailyDateImgTempCol">
                             <div className="dailyCondMargin d-flex flex-column align-items-center conditions">
