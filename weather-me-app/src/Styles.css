@@ -58,6 +58,10 @@ elements, but this wrapper won't be ignored
     /* margin-top: see media queries; */
 }
 
+/* .brandLogo {
+    height: 5rem;
+    width: auto;
+} */
 
 .brandName {
     color: white !important;
@@ -134,6 +138,7 @@ my content downward to make space for itself
     height: auto;
     background-color: #0F3D5C !important;
     border-radius: 1rem !important;
+    margin-bottom: 2rem;
 }
 
 #articleHeadline {
