@@ -368,7 +368,7 @@ const Weekend = () => {
                 <Accordion.Item key={index} eventKey={index} className="accordionItemMargin">
                     <Accordion.Header className="accordionHeader">
                         <Col xs={12} sm={6} md={4} className="d-flex dailyDateImgTempCol">
-                            <div className="dailyCondMargin d-flex flex-column align-items-center conditions">
+                            <div className="dailyCondMargin d-flex flex-column align-items-center justify-content-center conditions">
                                 <div>{dayOfWeek}</div>
                                 <div>{shortDate}</div>
                             </div>
@@ -490,7 +490,7 @@ const Weekend = () => {
                 <Accordion.Item key={index} eventKey={index+3} className="accordionItemMargin">
                     <Accordion.Header className="accordionHeader">
                         <Col xs={12} sm={6} md={4} className="d-flex dailyDateImgTempCol">
-                            <div className="dailyCondMargin d-flex flex-column align-items-center conditions">
+                            <div className="dailyCondMargin d-flex flex-column align-items-center justify-content-center conditions">
                                 <div>{dayOfWeek}</div>
                                 <div>{shortDate}</div>
                             </div>
